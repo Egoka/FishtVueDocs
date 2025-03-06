@@ -5,8 +5,9 @@ import {useI18n} from "vue-i18n";
 
 const {t} = useI18n()
 const {site} = useAppConfig()
+const editLink = useEditLink()
 const links = computed(() => [
-  {label: 'Edit this page', url: "editLink.value.url", icon: 'lucide:pencil-line'},
+  {label: editLink.value.text, url: editLink.value.url, icon: 'lucide:pencil-line'},
   {label: 'Star on GitHub', url: site.github, icon: 'lucide:star'},
 ])
 </script>

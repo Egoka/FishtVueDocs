@@ -3,7 +3,12 @@
   "onPage": "On this page",
   "Community": "Community",
   "Search": "Search",
+  "Searching":"Search...",
   "Menu": "Menu",
+  "Pager": "Pager",
   "SidebarMenu": "Sidebar menu",
-  "NavigationItem": "List of navigation item"
+  "NavigationItem": "List of navigation item",
+  "EditThisPage": "Edit this page",
+  "PreviousPage": "Previous page",
+  "NextPage": "Next page"
 }

@@ -36,7 +36,8 @@ export default defineAppConfig({
             //         {text: legacyVersion, link: legacyLink},
             //     ],
             // },
-        ]
+        ],
+        editLink: "https://github.com/Egoka/FishtVue/docs/content/:path",
     },
     theme:{
         socialLinks: [

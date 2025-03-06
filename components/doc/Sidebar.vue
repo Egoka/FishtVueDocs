@@ -31,7 +31,7 @@ const colorBorder = ref("border-neutral-200 dark:border-neutral-800")
         />
       </CollapsibleTrigger>
       <CollapsibleContent
-          class="data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp overflow-hidden border-b"
+          class="data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp overflow-hidden"
           :class="colorBorder">
         <template v-for="item in group.children" :key="item.title">
           <ul v-if="item.children?.length" class="[&:not(:last-child)]:mb-6">
