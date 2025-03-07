@@ -7,7 +7,7 @@ defineProps<{ id: string }>()
 <template>
   <h2
     :id="id"
-    class="scroll-mt-[180px] lg:scroll-mt-[141px] font-semibold mb-2.5 text-3xl mt-12"
+    class="scroll-mt-[180px] lg:scroll-mt-[141px] font-semibold mb-2.5 text-3xl mt-12 ml-6"
   >
     <NuxtLink
       :href="`#${id}`"

@@ -10,7 +10,13 @@ export default defineContentConfig({
             },
             schema: z.object({
                 description: z.string(),
-                icon: z.string()
+                icon: z.string(),
+                links: z.array(z.object({
+                    label: z.string(),
+                    icon: z.string(),
+                    to: z.string(),
+                    target: z.string().optional()
+                })).optional()
             })
         }),
         ru: defineCollection({
@@ -21,7 +27,13 @@ export default defineContentConfig({
             },
             schema: z.object({
                 description: z.string(),
-                icon: z.string()
+                icon: z.string(),
+                links: z.array(z.object({
+                    label: z.string(),
+                    icon: z.string(),
+                    to: z.string(),
+                    target: z.string().optional()
+                })).optional()
             })
         }),
     }

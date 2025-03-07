@@ -45,7 +45,13 @@ const tabMenuItems = computed(() => tabMenu.value?.map((item) => {
       </FFixWindow>
     </FButton>
     <article class="w-full prose prose-stone dark:prose-invert max-w-none">
-      <div v-if="page">
+      <DocHeader
+          :title="page?.title"
+          :description="page?.description"
+          :links="page?.links"
+      />
+<!--          :headline="headline"-->
+      <div v-if="page" class="mt-8 space-y-12">
         <ContentRenderer :value="page"/>
       </div>
       <div v-else>

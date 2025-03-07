@@ -5,7 +5,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <p :class="['my-5 leading-7 text-pretty', props.class]">
-    <slot />
-  </p>
+  <em :class="props.class">
+    <slot/>
+  </em>
 </template>

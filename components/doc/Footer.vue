@@ -24,7 +24,7 @@ const classButtonControl = ref(`inline-flex flex-col ${classTransition.value} bg
 </script>
 
 <template>
-  <footer v-if="showFooter" class="my-28">
+  <footer v-if="showFooter" class="my-16 py-8 border-t border-t-neutral-200 dark:border-t-neutral-700">
     <div v-if="hasEditLink" class="flex justify-between text-muted-foreground">
       <div v-if="hasEditLink" class="text-sm text-muted-foreground hover:text-foreground">
         <a :href="editLink.url" target="_blank" class="inline-flex gap-2 items-center">

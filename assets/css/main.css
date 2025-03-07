@@ -3,7 +3,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 @theme {
     --theme-my: 150;
-    --theme-contrast-my: 30%;
+    --theme-contrast-my: 85%;
     --color-theme-50: hsl(var(--theme-my) var(--theme-contrast-my) 95.1%);
     --color-theme-100: hsl(var(--theme-my) var(--theme-contrast-my) 93.1%);
     --color-theme-200: hsl(var(--theme-my) var(--theme-contrast-my) 86%);
@@ -21,10 +21,10 @@
 @layer base {
     html.dark {
         transition: background-color 1s, color 1s;
-        --color-background: var(--color-theme-950);
+        --color-background: var(--color-neutral-950);
     }
     html {
         transition: background-color 1s, color 1s;
-        --color-background: var(--color-theme-50);
+        --color-background: var(--color-neutral-50);
     }
 }

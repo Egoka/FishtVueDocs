@@ -13,7 +13,7 @@ export default defineNuxtConfig({
       theme: {
         semantic:{
           customThemeColor: 150,
-          customThemeColorContrast: 30,
+          customThemeColorContrast: 85,
         }
       },
     optionsTheme: {
@@ -21,7 +21,17 @@ export default defineNuxtConfig({
     }
   },
   content: {
-    // Можно настроить markdown здесь
+    build: {
+      markdown: {
+        highlight: {
+          theme: {
+            default: 'nord',
+            light: 'vitesse-light',
+            dark: 'vitesse-dark',
+          }
+        }
+      }
+    }
   },
   i18n: {
     locales: [
