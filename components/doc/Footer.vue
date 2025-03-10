@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import {Icon} from "@iconify/vue";
 import {useI18n} from "vue-i18n";
 
 const {t} = useI18n()
@@ -28,7 +27,7 @@ const classButtonControl = ref(`inline-flex flex-col ${classTransition.value} bg
     <div v-if="hasEditLink" class="flex justify-between text-muted-foreground">
       <div v-if="hasEditLink" class="text-sm text-muted-foreground hover:text-foreground">
         <a :href="editLink.url" target="_blank" class="inline-flex gap-2 items-center">
-          <Icon :ssr="true" icon="lucide:pencil-line"/>
+          <AppIcons icon="lucide:pencil-line" />
           {{ editLink.text }}
         </a>
       </div>
@@ -52,7 +51,7 @@ const classButtonControl = ref(`inline-flex flex-col ${classTransition.value} bg
             {{ t("PreviousPage") }}
           </span>
           <p class="inline-flex items-center gap-1 mt-2 ">
-            <Icon icon="lucide:arrow-left" :class="[classTextControl, classTransition]"/>
+            <AppIcons icon="lucide:arrow-left" :class="[classTextControl, classTransition]"/>
             <span class="text-sm font-semibold" v-html="control.prev.title"/>
           </p>
         </NuxtLink>
@@ -65,7 +64,7 @@ const classButtonControl = ref(`inline-flex flex-col ${classTransition.value} bg
 
           <p class="inline-flex items-center gap-1 mt-2 ">
             <span class="text-sm font-semibold" v-html="control.next.title"/>
-            <Icon icon="lucide:arrow-right" :class="[classTextControl, classTransition]"/>
+            <AppIcons icon="lucide:arrow-right" :class="[classTextControl, classTransition]"/>
           </p>
         </NuxtLink>
       </div>

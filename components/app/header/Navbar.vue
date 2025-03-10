@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import {Icon} from '@iconify/vue'
 import {useRoute} from 'vue-router'
 import {useI18n} from "vue-i18n";
 import {useScroll} from "@vueuse/core";
@@ -31,7 +30,7 @@ const {top} = toRefs(arrivedState)
         target="_blank"
         class="w-9 h-9 bg-transparent text-muted-foreground hover:text-foreground hover:bg-muted flex items-center justify-center rounded-lg text-xl flex-shrink-0"
     >
-      <Icon :ssr="true" :icon="`simple-icons:${link.icon}`"/>
+      <AppIcons :icon="`simple-icons:${link.icon}`"/>
     </NuxtLink>
   </nav>
 
@@ -39,7 +38,7 @@ const {top} = toRefs(arrivedState)
     <AppHeaderSearchTrigger/>
     <FButton mode="outline" @click="isSidebarOpen = true" class="m-0 px-2"
              :class="[!top?'border-transparent bg-neutral-50 dark:bg-neutral-900':'border-neutral-200']">
-      <Icon :ssr="true" icon="lucide:menu" class="text-lg text-neutral-800 dark:text-neutral-200"/>
+      <AppIcons icon="lucide:menu" class="text-lg text-neutral-800 dark:text-neutral-200 iconify iconify--lucide"/>
     </FButton>
     <FDialog v-model="isSidebarOpen" position="left" close-button without-margin
              class="bg-white dark:bg-neutral-900 h-screen border border-neutral-200 dark:border-neutral-700 rounded-none !pt-16">

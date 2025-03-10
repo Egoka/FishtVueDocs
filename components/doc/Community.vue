@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import {computed} from 'vue'
-import {Icon} from '@iconify/vue'
 import {useI18n} from "vue-i18n";
 
 const {t} = useI18n()
@@ -24,9 +23,9 @@ const links = computed(() => [
             target="_blank"
             class="inline-flex gap-2 items-center font-medium text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white text-sm transition-colors duration-300"
         >
-          <Icon :ssr="true" class="text-lg iconify iconify--lucide" :icon="link.icon"/>
+          <AppIcons :icon="link.icon" class="text-lg"/>
           <span>{{ link.label }}</span>
-          <Icon :ssr="true" class="text-base iconify iconify--lucide" icon="lucide:arrow-up-right"/>
+          <AppIcons icon="lucide:arrow-up-right" class="text-base"/>
         </a>
       </div>
     </div>

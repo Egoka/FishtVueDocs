@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { Icon } from '@iconify/vue'
-
 defineProps<{ id: string }>()
 </script>
 
@@ -14,7 +12,7 @@ defineProps<{ id: string }>()
       class="group"
     >
       <div class="-ml-6 pr-2 py-2 inline-flex opacity-0 group-hover:opacity-100 transition-opacity absolute h-10">
-        <Icon :ssr="true" icon="heroicons:hashtag-16-solid" class="w-5 h-5 text-green-400 my-auto iconify iconify--heroicons" />
+        <AppIcons icon="heroicons:hashtag-16-solid" class="w-5 h-5 text-green-400 my-auto" />
       </div>
       <slot />
     </NuxtLink>

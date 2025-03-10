@@ -35,6 +35,9 @@ importers:
       better-sqlite3:
         specifier: ^11.8.1
         version: 11.8.1
+      clsx:
+        specifier: ^2.1.1
+        version: 2.1.1
       fishtvue:
         specifier: file:fishtvue-0.0.8.tgz
         version: file:fishtvue-0.0.8.tgz(@nuxt/kit@3.15.4(magicast@0.3.5))(@nuxt/schema@3.15.4)(nuxt@3.15.4(@parcel/watcher@2.5.1)(@types/node@22.13.5)(better-sqlite3@11.8.1)(db0@0.2.4(better-sqlite3@11.8.1))(eslint@9.21.0(jiti@2.4.2))(ioredis@5.5.0)(lightningcss@1.29.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.34.8)(terser@5.39.0)(typescript@5.7.3)(vite@6.1.1(@types/node@22.13.5)(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.0))(yaml@2.7.0))(typescript@5.7.3)
@@ -50,6 +53,9 @@ importers:
       reka-ui:
         specifier: ^2.0.0
         version: 2.0.0(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3))
+      tailwind-merge:
+        specifier: ^3.0.2
+        version: 3.0.2
       tailwindcss:
         specifier: ^4.0.8
         version: 4.0.8
@@ -4088,6 +4094,9 @@ packages:
 
   tailwind-merge@2.6.0:
     resolution: {integrity: sha512-P+Vu1qXfzediirmHOC3xKGAYeZtPcV9g76X+xg2FD4tYgR71ewMA35Y3sCz3zhiN/dwefRpJX0yBcgwi1fXNQA==}
+
+  tailwind-merge@3.0.2:
+    resolution: {integrity: sha512-l7z+OYZ7mu3DTqrL88RiKrKIqO3NcpEO8V/Od04bNpvk0kiIFndGEoqfuzvj4yuhRkHKjRkII2z+KS2HfPcSxw==}
 
   tailwindcss@4.0.8:
     resolution: {integrity: sha512-Me7N5CKR+D2A1xdWA5t5+kjjT7bwnxZOE6/yDI/ixJdJokszsn2n++mdU5yJwrsTpqFX2B9ZNMBJDwcqk9C9lw==}
@@ -9733,6 +9742,8 @@ snapshots:
   system-architecture@0.1.0: {}
 
   tailwind-merge@2.6.0: {}
+
+  tailwind-merge@3.0.2: {}
 
   tailwindcss@4.0.8: {}
 

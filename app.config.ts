@@ -41,7 +41,7 @@ export default defineAppConfig({
     },
     theme:{
         socialLinks: [
-            { icon: 'discord', link: "discord" },
+            // { icon: 'discord', link: "discord" },
             { icon: 'github', link: "github" },
         ],
     },

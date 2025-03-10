@@ -93,7 +93,7 @@ onBeforeUpdate(() => rerenderCount.value++)
   <TabsRoot v-model="model" :default-value="defaultValue" :unmount-on-hide="false" :class="classes.root">
     <TabsList :class="classes.list">
       <TabsTrigger v-for="(item, index) of items" :key="index" :value="String(index)" :class="classes.trigger">
-        <CodeIcon v-if="item.icon || getLanguageIcon(item.component.props.language)" ssr :icon="item.icon ?? getLanguageIcon(item.component.props.language)" :class="classes.icon" />
+        <AppIcons v-if="item.icon || getLanguageIcon(item.component.props.language)" :icon="item.icon ?? getLanguageIcon(item.component.props.language)" :class="classes.icon" />
         <span v-if="item.label?.length" class="truncate">{{ item.label }}</span>
       </TabsTrigger>
     </TabsList>

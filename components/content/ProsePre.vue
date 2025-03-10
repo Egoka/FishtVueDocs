@@ -44,7 +44,7 @@ function copy() {
 <template>
   <div :class="classes.root">
     <div v-if="filename && !hideHeader" :class="classes.header">
-      <CodeIcon :icon="icon ?? languageIcon ?? ''" :filename="filename" :class="classes.icon"/>
+      <AppIcons :icon="icon ?? languageIcon ?? ''" :class="classes.icon"/>
       <span :class="classes.headerFilename">{{ filename }}</span>
     </div>
     <FButton

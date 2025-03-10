@@ -10,7 +10,6 @@ export type SearchSections = {
 <script setup lang="ts">
 import {useFuse, type UseFuseOptions} from '@vueuse/integrations/useFuse'
 import {useI18n} from "vue-i18n";
-import {Icon} from "@iconify/vue";
 import {useScroll} from "@vueuse/core";
 import type {GroupMenu} from "fishtvue/menu";
 import type {FuseResultMatch} from "fuse.js";
@@ -93,7 +92,7 @@ function toPath(item: any) {
 
 <template>
   <FButton mode="outline" @click="isOpenDialogWindow = true" class="m-0 transition-colors duration-300">
-    <Icon :ssr="true" icon="material-symbols:search-rounded" class="h-5 w-5 text-neutral-600 dark:text-neutral-400"/>
+    <AppIcons icon="material-symbols:search-rounded" class="size-5 text-neutral-600 dark:text-neutral-400" />
     <FFixWindow :delay="10" class="hidden lg:flex lg:border-transparent px-2 py-0.5 rounded-xs bg-neutral-100 dark:bg-neutral-900">{{ t("Search") }}</FFixWindow>
 <!--    <span class="hidden md:inline-flex w-24 lg:w-20 text-left">{{ t("Search") }}</span>-->
 <!--    <span class="hidden md:inline-flex w-max text-xs"><kbd>⌘ K</kbd></span>-->
@@ -115,7 +114,7 @@ function toPath(item: any) {
           clear
       >
         <template #before>
-          <Icon :ssr="true" icon="material-symbols:search-rounded" class="h-5 w-5 text-gray-400 dark:text-gray-600"/>
+          <AppIcons icon="material-symbols:search-rounded" class="size-5 text-gray-400 dark:text-gray-600" />
         </template>
       </FInput>
       <FMenu

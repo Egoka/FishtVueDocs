@@ -40,8 +40,8 @@ const target = computed(() => props.target || (!!props.to && props.to.startsWith
     <NuxtLink v-if="to" v-bind="{ to, target, ...$attrs }" class="focus:outline-none" tabindex="-1">
       <span class="absolute inset-0" aria-hidden="true"/>
     </NuxtLink>
-    <CodeIcon v-if="icon" ssr :icon="icon" :class="classes.icon"/>
-    <CodeIcon v-if="!!to && target === '_blank'" ssr icon="uim:arrow-up-right" :class="classes.externalIcon"/>
+    <AppIcons v-if="icon" :icon="icon" :class="classes.icon"/>
+    <AppIcons v-if="!!to && target === '_blank'" icon="uim:arrow-up-right" :class="classes.externalIcon"/>
     <slot mdc-unwrap="p"/>
   </div>
 </template>

@@ -50,10 +50,9 @@ const ariaLabel = computed(() => (props.title || 'Card link').trim())
         tabindex="-1">
       <span class="absolute inset-0" aria-hidden="true"/>
     </NuxtLink>
-
-    <CodeIcon v-if="!!to && target === '_blank'" ssr icon="uim:arrow-up-right" :class="classes.externalIcon"/>
+    <AppIcons v-if="!!to && target === '_blank'" icon="uim:arrow-up-right" :class="classes.externalIcon"/>
     <div class="flex gap-1 sm:gap-3 items-center mb-2">
-      <CodeIcon v-if="icon" ssr :icon="icon" :class="classes.icon"/>
+      <AppIcons v-if="icon" :icon="icon" :class="classes.icon"/>
       <p :class="classes.title">{{ title }}</p>
     </div>
 
