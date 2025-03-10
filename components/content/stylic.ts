@@ -33,4 +33,5 @@ export const iconsLanguage = ref({
     azure: "logos:azure",
     md: "logos:markdown",
     markdown: "logos:markdown",
+    git: "logos:git-icon"
 })
