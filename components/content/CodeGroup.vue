@@ -42,7 +42,7 @@ function transformSlot(slot: any, index: number) {
   }
 
   return {
-    label: slot.props?.filename || slot.props?.label || `${index}`,
+    label: slot.props?.filename || slot.props?.label || ``,
     icon: slot.props?.icon,
     component: slot
   }
@@ -94,7 +94,7 @@ onBeforeUpdate(() => rerenderCount.value++)
     <TabsList :class="classes.list">
       <TabsTrigger v-for="(item, index) of items" :key="index" :value="String(index)" :class="classes.trigger">
         <CodeIcon v-if="item.icon || getLanguageIcon(item.component.props.language)" ssr :icon="item.icon ?? getLanguageIcon(item.component.props.language)" :class="classes.icon" />
-        <span class="truncate">{{ item.label }}</span>
+        <span v-if="item.label?.length" class="truncate">{{ item.label }}</span>
       </TabsTrigger>
     </TabsList>
 

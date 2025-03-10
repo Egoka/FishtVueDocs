@@ -209,7 +209,7 @@ export function useActiveAnchor(
                 `a[href="${decodeURIComponent(hash)}"]`,
             )
         }
-
+        if (!marker.value) return
         const activeLink = prevActiveLink
         if (activeLink) {
             activeLink.setAttribute("data-active", "")

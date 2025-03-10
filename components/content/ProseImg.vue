@@ -36,7 +36,7 @@ const refinedSrc = computed(() => {
 </script>
 
 <template>
-  <div >
+  <div>
     <NuxtImg
         :src="refinedSrc"
         :alt="alt"

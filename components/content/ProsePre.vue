@@ -20,7 +20,7 @@ const clipboard = useClipboard()
 
 const copied = ref(false)
 const classes = ref<Record<"root" | "header" | "icon" | "headerFilename" | "pre" | "copy", string>>({
-  root: `relative group fishtvue-button${props.filename?.length ? " [&>pre]:rounded-t-none [&>pre]:my-0 my-5" : ""}`,
+  root: `relative group fishtvue-button ${props.filename?.length ? " [&>pre]:rounded-t-none [&>pre]:my-0 my-5" : ""}`,
   header: "flex items-center gap-1.5 border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 border-b-0 relative rounded-t-sm px-4 py-3",
   icon: "size-4 shrink-0 rounded-xs text-neutral-200 dark:text-neutral-700",
   headerFilename: "text-neutral-700 dark:text-neutral-200 text-sm/6 font-bold",

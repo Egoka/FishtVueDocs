@@ -11,9 +11,9 @@ export interface PageHeaderProps {
    * `{ color: 'neutral', variant: 'outline' }`{lang="ts-type"}
    */
   links?: Array<ButtonProps & {
-    label: string,
-    to: NuxtLinkProps["to"],
-    target: NuxtLinkProps["target"]
+    label?: string,
+    to?: NuxtLinkProps["to"],
+    target?: NuxtLinkProps["target"]
   }>
   class?: any
 }

@@ -12,10 +12,10 @@ const {data: page} = await useAsyncData(() =>
     queryCollection(locale.value).path(route.path.replace(`/${locale.value}`, '') ?? "/").first())
 let tabMenu = ref<PageCollectionItemBase[]>()
 let surround = ref()
-if (page.value?.id) {
+if (page.value?.id && !page.value.navigation) {
   const regex = new RegExp(`([^/.]+)\\.${page.value.extension}$`);
   let category = page.value.id.match(regex)?.[1]
-  category = category !== "index" ? `/${category}` : ""
+  category = category !== "index" && !page.value.navigation ? `/${category}` : ""
   const path = route.path.replace(`/${locale.value}`, '').replace(category, "") ?? "/"
   const result = await useAsyncData(() => Promise.all([
     queryCollection(locale.value).where("path", "LIKE", `${path}%`).all(),
@@ -45,12 +45,7 @@ const tabMenuItems = computed(() => tabMenu.value?.map((item) => {
       </FFixWindow>
     </FButton>
     <article class="w-full prose prose-stone dark:prose-invert max-w-none">
-      <DocHeader
-          :title="page?.title"
-          :description="page?.description"
-          :links="page?.links"
-      />
-<!--          :headline="headline"-->
+      <DocHeader :title="page?.title" :description="page?.description" :links="page?.links"/>
       <div v-if="page" class="mt-8 space-y-12">
         <ContentRenderer :value="page"/>
       </div>
