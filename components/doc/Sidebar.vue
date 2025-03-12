@@ -30,8 +30,8 @@ const colorBorder = ref("border-neutral-200 dark:border-neutral-800")
           class="data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp overflow-hidden"
           :class="colorBorder">
         <template v-for="item in group.children" :key="item.title">
-          <ul v-if="item.children?.length" class="[&:not(:last-child)]:mb-6">
-            <li class="pl-4 font-bold text-sm pb-2">{{ item.title }}</li>
+          <ul v-if="item.children?.length" class="pl-8 [&:not(:last-child)]:mb-6">
+            <li :class="['pl-4 font-bold text-sm pb-2 uppercase', colorTxt]">{{ item.title }}</li>
             <DocSidebarItem v-for="subitem in item.children" :key="subitem.title" :item="subitem"/>
           </ul>
           <DocSidebarItem v-else :item="item"/>

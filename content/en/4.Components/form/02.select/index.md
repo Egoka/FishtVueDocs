@@ -1,5 +1,4 @@
 ---
-name: select
 title: Select
 layout: doc
 category: index

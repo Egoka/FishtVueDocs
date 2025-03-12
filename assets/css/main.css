@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -17,6 +18,7 @@
     --color-theme-950: hsl(var(--theme-my) var(--theme-contrast-my) 6%);
     --color-background: var(--color-theme-50);
     --primary: 142.1 76.2% 36.3%;
+    --font-asap: "Asap", sans-serif;
 }
 @layer base {
     html.dark {

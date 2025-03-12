@@ -42,7 +42,7 @@ export default defineAppConfig({
     theme:{
         socialLinks: [
             // { icon: 'discord', link: "discord" },
-            { icon: 'github', link: "github" },
+            { icon: 'github', link: "https://github.com/Egoka/FishtVue" },
         ],
     },
     seo: {

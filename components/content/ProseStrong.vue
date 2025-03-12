@@ -5,7 +5,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <strong :class="['', props.class]">
+  <strong :class="['text-neutral-700 dark:text-neutral-300', props.class]">
     <slot/>
   </strong>
 </template>

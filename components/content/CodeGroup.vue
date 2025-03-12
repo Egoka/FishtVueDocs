@@ -19,7 +19,7 @@ interface CodeGroupSlots {
 
 <script setup lang="ts">
 import { computed, watch, onMounted, ref, onBeforeUpdate } from 'vue'
-import { TabsRoot, TabsList, TabsIndicator, TabsTrigger, TabsContent } from 'reka-ui'
+import { TabsRoot, TabsList, TabsTrigger, TabsContent } from 'reka-ui'
 import { useState } from '#imports'
 import {iconsLanguage} from "~/components/content/stylic";
 

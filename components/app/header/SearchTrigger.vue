@@ -10,24 +10,21 @@ export type SearchSections = {
 <script setup lang="ts">
 import {useFuse, type UseFuseOptions} from '@vueuse/integrations/useFuse'
 import {useI18n} from "vue-i18n";
-import {useScroll} from "@vueuse/core";
 import type {GroupMenu} from "fishtvue/menu";
 import type {FuseResultMatch} from "fuse.js";
 
-const {arrivedState} = useScroll(globalThis.window)
-const {top} = toRefs(arrivedState)
 const {locale, t} = useI18n()
 const isOpenDialogWindow = ref(false)
-const {data} = await useAsyncData('search', () =>
-        Promise.all([
-          queryCollectionSearchSections(locale.value),
-          queryCollectionNavigation(locale.value, ['icon'])
-        ]),
+const {data, refresh} = await useAsyncData(`search-${locale.value}`,
+    () => Promise.all([
+      queryCollectionSearchSections(locale.value),
+      queryCollectionNavigation(locale.value, ['icon'])
+    ]),
     {
       transform: ([files, navigation]) => ({files, navigation})
     })
+watch(() => locale.value, async () => await refresh(), {immediate: true})
 const files = computed<SearchSections[]>(() => data.value?.files ?? [])
-// console.log("files", files.value)
 const navigation = computed(() => data.value?.navigation)
 const icons = ref<Record<number, string>>({
   1: "mage:book",
@@ -46,9 +43,6 @@ const fuseOptions = computed(() => ({
   "matchAllWhenSearchEmpty": true
 } as UseFuseOptions<SearchSections>))
 const searchTerm = ref()
-// const fuse = new Fuse(files.value, fuseOptions.value.fuseOptions)
-// const fuseResults = ref<FuseResult<SearchSections>[]>()
-// watch(searchTerm, (value) => fuseResults.value = fuse.search(value ?? ""), {immediate: true})
 const {results: fuseResults} = useFuse<SearchSections>(searchTerm, files, fuseOptions.value)
 
 const menu = computed(() => navigation.value
@@ -59,7 +53,7 @@ const menu = computed(() => navigation.value
           icon: item.icon, gradient: 5
         },
         items: fuseResults.value?.filter((i) => i.item.id.startsWith(item?.path))
-            .filter((i) => i.item.content?.length && i.item.id.includes("#"))
+            .filter((i) => i.item.content?.length)
             .map((i) =>
                 ({
                   title: i.item.title,
@@ -88,14 +82,45 @@ function toPath(item: any) {
   isOpenDialogWindow.value = false
   navigateTo(item.path ?? "")
 }
+
+const handleKeyCombo = (event: KeyboardEvent) => {
+  const isMac = navigator.platform.toLowerCase().includes('mac');
+  const isModifierPressed = isMac ? event.metaKey : event.ctrlKey;
+
+  if (isModifierPressed &&
+      event.key.toLowerCase() === 'k' &&
+      !event.altKey &&
+      !event.shiftKey) {
+    event.preventDefault();
+    isOpenDialogWindow.value = true;
+  }
+  if (
+      event.key === 'Escape' &&
+      !event.metaKey &&
+      !event.ctrlKey &&
+      !event.altKey &&
+      !event.shiftKey
+  ) {
+    event.preventDefault();
+    isOpenDialogWindow.value = false;
+  }
+};
+onMounted(() => {
+  document.addEventListener('keydown', handleKeyCombo);
+});
+
+onUnmounted(() => {
+  document.removeEventListener('keydown', handleKeyCombo);
+});
 </script>
 
 <template>
-  <FButton mode="outline" @click="isOpenDialogWindow = true" class="m-0 transition-colors duration-300">
+  <FButton mode="ghost" @click="isOpenDialogWindow = true" class="m-0 transition-colors duration-300">
     <AppIcons icon="material-symbols:search-rounded" class="size-5 text-neutral-600 dark:text-neutral-400" />
-    <FFixWindow :delay="10" class="hidden lg:flex lg:border-transparent px-2 py-0.5 rounded-xs bg-neutral-100 dark:bg-neutral-900">{{ t("Search") }}</FFixWindow>
-<!--    <span class="hidden md:inline-flex w-24 lg:w-20 text-left">{{ t("Search") }}</span>-->
-<!--    <span class="hidden md:inline-flex w-max text-xs"><kbd>⌘ K</kbd></span>-->
+    <FFixWindow :delay="10"
+                class="hidden lg:flex lg:border-transparent px-2 py-0.5 rounded-xs bg-neutral-100 dark:bg-neutral-900">
+      {{ t("Search") }}
+    </FFixWindow>
   </FButton>
   <ClientOnly>
     <FDialog v-model:model-value="isOpenDialogWindow" notAnimate toTeleport="#__nuxt" position="top"

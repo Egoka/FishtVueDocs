@@ -9,6 +9,7 @@ export default defineContentConfig({
                 prefix: '/'
             },
             schema: z.object({
+                name: z.string(),
                 description: z.string(),
                 icon: z.string(),
                 links: z.array(z.object({
@@ -26,6 +27,7 @@ export default defineContentConfig({
                 prefix: '/'
             },
             schema: z.object({
+                name: z.string(),
                 description: z.string(),
                 icon: z.string(),
                 links: z.array(z.object({

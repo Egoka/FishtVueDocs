@@ -49,7 +49,7 @@ const slots = defineSlots<PageHeaderSlots>()
     <div class="">
       <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
         <h1 v-if="title || !!slots.title"
-            class="text-3xl sm:text-4xl text-pretty font-bold text-neutral-900 dark:text-white">
+            class="font-asap tracking-wide text-3xl sm:text-4xl text-pretty font-bold text-neutral-900 dark:text-white">
           <slot name="title">
             {{ title }}
           </slot>
@@ -76,7 +76,7 @@ const slots = defineSlots<PageHeaderSlots>()
       </div>
 
       <div v-if="description || !!slots.description"
-           class="text-lg text-pretty text-neutral-500 dark:text-neutral-400 mt-4">
+           class="font-asap text-lg text-pretty text-neutral-500 dark:text-neutral-400 mt-4">
         <slot name="description">
           {{ description }}
         </slot>

@@ -4,6 +4,10 @@ interface CardProps {
   target?: "_blank" | string
   icon?: string
   title?: string
+  class?: string
+  classIcon?: string
+  classTitle?: string
+  classDescription?: string
 }
 
 interface CardSlots {
@@ -13,6 +17,7 @@ interface CardSlots {
 
 <script setup lang="ts">
 import {computed} from 'vue'
+import {cn} from '#imports'
 
 defineOptions({inheritAttrs: false})
 
@@ -20,7 +25,7 @@ const props = defineProps<CardProps>()
 const slots = defineSlots<CardSlots>()
 
 const classes = ref<Record<"base" | "icon" | "title" | "description" | "externalIcon", string>>({
-  base: "group relative block p-4 sm:p-6 border border-dashed " +
+  base: "group relative block items-center p-4 sm:p-6 border border-dashed " +
       "rounded-sm transition-colors " +
       "border-neutral-200 dark:border-neutral-800 " +
       "bg-neutral-50 dark:bg-neutral-800 " +
@@ -41,7 +46,7 @@ const ariaLabel = computed(() => (props.title || 'Card link').trim())
 </script>
 
 <template>
-  <div :class="classes.base">
+  <div :class="cn(classes.base, props.class)">
     <NuxtLink
         v-if="to"
         :aria-label="ariaLabel"
@@ -52,11 +57,10 @@ const ariaLabel = computed(() => (props.title || 'Card link').trim())
     </NuxtLink>
     <AppIcons v-if="!!to && target === '_blank'" icon="uim:arrow-up-right" :class="classes.externalIcon"/>
     <div class="flex gap-1 sm:gap-3 items-center mb-2">
-      <AppIcons v-if="icon" :icon="icon" :class="classes.icon"/>
-      <p :class="classes.title">{{ title }}</p>
+      <AppIcons v-if="icon" :icon="icon" :class="cn(classes.icon, props.classIcon)"/>
+      <div :class="cn(classes.title, props.classTitle)">{{ title }}</div>
     </div>
-
-    <p v-if="!!slots.default" :class="classes.description">
+    <p v-if="!!slots.default" :class="cn(classes.description, props.classDescription)">
       <slot mdc-unwrap="p"/>
     </p>
   </div>

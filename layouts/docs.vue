@@ -1,16 +1,13 @@
 <script setup lang="ts">
 import {useI18n} from "vue-i18n";
-import {useRoute} from "#vue-router";
 
-const {t} = useI18n()
-const route = useRoute()
 const {locale} = useI18n()
-const {data: navigation} = await useAsyncData(route.path+"Navigation", () =>
-    queryCollectionNavigation(locale.value, ['icon'])
+const {data: navigation, refresh} = useAsyncData(`navigation-${locale.value}`, () =>
+    queryCollectionNavigation(locale.value, ['icon', "name"])
 )
-const isSidebarOpen = ref(false)
-watch(() => route.path, () => {
-  isSidebarOpen.value = false
+watch(()=>locale.value, async ()=> {
+  await refresh()
+  console.log("refreshed", navigation.value)
 })
 </script>
 
@@ -28,7 +25,7 @@ watch(() => route.path, () => {
       <main class="flex flex-col md:flex-row">
         <aside
             v-if="navigation?.length"
-            class="hidden md:block w-[17rem] flex-shrink-0 py-4 pl-4 pr-4 sticky top-[7.25rem] h-full overflow-y-auto max-h-[calc(100vh-7.25rem)]">
+            class="hidden md:block w-[20rem] flex-shrink-0 py-4 pl-4 pr-4 sticky top-[7.25rem] h-full overflow-y-auto max-h-[calc(100vh-7.25rem)]">
           <DocSidebar :items="navigation ?? []"/>
           <div class="h-6 w-full"/>
         </aside>

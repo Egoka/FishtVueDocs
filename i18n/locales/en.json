@@ -11,5 +11,7 @@
   "EditThisPage": "Edit this page",
   "PreviousPage": "Previous page",
   "NextPage": "Next page",
+  "PageNotFound": "Page not found",
+  "GoBackHome": "Go back home",
   "CopyCode": "Copy code to clipboard"
 }

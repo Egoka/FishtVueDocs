@@ -8,16 +8,17 @@ import type {PageCollectionItemBase} from "@nuxt/content";
 definePageMeta({layout: 'docs'})
 const {locale, t} = useI18n()
 const route = useRoute()
-const {data: page} = await useAsyncData(() =>
-    queryCollection(locale.value).path(route.path.replace(`/${locale.value}`, '') ?? "/").first())
+const path = computed(() => route.path.replace(`/${locale.value}`, '') ?? "/")
+const {data: page} = await useAsyncData(`path-${path.value}`, () =>
+    queryCollection(locale.value).path(path.value).first())
 let tabMenu = ref<PageCollectionItemBase[]>()
 let surround = ref()
-if (page.value?.id && !page.value.navigation) {
+if (page.value?.id) {
   const regex = new RegExp(`([^/.]+)\\.${page.value.extension}$`);
   let category = page.value.id.match(regex)?.[1]
   category = category !== "index" && !page.value.navigation ? `/${category}` : ""
   const path = route.path.replace(`/${locale.value}`, '').replace(category, "") ?? "/"
-  const result = await useAsyncData(() => Promise.all([
+  const result = await useAsyncData(`path-addition-${path}`, () => Promise.all([
     queryCollection(locale.value).where("path", "LIKE", `${path}%`).all(),
     queryCollectionItemSurroundings(locale.value, path, {fields: ['title', 'description']})
   ]), {transform: ([tabMenu, surround]) => ({tabMenu, surround})})
@@ -35,30 +36,30 @@ const tabMenuItems = computed(() => tabMenu.value?.map((item) => {
 </script>
 
 <template>
-  <div class="px-6 md:px-8 lg:px-24 py-6 md:py-12 overflow-x-hidden flex-1">
-    <DocTabMenu :tab-menu-items="tabMenuItems"/>
-    <FButton v-if="page?.body.toc?.links?.length" mode="outline" class="w-max relative xl:hidden">
+  <div class="px-6 md:px-8 lg:px-12 py-6 md:py-12 overflow-x-hidden flex-1">
+    <DocTabMenu v-if="page" :tab-menu-items="tabMenuItems"/>
+    <FButton v-if="page && page?.body.toc?.links?.length" mode="outline" class="w-max relative xl:hidden">
       {{ t('onPage') }}
       <FFixWindow stylePosition="fixed" position="bottom-left" eventOpen="click" eventClose="hover"
                   class="max-w-80 max-h-96 overflow-auto bg-neutral-100 dark:bg-neutral-800 p-5 text-left rounded-xl flex-col space-y-6 no-scrollbar border dark:border-neutral-800">
-        <DocOutline collapsible :headers="page?.body.toc?.links"/>
+        <DocOutline v-if="page?.body.toc?.links?.length" :headers="page?.body.toc?.links"/>
       </FFixWindow>
     </FButton>
     <article class="w-full prose prose-stone dark:prose-invert max-w-none">
-      <DocHeader :title="page?.title" :description="page?.description" :links="page?.links"/>
+      <DocHeader v-if="page" :title="page?.title" :description="page?.description" :links="page?.links"/>
       <div v-if="page" class="mt-8 space-y-12">
         <ContentRenderer :value="page"/>
       </div>
-      <div v-else>
-        <p>Page not found</p>
-      </div>
+      <template v-else>
+        <Doc404/>
+      </template>
     </article>
-    <DocFooter :control="surround"/>
+    <DocFooter v-if="page" :control="surround"/>
   </div>
 
-  <div
+  <div v-if="page"
       class="hidden xl:flex w-64 flex-shrink-0 py-12 pl-2 sticky top-[7.25rem] overflow-y-auto md:overflow-x-hidden h-[calc(100vh-7.25rem)] flex-col space-y-6 no-scrollbar">
-    <DocOutline :headers="page?.body.toc?.links"/>
+    <DocOutline v-if="page?.body.toc?.links?.length" :headers="page?.body.toc?.links"/>
     <DocCommunity/>
     <div class="fixed bottom-0 z-10 w-64 h-12 bg-gradient-to-b from-transparent to-neutral-100 dark:to-neutral-900"/>
   </div>
