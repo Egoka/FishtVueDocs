@@ -25,12 +25,13 @@ watch(()=>locale.value, async ()=> {
       <main class="flex flex-col md:flex-row">
         <aside
             v-if="navigation?.length"
-            class="hidden md:block w-[20rem] flex-shrink-0 py-4 pl-4 pr-4 sticky top-[7.25rem] h-full overflow-y-auto max-h-[calc(100vh-7.25rem)]">
+            class="hidden md:block w-[20rem] flex-shrink-0 py-4 pl-4 pr-4 sticky top-[7.25rem] h-full overflow-y-auto max-h-[calc(100vh-15rem)]">
           <DocSidebar :items="navigation ?? []"/>
           <div class="h-6 w-full"/>
         </aside>
         <slot/>
       </main>
+    <AppFooter/>
     </div>
   </div>
 </template>

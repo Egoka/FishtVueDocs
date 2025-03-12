@@ -23,9 +23,9 @@ const isDesktop = breakpoints.greaterOrEqual('md'); // ≥768px
 
 <template>
   <nav class="hidden md:flex items-center">
-    <AppHeaderSearchTrigger/>
-    <DocThemeToggle/>
-    <DocLocaleSwitch/>
+    <AppSearchTrigger/>
+    <AppThemeToggle/>
+    <AppLocaleSwitch/>
     <NuxtLink
         v-for="link in theme.socialLinks"
         :key="link.link"
@@ -38,7 +38,7 @@ const isDesktop = breakpoints.greaterOrEqual('md'); // ≥768px
     </NuxtLink>
   </nav>
   <div class="md:hidden flex flex-row gap-2">
-    <AppHeaderSearchTrigger v-if="!isDesktop"/>
+    <AppSearchTrigger v-if="!isDesktop"/>
     <FButton mode="outline" @click="isSidebarOpen = true" class="m-0 px-2"
              :class="[!top?'border-transparent bg-neutral-50 dark:bg-neutral-900':'border-neutral-200']">
       <AppIcons icon="lucide:menu" class="text-lg text-neutral-800 dark:text-neutral-200 iconify iconify--lucide"/>
@@ -46,8 +46,8 @@ const isDesktop = breakpoints.greaterOrEqual('md'); // ≥768px
     <FDialog v-model="isSidebarOpen" position="left" close-button without-margin
              class="bg-white dark:bg-neutral-900 h-screen border border-neutral-200 dark:border-neutral-700 rounded-none !pt-16">
       <div class="flex items-center justify-around mx-8">
-        <DocThemeToggle/>
-        <DocLocaleSwitch/>
+        <AppThemeToggle/>
+        <AppLocaleSwitch/>
       </div>
       <FSeparator class="my-2" :gradient="5"></FSeparator>
       <DocSidebar :items="navigation ?? []"/>

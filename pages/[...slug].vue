@@ -58,7 +58,7 @@ const tabMenuItems = computed(() => tabMenu.value?.map((item) => {
   </div>
 
   <div v-if="page"
-      class="hidden xl:flex w-64 flex-shrink-0 py-12 pl-2 sticky top-[7.25rem] overflow-y-auto md:overflow-x-hidden h-[calc(100vh-7.25rem)] flex-col space-y-6 no-scrollbar">
+      class="hidden xl:flex w-64 flex-shrink-0 py-12 pl-2 sticky top-[7.25rem] overflow-y-auto md:overflow-x-hidden h-[calc(100vh-15rem)] flex-col space-y-6 no-scrollbar">
     <DocOutline v-if="page?.body.toc?.links?.length" :headers="page?.body.toc?.links"/>
     <DocCommunity/>
     <div class="fixed bottom-0 z-10 w-64 h-12 bg-gradient-to-b from-transparent to-neutral-100 dark:to-neutral-900"/>

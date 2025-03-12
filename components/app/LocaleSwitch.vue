@@ -9,7 +9,7 @@ type groupLocale = GroupMenu & {
 <script setup lang="ts">
 import {useI18n} from "vue-i18n";
 
-const {locale, locales, setLocale} = useI18n()
+const {t, locale, locales, setLocale} = useI18n()
 const groupsLocales = computed(()=>([{
   items: locales.value?.map((loc)=>({
     title: loc.name,
@@ -19,16 +19,23 @@ const groupsLocales = computed(()=>([{
   }))
 }]))
 function selectLocale(item: groupLocale){
-  console.log("item.code", item.code)
   setLocale(item.code)
 }
 </script>
 
 <template>
-  <FButton mode="ghost" class="px-2 size-9" aria-label="switchTitle">
+  <FButton mode="ghost" class="button-locales px-2 size-9">
     <AppIcons icon="meteor-icons:language" class="w-6 "/>
-    <FFixWindow eventOpen="click" eventClose="hover" position="bottom">
-      <FMenu :groups="groupsLocales" :styles="{class :{itemIcon: 'w-6 opacity-100 rounded'}}" @on-click="(_:any, item:groupLocale) => selectLocale(item)"/>
+    <FFixWindow :delay="3"
+                class="hidden lg:flex lg:border-transparent px-2 py-0.5 rounded-xs bg-neutral-100 dark:bg-neutral-900">
+      {{ t("SwitchLanguage") }}
     </FFixWindow>
   </FButton>
+  <FFixWindow el=".button-locales" eventOpen="click" eventClose="click" position="bottom">
+    <FMenu
+        :groups="groupsLocales"
+        :styles="{class :{itemIcon: 'w-6 opacity-100 rounded'}}"
+        @on-click="(_:any, item:groupLocale) => selectLocale(item)"
+    />
+  </FFixWindow>
 </template>

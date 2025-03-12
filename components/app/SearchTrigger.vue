@@ -117,7 +117,7 @@ onUnmounted(() => {
 <template>
   <FButton mode="ghost" @click="isOpenDialogWindow = true" class="m-0 transition-colors duration-300">
     <AppIcons icon="material-symbols:search-rounded" class="size-5 text-neutral-600 dark:text-neutral-400" />
-    <FFixWindow :delay="10"
+    <FFixWindow :delay="3"
                 class="hidden lg:flex lg:border-transparent px-2 py-0.5 rounded-xs bg-neutral-100 dark:bg-neutral-900">
       {{ t("Search") }}
     </FFixWindow>
