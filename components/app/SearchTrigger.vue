@@ -25,7 +25,6 @@ const {data, refresh} = await useAsyncData(`search-${locale.value}`,
     })
 watch(() => locale.value, async () => await refresh(), {immediate: true})
 const files = computed<SearchSections[]>(() => data.value?.files ?? [])
-const navigation = computed(() => data.value?.navigation)
 const icons = ref<Record<number, string>>({
   1: "mage:book",
   2: "stash:hash-solid",
@@ -44,7 +43,7 @@ const fuseOptions = computed(() => ({
 } as UseFuseOptions<SearchSections>))
 const searchTerm = ref()
 const {results: fuseResults} = useFuse<SearchSections>(searchTerm, files, fuseOptions.value)
-
+const navigation = computed(() => data.value?.navigation)
 const menu = computed(() => navigation.value
     ?.map((item) => {
       return {
@@ -115,17 +114,17 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <FButton mode="ghost" @click="isOpenDialogWindow = true" class="m-0 transition-colors duration-300">
+  <Button mode="ghost" @click="isOpenDialogWindow = true" class="m-0 transition-colors duration-300">
     <AppIcons icon="material-symbols:search-rounded" class="size-5 text-neutral-600 dark:text-neutral-400" />
-    <FFixWindow :delay="3"
+    <FixWindow :delay="3"
                 class="hidden lg:flex lg:border-transparent px-2 py-0.5 rounded-xs bg-neutral-100 dark:bg-neutral-900">
       {{ t("Search") }}
-    </FFixWindow>
-  </FButton>
+    </FixWindow>
+  </Button>
   <ClientOnly>
-    <FDialog v-model:model-value="isOpenDialogWindow" notAnimate toTeleport="#__nuxt" position="top"
+    <Dialog v-model:model-value="isOpenDialogWindow" notAnimate toTeleport="#__nuxt" position="top"
              class="top-20 left-1/2 -translate-x-1/4 p-0 sm:max-w-xl">
-      <FInput
+      <Input
           ref="selectSearch"
           v-model="searchTerm"
           :placeholder="t('Searching')"
@@ -141,16 +140,16 @@ onUnmounted(() => {
         <template #before>
           <AppIcons icon="material-symbols:search-rounded" class="size-5 text-gray-400 dark:text-gray-600" />
         </template>
-      </FInput>
-      <FMenu
+      </Input>
+      <Menu
           class="w-full max-w-xl m-auto max-h-150 border-0 -mt-5 pt-10 "
           :groups="menu"
           :styles="{ class: { title: 'p-0', item: 'items-start', itemInfo: 'max-w-[20rem]', itemIcon: 'size-5 text-theme-600 dark:text-theme-300' }}"
           @on-click="(_:any, item: any) => toPath(item)">
         <template #title>
         </template>
-      </FMenu>
-    </FDialog>
+      </Menu>
+    </Dialog>
   </ClientOnly>
 </template>
 

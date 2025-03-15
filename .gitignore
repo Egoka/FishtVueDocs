@@ -90,3 +90,5 @@ docs/.vitepress/cache
 .nuxt
 .output
 .data
+
+.qodo

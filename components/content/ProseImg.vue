@@ -46,7 +46,7 @@ const refinedSrc = computed(() => {
         :class="props.class"
         @click="isOpenDialogImg = true"
     />
-    <FDialog
+    <Dialog
         v-model:model-value="isOpenDialogImg"
         position="center"
         notAnimate
@@ -58,6 +58,6 @@ const refinedSrc = computed(() => {
           class="rounded-sm max-w-[80vw] sm:max-w-[80vw]"
           :class="props.class"
       />
-    </FDialog>
+    </Dialog>
   </div>
 </template>

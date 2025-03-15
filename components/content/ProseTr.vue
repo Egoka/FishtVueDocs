@@ -1,8 +1,3 @@
-<!--<template>-->
-<!--  <tr class="border-x-none !border-muted">-->
-<!--    <slot />-->
-<!--  </tr>-->
-<!--</template>-->
 <script setup lang="ts">
 const props = defineProps<{
   class?: string

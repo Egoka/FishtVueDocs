@@ -38,13 +38,13 @@ const tabMenuItems = computed(() => tabMenu.value?.map((item) => {
 <template>
   <div class="px-6 md:px-8 lg:px-12 py-6 md:py-12 overflow-x-hidden flex-1">
     <DocTabMenu v-if="page" :tab-menu-items="tabMenuItems"/>
-    <FButton v-if="page && page?.body.toc?.links?.length" mode="outline" class="w-max relative xl:hidden">
+    <Button v-if="page && page?.body.toc?.links?.length" mode="outline" class="w-max relative xl:hidden">
       {{ t('onPage') }}
-      <FFixWindow stylePosition="fixed" position="bottom-left" eventOpen="click" eventClose="hover"
+      <FixWindow stylePosition="fixed" position="bottom-left" eventOpen="click" eventClose="hover"
                   class="max-w-80 max-h-96 overflow-auto bg-neutral-100 dark:bg-neutral-800 p-5 text-left rounded-xl flex-col space-y-6 no-scrollbar border dark:border-neutral-800">
         <DocOutline v-if="page?.body.toc?.links?.length" :headers="page?.body.toc?.links"/>
-      </FFixWindow>
-    </FButton>
+      </FixWindow>
+    </Button>
     <article class="w-full prose prose-stone dark:prose-invert max-w-none">
       <DocHeader v-if="page" :title="page?.title" :description="page?.description" :links="page?.links"/>
       <div v-if="page" class="mt-8 space-y-12">
@@ -58,7 +58,7 @@ const tabMenuItems = computed(() => tabMenu.value?.map((item) => {
   </div>
 
   <div v-if="page"
-      class="hidden xl:flex w-64 flex-shrink-0 py-12 pl-2 sticky top-[7.25rem] overflow-y-auto md:overflow-x-hidden h-[calc(100vh-15rem)] flex-col space-y-6 no-scrollbar">
+      class="hidden xl:flex w-64 flex-shrink-0 py-12 pl-2 sticky top-[7.25rem] overflow-y-auto md:overflow-x-hidden h-[calc(100vh-13rem)] flex-col space-y-6 no-scrollbar">
     <DocOutline v-if="page?.body.toc?.links?.length" :headers="page?.body.toc?.links"/>
     <DocCommunity/>
     <div class="fixed bottom-0 z-10 w-64 h-12 bg-gradient-to-b from-transparent to-neutral-100 dark:to-neutral-900"/>

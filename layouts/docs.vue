@@ -3,12 +3,10 @@ import {useI18n} from "vue-i18n";
 
 const {locale} = useI18n()
 const {data: navigation, refresh} = useAsyncData(`navigation-${locale.value}`, () =>
-    queryCollectionNavigation(locale.value, ['icon', "name"])
+    queryCollectionNavigation(locale.value, ['icon', 'name'])
 )
-watch(()=>locale.value, async ()=> {
-  await refresh()
-  console.log("refreshed", navigation.value)
-})
+watch(() => locale.value, async () => await refresh())
+console.log("navigation", navigation.value)
 </script>
 
 <template>
@@ -25,7 +23,7 @@ watch(()=>locale.value, async ()=> {
       <main class="flex flex-col md:flex-row">
         <aside
             v-if="navigation?.length"
-            class="hidden md:block w-[20rem] flex-shrink-0 py-4 pl-4 pr-4 sticky top-[7.25rem] h-full overflow-y-auto max-h-[calc(100vh-15rem)]">
+            class="hidden md:block w-[20rem] flex-shrink-0 py-4 pl-4 pr-4 sticky top-[7.25rem] h-full overflow-y-auto max-h-[calc(100vh-13rem)]">
           <DocSidebar :items="navigation ?? []"/>
           <div class="h-6 w-full"/>
         </aside>

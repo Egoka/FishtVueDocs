@@ -5,7 +5,7 @@ defineProps<{
 </script>
 
 <template>
-  <FBadge mode="primary" class="rounded-full">
+  <Badge mode="primary" class="rounded-full">
     <slot mdc-unwrap="p"/>
-  </FBadge>
+  </Badge>
 </template>

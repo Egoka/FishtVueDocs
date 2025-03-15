@@ -24,18 +24,18 @@ function selectLocale(item: groupLocale){
 </script>
 
 <template>
-  <FButton mode="ghost" class="button-locales px-2 size-9">
+  <Button mode="ghost" id="button-locales" class="button-locales px-2 size-9">
     <AppIcons icon="meteor-icons:language" class="w-6 "/>
-    <FFixWindow :delay="3"
+    <FixWindow :delay="3"
                 class="hidden lg:flex lg:border-transparent px-2 py-0.5 rounded-xs bg-neutral-100 dark:bg-neutral-900">
       {{ t("SwitchLanguage") }}
-    </FFixWindow>
-  </FButton>
-  <FFixWindow el=".button-locales" eventOpen="click" eventClose="click" position="bottom">
-    <FMenu
+    </FixWindow>
+  <FixWindow eventOpen="click" eventClose="click" position="bottom">
+    <Menu
         :groups="groupsLocales"
         :styles="{class :{itemIcon: 'w-6 opacity-100 rounded'}}"
         @on-click="(_:any, item:groupLocale) => selectLocale(item)"
     />
-  </FFixWindow>
+  </FixWindow>
+  </Button>
 </template>

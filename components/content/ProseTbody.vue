@@ -1,8 +1,3 @@
-<!--<template>-->
-<!--  <tbody class="before:h-2 before:content-[''] before:block">-->
-<!--    <slot />-->
-<!--  </tbody>-->
-<!--</template>-->
 <script setup lang="ts">
 const props = defineProps<{
   class?: string
@@ -10,7 +5,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <tbody :class="['', props.class]">
+  <tbody :class="['text-neutral-700 dark:text-neutral-400', props.class]">
   <slot/>
   </tbody>
 </template>

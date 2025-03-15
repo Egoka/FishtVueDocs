@@ -30,15 +30,19 @@ const classes = ref<Record<"root" | "header" | "icon" | "headerFilename" | "pre"
 const language = computed(() => props.language)
 const languageIcon = computed<string>(() => language.value && Object.keys(iconsLanguage.value).includes(language.value) ? (iconsLanguage.value as any)?.[language.value ?? ""] : '')
 
+let timeoutId: ReturnType<typeof setTimeout> | null = null;
 function copy() {
   clipboard.copy(props.code || '')
 
   copied.value = true
 
-  setTimeout(() => {
+  timeoutId = setTimeout(() => {
     copied.value = false
   }, 2000)
 }
+onUnmounted(() => {
+  if (timeoutId) clearTimeout(timeoutId);
+});
 </script>
 
 <template>
@@ -47,7 +51,7 @@ function copy() {
       <AppIcons :icon="icon ?? languageIcon ?? ''" :class="classes.icon"/>
       <span :class="classes.headerFilename">{{ filename }}</span>
     </div>
-    <FButton
+    <Button
         type="icon"
         :icon="copied ? 'lucide:check' : 'lucide:copy'"
         classIcon="size-4 transition-all duration-300"

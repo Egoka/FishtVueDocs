@@ -10,12 +10,13 @@ export default defineNuxtConfig({
     "fishtvue/module"
   ],
   fishtvue: {
-      theme: {
-        semantic:{
-          customThemeColor: 150,
-          customThemeColorContrast: 85,
-        }
-      },
+    prefix: "",
+    theme: {
+      semantic:{
+        customThemeColor: 150,
+        customThemeColorContrast: 85,
+      }
+    },
     optionsTheme: {
       darkModeSelector: "html.dark"
     }
@@ -28,7 +29,8 @@ export default defineNuxtConfig({
             default: 'nord',
             light: 'vitesse-light',
             dark: 'vitesse-dark',
-          }
+          },
+          preload: ['ts', 'vue', 'js', 'html'],
         }
       }
     }

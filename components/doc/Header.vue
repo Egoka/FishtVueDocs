@@ -63,13 +63,13 @@ const slots = defineSlots<PageHeaderSlots>()
                 :to="link.to"
                 :target="link.target ?? '_blank'"
             >
-              <FButton
+              <Button
                   color="neutral"
                   variant="outline"
                   :classIcon="link?.icon"
                   v-bind="link">
                 {{ link.label }}
-              </FButton>
+              </Button>
             </NuxtLink>
           </slot>
         </div>

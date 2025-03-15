@@ -2343,7 +2343,7 @@ packages:
     engines: {node: '>=10'}
 
   fishtvue@file:fishtvue-0.0.8.tgz:
-    resolution: {integrity: sha512-Gy5wXGgBQ3j7YXSyZN3K1pi3bxOrWE2MLWWfCc3OYDD9nXhW3WF4kAyUU7eKv2mYsCGBhp8zs1WCOwXv8NQd9g==, tarball: file:fishtvue-0.0.8.tgz}
+    resolution: {integrity: sha512-zhP4LcDIo/+dO5egX/tni2QWMndmu24X69ejS8loNuWS3ObTzUwDseYoBvvJEMbH1GK5WnW5hDBGoCZIk/Vtlg==, tarball: file:fishtvue-0.0.8.tgz}
     version: 0.0.8
     peerDependencies:
       '@nuxt/kit': ^3.0.0
@@ -7366,7 +7366,7 @@ snapshots:
       dayjs: 1.11.13
       epic-spinners: 2.0.0(vue@3.5.13(typescript@5.8.2))
       gsap: 3.12.7
-      lodash: 4.17.21
+      lodash-es: 4.17.21
       quill: 2.0.3
       tailwind-merge: 2.6.0
       v-calendar: 3.1.2(@popperjs/core@2.11.8)(vue@3.5.13(typescript@5.8.2))

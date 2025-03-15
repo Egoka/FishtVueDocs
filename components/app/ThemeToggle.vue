@@ -47,11 +47,11 @@ function setTheme(newTheme: string) {
 </script>
 
 <template>
-  <FButton mode="ghost" class="group px-2 size-9" :aria-label="activeTheme.title" @click="switchTheme">
+  <Button mode="ghost" class="group px-2 size-9" :aria-label="activeTheme.title" @click="switchTheme">
     <AppIcons :icon="activeTheme.icon" class="group-hover:text-neutral-800 dark:group-hover:text-neutral-300 transition-all duration-500 size-5"/>
-    <FFixWindow :delay="3"
+    <FixWindow :delay="3"
                 class="hidden lg:flex lg:border-transparent px-2 py-0.5 rounded-xs bg-neutral-100 dark:bg-neutral-900">
       {{ t("SwitchTheme") }}
-    </FFixWindow>
-  </FButton>
+    </FixWindow>
+  </Button>
 </template>

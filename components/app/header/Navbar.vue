@@ -8,7 +8,7 @@ const {locale} = useI18n()
 const {theme} = useAppConfig()
 
 const {data: navigation} = await useAsyncData(`navigation-${locale.value}`, () =>
-    queryCollectionNavigation(locale.value, ['icon'])
+    queryCollectionNavigation(locale.value, ['icon', 'name'])
 )
 const isSidebarOpen = ref(false)
 watch(() => route.path, () => {
@@ -39,18 +39,18 @@ const isDesktop = breakpoints.greaterOrEqual('md'); // ≥768px
   </nav>
   <div class="md:hidden flex flex-row gap-2">
     <AppSearchTrigger v-if="!isDesktop"/>
-    <FButton mode="outline" @click="isSidebarOpen = true" class="m-0 px-2"
+    <Button mode="outline" @click="isSidebarOpen = true" class="m-0 px-2"
              :class="[!top?'border-transparent bg-neutral-50 dark:bg-neutral-900':'border-neutral-200']">
       <AppIcons icon="lucide:menu" class="text-lg text-neutral-800 dark:text-neutral-200 iconify iconify--lucide"/>
-    </FButton>
-    <FDialog v-model="isSidebarOpen" position="left" close-button without-margin
+    </Button>
+    <Dialog v-model="isSidebarOpen" position="left" close-button without-margin
              class="bg-white dark:bg-neutral-900 h-screen border border-neutral-200 dark:border-neutral-700 rounded-none !pt-16">
       <div class="flex items-center justify-around mx-8">
         <AppThemeToggle/>
         <AppLocaleSwitch/>
       </div>
-      <FSeparator class="my-2" :gradient="5"></FSeparator>
+      <Separator class="my-2" :gradient="5"></Separator>
       <DocSidebar :items="navigation ?? []"/>
-    </FDialog>
+    </Dialog>
   </div>
 </template>

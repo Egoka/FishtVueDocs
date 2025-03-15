@@ -16,10 +16,10 @@ const {top} = toRefs(arrivedState)
     <ul class="flex gap-2 list-none m-0 overflow-auto p-0 relative bg-transparent dark:bg-transparent border-b border-b-neutral-200 dark:border-b-neutral-700">
       <li v-for="item in tabMenuItems" :key="item.path" class="relative z-10 content-end">
         <NuxtLink :to="item.path" :aria-label="item.title">
-          <FButton class="uppercase bg-transparent dark:bg-transparent rounded-none m-0 ring-0"
+          <Button class="uppercase bg-transparent dark:bg-transparent rounded-none m-0 ring-0"
                    :class="[item.path===route.path ? 'border-b-2 border-theme-500 font-bold': '']">
             {{ item.title }}
-          </FButton>
+          </Button>
         </NuxtLink>
       </li>
     </ul>
