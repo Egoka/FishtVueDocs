@@ -36,7 +36,7 @@ const classes = ref({
   demo:
       "flex justify-center items-center p-8 gap-4 w-full h-full " +
       "rounded-sm border border-dashed border-neutral-200 dark:border-neutral-700 " +
-      "text-red-950/5 dark:text-red-50/5 bg-[size:10px_10px] bg-fixed bg-[image:repeating-linear-gradient(315deg,currentColor_0,currentColor_1px,_transparent_0,_transparent_50%)]",
+      "text-neutral-950/5 dark:text-neutral-50/5 bg-[size:10px_10px] bg-fixed bg-[image:repeating-linear-gradient(315deg,currentColor_0,currentColor_1px,_transparent_0,_transparent_50%)]",
   title: "font-asap font-bold text-neutral-400 dark:text-neutral-400",
   blockBorder: 'rounded-sm border border-neutral-200 dark:border-neutral-700'
 })
@@ -113,7 +113,7 @@ watch(() => colorMode.value, updateGeneratedCode)
         </Split>
       </template>
       <template #left>
-        <div :class="cn('p-4 flex flex-col overflow-auto max-h-[80vh]', classes.blockBorder)">
+        <div :class="cn('p-4 flex flex-col gap-4 overflow-auto min-h-96 max-h-[80vh]', classes.blockBorder)">
           <div :class="cn(`sticky -top-4 pt-5 pb-2 -mt-4 mb-4 z-10 bg-neutral-50 dark:bg-neutral-800`, classes.title)">
             Options
           </div>
@@ -123,6 +123,7 @@ watch(() => colorMode.value, updateGeneratedCode)
                 v-bind="option"
                 mode="filled"
                 autocomplete="off"
+                clear
                 @update:modelValue="(value: any) => emit('update:value', option.nameComp, value)"
             />
             <Select
@@ -130,6 +131,7 @@ watch(() => colorMode.value, updateGeneratedCode)
                 v-bind="option"
                 mode="filled"
                 noQuery
+                clear
                 @update:modelValue="(value: any) => emit('update:value', option.nameComp, value)"
             />
             <Switch

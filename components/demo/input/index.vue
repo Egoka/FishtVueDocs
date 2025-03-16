@@ -2,8 +2,7 @@
 import type {DemoOption} from "~/components/demo/index.vue";
 import type {InputProps} from "#fishtvue/input";
 
-const optionsValues = reactive<InputProps>({
-})
+const optionsValues = reactive<InputProps>({})
 const options = computed<DemoOption[]>(()=>([
   {nameComp: "type", modelValue: optionsValues["type"], label: "Type", typeComp: "select", dataSelect: ["text", "number", "email", "password"]},
   {nameComp: "mode", modelValue: optionsValues["mode"], label: "Mode", typeComp: "select", dataSelect: ["filled", "outlined", "underlined"]},
