@@ -40,5 +40,8 @@
     "ignoredBuiltDependencies": [
       "vue-demi"
     ]
+  },
+  "devDependencies": {
+    "shiki": "^3.2.1"
   }
 }

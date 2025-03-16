@@ -65,6 +65,10 @@ importers:
       vue-router:
         specifier: latest
         version: 4.5.0(vue@3.5.13(typescript@5.8.2))
+    devDependencies:
+      shiki:
+        specifier: ^3.2.1
+        version: 3.2.1
 
 packages:
 
