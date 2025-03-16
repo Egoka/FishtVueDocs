@@ -15,9 +15,12 @@ export type DemoEmits = {
 
 <script setup lang="ts">
 import {cn} from "#imports";
-import {ref, computed, watch} from "vue";
+import {ref, watch} from "vue";
 import {createHighlighter} from "shiki";
-import {isClient} from "@vueuse/core";
+import {isClient, useClipboard} from "@vueuse/core";
+import {useI18n} from "vue-i18n";
+const {t} = useI18n()
+
 
 // Пропсы и события
 const props = defineProps<{
@@ -55,17 +58,16 @@ const highlightedCode = ref("")
 function updateGeneratedCode() {
   const componentName = props.title; // Можно расширить для Select, Switch
   const optionsForComponent = props.options
-      .reduce((res: any, opt: DemoOption) => {
-        if (opt.nameComp && opt.modelValue)
-          res[opt.nameComp] = opt.modelValue
-        return res
-      }, {})
-
+      .filter(opt => opt.nameComp && opt.modelValue)
+  console.log("optionsForComponent", optionsForComponent, props.options)
   if (optionsForComponent.length === 0) {
     generatedCode.value = `<${componentName}/>`;
   } else {
-    const attrs = Object.entries(optionsForComponent).map(([key, value]) => `${key}="${value}"`).join("\n ");
-        // .filter(([key]) => key !== "typeComp" && key !== "nameComp")
+    const attrs = optionsForComponent.map((item) => {
+      if (item.typeComp === "switch") return item.modelValue ? item.nameComp : false
+      if (item.typeComp === "select" && item.multiple) return `${item.nameComp}="[${item.modelValue}]"`
+      return `${item.nameComp}="${item.modelValue}"`
+    }).filter(Boolean).join("\n ");
     generatedCode.value = `<${componentName} ${attrs ? `\n ${attrs}\n` : ''}/>`;
   }
   if (isClient) {
@@ -79,10 +81,29 @@ function updateGeneratedCode() {
 
 // Отслеживание изменений в options
 watch(() => props.options, updateGeneratedCode, {deep: true});
+
+watch(() => colorMode.value, updateGeneratedCode)
+
+// updateGeneratedCode()
 onMounted(()=> {
   updateGeneratedCode()
 })
-watch(() => colorMode.value, updateGeneratedCode)
+
+const clipboard = useClipboard()
+const copied = ref(false)
+let timeoutId: ReturnType<typeof setTimeout> | null = null;
+function copy() {
+  clipboard.copy(generatedCode.value || '')
+
+  copied.value = true
+
+  timeoutId = setTimeout(() => {
+    copied.value = false
+  }, 2000)
+}
+onUnmounted(() => {
+  if (timeoutId) clearTimeout(timeoutId);
+});
 </script>
 
 <template>
@@ -97,7 +118,7 @@ watch(() => colorMode.value, updateGeneratedCode)
             units="percentages"
             :panels="[{ name: 'top' }, { name: 'bottom', size: 30, maxSize: 70, minSize: 25 }]">
           <template #top>
-            <div :class="cn(`absolute top-2 left-3`, classes.title)">
+            <div :class="cn('absolute top-2 left-3 pt-5 pl-4', classes.title)">
               {{ props.title ?? "Component" }}
             </div>
             <div :class="cn(classes.demo)">
@@ -105,8 +126,20 @@ watch(() => colorMode.value, updateGeneratedCode)
             </div>
           </template>
           <template #bottom>
-            <div :class="cn('w-full h-full p-4', 'bg-white dark:bg-[#121212]', classes.blockBorder)">
-              <div :class="cn(classes.title)">Code</div>
+            <div :class="cn('group fishtvue-button', 'w-full h-full p-4 pt-10 overflow-auto', 'bg-white dark:bg-[#121212]', classes.blockBorder)">
+              <div :class="cn('absolute top-2 left-5 rounded-sm px-2', 'bg-white dark:bg-[#121212]', classes.title)">Code</div>
+              <Button
+                  type="icon"
+                  :icon="copied ? 'lucide:check' : 'lucide:copy'"
+                  classIcon="size-4 transition-all duration-300"
+                  color="neutral"
+                  mode="outline"
+                  size="xs"
+                  :aria-label="t('CopyCode')"
+                  class="absolute m-0 top-[11px] right-[11px] opacity-0 group-hover:opacity-100 transition"
+                  tabindex="-1"
+                  @click="copy"
+              />
               <div v-html="highlightedCode"></div>
             </div>
           </template>
@@ -114,7 +147,7 @@ watch(() => colorMode.value, updateGeneratedCode)
       </template>
       <template #left>
         <div :class="cn('p-4 flex flex-col gap-4 overflow-auto min-h-96 max-h-[80vh]', classes.blockBorder)">
-          <div :class="cn(`sticky -top-4 pt-5 pb-2 -mt-4 mb-4 z-10 bg-neutral-50 dark:bg-neutral-800`, classes.title)">
+          <div :class="cn(`sticky -top-4 pt-5 pl-4 pb-2 -mt-4 mb-4 z-10 bg-neutral-50 dark:bg-neutral-800`, classes.title)">
             Options
           </div>
           <div v-for="option in options" :key="option.nameComp">
@@ -146,3 +179,14 @@ watch(() => colorMode.value, updateGeneratedCode)
     </Split>
   </div>
 </template>
+<style>
+.shiki span.line {
+  display: block;
+  line-height: 0px;
+}
+
+.shiki span.line.highlight {
+  margin: 0 -16px;
+  padding: 0 16px;
+}
+</style>

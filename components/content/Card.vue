@@ -31,7 +31,7 @@ const classes = ref<Record<"base" | "icon" | "title" | "description" | "external
       "bg-neutral-50 dark:bg-neutral-800 " +
       "hover:bg-neutral-100/50 dark:hover:bg-neutral-800/50 " +
       "hover:border-theme-500 dark:hover:border-theme-400",
-  icon: "size-7 sm:size-6 m-2 block text-neutral-900 dark:text-neutral-white",
+  icon: "size-7 sm:size-6 m-2 block text-neutral-900 dark:text-neutral-400",
   title: "text-neutral-900 dark:text-white text-lg font-semibold",
   description: "text-[15px] text-neutral-500 dark:text-neutral-400",
   externalIcon: "size-4 align-top absolute right-2 top-2 " +
