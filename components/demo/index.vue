@@ -17,6 +17,7 @@ export type DemoEmits = {
 import {cn} from "#imports";
 import {ref, computed, watch} from "vue";
 import {createHighlighter} from "shiki";
+import {isClient} from "@vueuse/core";
 
 // Пропсы и события
 const props = defineProps<{
@@ -48,6 +49,7 @@ const highlighter = await createHighlighter({
 
 // Реактивные данные для хранения сгенерированного кода
 const generatedCode = ref("");
+const highlightedCode = ref("")
 
 // Функция для генерации кода компонента
 function updateGeneratedCode() {
@@ -62,27 +64,25 @@ function updateGeneratedCode() {
   if (optionsForComponent.length === 0) {
     generatedCode.value = `<${componentName}/>`;
   } else {
-    const attrs = Object.entries(optionsForComponent)
-        .filter(([key]) => key !== "typeComp" && key !== "nameComp")
-        .map(([key, value]) => `${key}="${value}"`)
-        .join("\n ");
+    const attrs = Object.entries(optionsForComponent).map(([key, value]) => `${key}="${value}"`).join("\n ");
+        // .filter(([key]) => key !== "typeComp" && key !== "nameComp")
     generatedCode.value = `<${componentName} ${attrs ? `\n ${attrs}\n` : ''}/>`;
+  }
+  if (isClient) {
+    const theme = colorMode.value === "light" ? "vitesse-light" : colorMode.value === "dark" ? "vitesse-dark" : ""
+    highlightedCode.value = highlighter.codeToHtml(generatedCode.value, {lang: "vue", theme})
   }
 }
 
-// Инициализация кода при монтировании
-updateGeneratedCode();
+// // Инициализация кода при монтировании
+// updateGeneratedCode();
 
 // Отслеживание изменений в options
 watch(() => props.options, updateGeneratedCode, {deep: true});
-
-// Подсвеченный код для отображения
-const highlightedCode = computed(() =>
-    highlighter.codeToHtml(generatedCode.value, {
-      lang: "vue",
-      theme: colorMode.value === "light" ? "vitesse-light" : "vitesse-dark"
-    })
-)
+onMounted(()=> {
+  updateGeneratedCode()
+})
+watch(() => colorMode.value, updateGeneratedCode)
 </script>
 
 <template>
@@ -94,6 +94,7 @@ const highlightedCode = computed(() =>
       <template #right>
         <Split
             direction="vertical"
+            units="percentages"
             :panels="[{ name: 'top' }, { name: 'bottom', size: 30, maxSize: 70, minSize: 25 }]">
           <template #top>
             <div :class="cn(`absolute top-2 left-3`, classes.title)">
