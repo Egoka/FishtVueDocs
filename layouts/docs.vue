@@ -6,7 +6,6 @@ const {data: navigation, refresh} = useAsyncData(`navigation-${locale.value}`, (
     queryCollectionNavigation(locale.value, ['icon', 'name'])
 )
 watch(() => locale.value, async () => await refresh())
-console.log("navigation", navigation.value)
 </script>
 
 <template>

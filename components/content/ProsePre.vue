@@ -68,12 +68,12 @@ onUnmounted(() => {
   </div>
 </template>
 
-<style>
-.shiki span.line {
+<style scoped>
+:deep(.shiki span.line) {
   display: block
 }
 
-.shiki span.line.highlight {
+:deep(.shiki span.line.highlight) {
   margin: 0 -16px;
   padding: 0 16px;
 }

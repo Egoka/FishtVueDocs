@@ -1,38 +1,33 @@
 <script setup lang="ts">
 import type {DemoOption} from "~/components/demo/index.vue";
 import type {SelectProps} from "#fishtvue/select";
-import {countries} from "~/components/demo/select/dataForExample";
+import {colors} from "~/components/demo/select/dataForExample";
 import {useI18n} from "vue-i18n";
 
 const {locale} = useI18n()
-const data = ref(countries[locale.value])
-const optionsValues = reactive<SelectProps>({
-  dataSelect: [data.value[0]]
+const optionsValues = ref<SelectProps>({
+  dataSelect: [colors[locale.value][0]]
 })
 const options = computed<DemoOption[]>(() => ([
-  {nameComp: "mode", modelValue: optionsValues["mode"], label: "Mode", typeComp: "select", dataSelect: ["filled", "outlined", "underlined"]},
+  {nameComp: "mode", modelValue: optionsValues.value["mode"], label: "Mode", typeComp: "select", dataSelect: ["filled", "outlined", "underlined"]},
   {
     nameComp: "dataSelect",
-    modelValue: optionsValues["dataSelect"],
+    modelValue: optionsValues.value["dataSelect"],
     label: "Data Select",
     typeComp: "select",
     multiple: true,
     maxVisible: 2,
     classSelect: "w-full",
-    dataSelect: data.value
+    dataSelect: colors[locale.value]
   },
-  {nameComp: "multiple", modelValue: optionsValues["multiple"], label: "Multiple", typeComp: "switch"},
-  {nameComp: "maxVisible", modelValue: optionsValues["maxVisible"], label: "Max visible", help: "Maximum visible number of selected items", typeComp: "input", type: "number"},
-  {nameComp: "required", modelValue: optionsValues["required"], label: "Is required", typeComp: "switch"},
+  {nameComp: "multiple", modelValue: optionsValues.value["multiple"], label: "Multiple", typeComp: "switch"},
+  {nameComp: "maxVisible", modelValue: optionsValues.value["maxVisible"], label: "Max visible", disabled: !optionsValues.value["multiple"], help: "Maximum visible number of selected items", typeComp: "input", type: "number"},
+  {nameComp: "required", modelValue: optionsValues.value["required"], label: "Is required", typeComp: "switch"},
 ]))
-
-function updateValue(name: keyof SelectProps, value: any) {
-  optionsValues[name] = value
-}
 </script>
 
 <template>
-    <Demo title="Select" :options="options" @update:value="updateValue as any">
+    <Demo v-model="optionsValues" title="Select" :options="options">
       <Select v-bind="optionsValues"/>
     </Demo>
 </template>

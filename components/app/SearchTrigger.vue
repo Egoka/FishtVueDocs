@@ -46,6 +46,7 @@ const {results: fuseResults} = useFuse<SearchSections>(searchTerm, files, fuseOp
 const navigation = computed(() => data.value?.navigation)
 const menu = computed(() => navigation.value
     ?.map((item) => {
+      console.log("fuseResults.value", fuseResults.value)
       return {
         title: item.title,
         separator: {

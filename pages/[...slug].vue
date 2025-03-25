@@ -36,7 +36,7 @@ const tabMenuItems = computed(() => tabMenu.value?.map((item) => {
 </script>
 
 <template>
-  <div class="px-6 md:px-8 lg:px-12 py-6 md:py-12 overflow-x-hidden flex-1">
+  <div class="px-6 md:px-8 lg:px-12 py-6 md:py-12 overflow-x-hidden flex-1 min-h-[85vh]">
     <DocTabMenu v-if="page" :tab-menu-items="tabMenuItems"/>
     <Button v-if="page && page?.body.toc?.links?.length" mode="outline" class="w-max relative xl:hidden">
       {{ t('onPage') }}

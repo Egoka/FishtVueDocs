@@ -9,7 +9,7 @@ type OptionSelect = BaseOption & { typeComp: "select" } & SelectProps;
 type OptionSwitch = BaseOption & { typeComp: "switch" } & SwitchProps;
 export type DemoOption = OptionInput | OptionSelect | OptionSwitch;
 export type DemoEmits = {
-  (event: "update:value", name: DemoEmits["name"], payload: any): void;
+  (event: "update:modelValue", payload: any): void;
 };
 </script>
 
@@ -24,6 +24,7 @@ const {t} = useI18n()
 
 // Пропсы и события
 const props = defineProps<{
+  modelValue: any;
   title?: string;
   options: DemoOption[];
   class?: string;
@@ -50,25 +51,23 @@ const highlighter = await createHighlighter({
   langs: ['vue', 'javascript'],
 });
 
-// Реактивные данные для хранения сгенерированного кода
+const optionsValues = reactive<Record<string, any>>({})
 const generatedCode = ref("");
 const highlightedCode = ref("")
 
-// Функция для генерации кода компонента
 function updateGeneratedCode() {
-  const componentName = props.title; // Можно расширить для Select, Switch
+  const componentName = props.title;
   const optionsForComponent = props.options
       .filter(opt => opt.nameComp && opt.modelValue)
-  console.log("optionsForComponent", optionsForComponent, props.options)
   if (optionsForComponent.length === 0) {
-    generatedCode.value = `<${componentName}/>`;
+    generatedCode.value = `<${componentName}></${componentName}>`;
   } else {
     const attrs = optionsForComponent.map((item) => {
       if (item.typeComp === "switch") return item.modelValue ? item.nameComp : false
       if (item.typeComp === "select" && item.multiple) return `${item.nameComp}="[${item.modelValue}]"`
       return `${item.nameComp}="${item.modelValue}"`
     }).filter(Boolean).join("\n ");
-    generatedCode.value = `<${componentName} ${attrs ? `\n ${attrs}\n` : ''}/>`;
+    generatedCode.value = `<${componentName} ${attrs ? `\n ${attrs}\n` : ''}></${componentName}>`;
   }
   if (isClient) {
     const theme = colorMode.value === "light" ? "vitesse-light" : colorMode.value === "dark" ? "vitesse-dark" : ""
@@ -76,15 +75,10 @@ function updateGeneratedCode() {
   }
 }
 
-// // Инициализация кода при монтировании
-// updateGeneratedCode();
-
-// Отслеживание изменений в options
 watch(() => props.options, updateGeneratedCode, {deep: true});
 
 watch(() => colorMode.value, updateGeneratedCode)
 
-// updateGeneratedCode()
 onMounted(()=> {
   updateGeneratedCode()
 })
@@ -104,6 +98,11 @@ function copy() {
 onUnmounted(() => {
   if (timeoutId) clearTimeout(timeoutId);
 });
+
+function updateValue(name: string, value: any) {
+  optionsValues[name] = value
+  emit("update:modelValue", optionsValues)
+}
 </script>
 
 <template>
@@ -140,7 +139,7 @@ onUnmounted(() => {
                   tabindex="-1"
                   @click="copy"
               />
-              <div v-html="highlightedCode"></div>
+              <div class="shiki" v-html="highlightedCode"></div>
             </div>
           </template>
         </Split>
@@ -157,7 +156,7 @@ onUnmounted(() => {
                 mode="filled"
                 autocomplete="off"
                 clear
-                @update:modelValue="(value: any) => emit('update:value', option.nameComp, value)"
+                @update:modelValue="(value: any) => updateValue(option.nameComp, value)"
             />
             <Select
                 v-if="option.typeComp === 'select'"
@@ -165,13 +164,13 @@ onUnmounted(() => {
                 mode="filled"
                 noQuery
                 clear
-                @update:modelValue="(value: any) => emit('update:value', option.nameComp, value)"
+                @update:modelValue="(value: any) => updateValue(option.nameComp, value)"
             />
             <Switch
                 v-if="option.typeComp === 'switch'"
                 v-bind="option"
                 switchingType="switch"
-                @update:modelValue="(value: any) => emit('update:value', option.nameComp, value)"
+                @update:modelValue="(value: any) => updateValue(option.nameComp, value)"
             />
           </div>
         </div>
@@ -179,13 +178,13 @@ onUnmounted(() => {
     </Split>
   </div>
 </template>
-<style>
-.shiki span.line {
+<style scoped>
+:deep(.shiki span.line) {
   display: block;
-  line-height: 0px;
+  line-height: 0;
 }
 
-.shiki span.line.highlight {
+:deep(.shiki span.line.highlight) {
   margin: 0 -16px;
   padding: 0 16px;
 }
