@@ -1,9 +1,13 @@
+<script setup lang="ts">
+const classes = ref<string[]>([
+  'dark:text-neutral-100 text-neutral-900',
+  'bg-neutral-100 dark:bg-neutral-900',
+  'selection:bg-theme-300 selection:text-theme-900 dark:selection:bg-theme-900 dark:selection:text-theme-200',
+  'transition-colors'
+])
+</script>
 <template>
-  <Body class="dark:text-neutral-100 text-neutral-900 bg-neutral-100 dark:bg-neutral-900 transition-colors">
-<!--  <ClientOnly>-->
-<!--    <Doc039/>-->
-<!--  </ClientOnly>-->
-
+  <Body :class="classes">
   <NuxtLoadingIndicator/>
   <NuxtRouteAnnouncer/>
   <AppMain>

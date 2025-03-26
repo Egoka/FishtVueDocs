@@ -3,8 +3,7 @@ import {useEventListener} from "@vueuse/core"
 import type { P5I } from 'p5i'
 import { p5i } from 'p5i'
 import { onMounted, onUnmounted, ref } from 'vue'
-// import Paper from '../components/Paper.vue'
-
+const colorMode = useColorMode()
 const el = ref<HTMLCanvasElement | null>(null)
 
 const {
@@ -25,10 +24,13 @@ const {
 let w = window.innerWidth
 let h = window.innerHeight
 const offsetY = window.scrollY
+let mouseX = 0
+let mouseY = 0
 
 const SCALE = 200
 const LENGTH = 10
-const SPACING = 35
+const SPACING = 22
+const GLOW_DISTANCE = 50 // Расстояние, на котором точки начинают светиться другим цветом
 
 function getForceOnPoint(x: number, y: number, z: number) {
   // https://p5js.org/reference/#/p5/noise
@@ -55,15 +57,12 @@ function setup() {
   background('#ffffff')
   stroke('#ccc')
   noFill()
-
   noiseSeed(+new Date())
-
   addPoints()
 }
 
 function draw({ circle }: P5I) {
-  background('#ffffff')
-  // background('#1f1f1f')
+  background(colorMode.value === 'light' ? '#f5f5f5' : '#171717')
   const t = +new Date() / 10000
 
   for (const p of points) {
@@ -72,7 +71,19 @@ function draw({ circle }: P5I) {
     const length = (noise(x / SCALE, y / SCALE, t * 2) + 0.5) * LENGTH
     const nx = x + cos(rad) * length
     const ny = y + sin(rad) * length
-    stroke(67, 240, 153, (Math.abs(cos(rad)) * 0.5 + 0.5) * p.opacity * 255)
+
+    const distToMouse = Math.sqrt((nx - mouseX) ** 2 + (ny - offsetY - mouseY) ** 2)
+
+    if (distToMouse < GLOW_DISTANCE) {
+      if (colorMode.value === 'light')
+        stroke(15, 180, 100, (Math.abs(cos(rad)) * 0.5 + 0.5) * p.opacity * 255)
+      else stroke(130, 200, 160, (Math.abs(cos(rad)) * 0.5 + 0.5) * p.opacity * 255)
+    } else {
+      if (colorMode.value === 'light')
+        stroke(150, 225, 175, (Math.abs(cos(rad)) * 0.5 + 0.5) * p.opacity * 255)
+      else stroke(15, 55, 30, (Math.abs(cos(rad)) * 0.5 + 0.5) * p.opacity * 255)
+    }
+
     circle(nx, ny - offsetY, 1)
   }
 }
@@ -85,19 +96,18 @@ function restart() {
 onMounted(() => {
   restart()
 
+  // Отслеживание позиции курсора
+  useEventListener('mousemove', (event) => {
+    mouseX = event.clientX
+    mouseY = event.clientY
+  })
+
   useEventListener('resize', () => {
     w = window.innerWidth
     h = window.innerHeight
     resizeCanvas(w, h)
     addPoints()
   })
-
-  // Uncomment to enable scroll-based animation
-  // Tho there is some lag when scrolling, not sure if it's solvable
-  // useEventListener('scroll', () => {
-  //   offsetY = window.scrollY
-  //   addPoints()
-  // }, { passive: true })
 })
 
 onUnmounted(() => {

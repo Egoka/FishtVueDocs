@@ -2,12 +2,15 @@
 import type {InputProps} from "#fishtvue/input";
 import type {SelectProps} from "#fishtvue/select";
 import type {SwitchProps} from "#fishtvue/switch";
+import type {AriaProps} from "#fishtvue/aria";
 
 type BaseOption = { nameComp: string };
 type OptionInput = BaseOption & { typeComp: "input" } & InputProps;
 type OptionSelect = BaseOption & { typeComp: "select" } & SelectProps;
 type OptionSwitch = BaseOption & { typeComp: "switch" } & SwitchProps;
-export type DemoOption = OptionInput | OptionSelect | OptionSwitch;
+type OptionAria = BaseOption & { typeComp: "aria" } & AriaProps;
+export type PropsComponentsType = InputProps | SelectProps
+export type DemoOption = OptionInput | OptionSelect | OptionSwitch | OptionAria;
 export type DemoEmits = {
   (event: "update:modelValue", payload: any): void;
 };
@@ -36,10 +39,10 @@ const classes = ref({
   root:
       "rounded-sm w-full relative my-4" +
       "border border-dashed border-neutral-200 dark:border-neutral-700 " +
-      "bg-neutral-50 dark:bg-neutral-800",
+      "bg-neutral-50/70 dark:bg-neutral-800/70",
   demo:
       "flex justify-center items-center p-8 gap-4 w-full h-full " +
-      "rounded-sm border border-dashed border-neutral-200 dark:border-neutral-700 " +
+      "rounded-sm border border-neutral-200 dark:border-neutral-700 " +
       "text-neutral-950/5 dark:text-neutral-50/5 bg-[size:10px_10px] bg-fixed bg-[image:repeating-linear-gradient(315deg,currentColor_0,currentColor_1px,_transparent_0,_transparent_50%)]",
   title: "font-asap font-bold text-neutral-400 dark:text-neutral-400",
   blockBorder: 'rounded-sm border border-neutral-200 dark:border-neutral-700'
@@ -118,7 +121,7 @@ function updateValue(name: string, value: any) {
             :panels="[{ name: 'top' }, { name: 'bottom', size: 30, maxSize: 70, minSize: 25 }]">
           <template #top>
             <div :class="cn('absolute top-2 left-3 pt-5 pl-4', classes.title)">
-              {{ props.title ?? "Component" }}
+              {{ props.title ?? t('Component') }}
             </div>
             <div :class="cn(classes.demo)">
               <slot/>
@@ -126,7 +129,9 @@ function updateValue(name: string, value: any) {
           </template>
           <template #bottom>
             <div :class="cn('group fishtvue-button', 'w-full h-full p-4 pt-10 overflow-auto', 'bg-white dark:bg-[#121212]', classes.blockBorder)">
-              <div :class="cn('absolute top-2 left-5 rounded-sm px-2', 'bg-white dark:bg-[#121212]', classes.title)">Code</div>
+              <div :class="cn('absolute top-2 left-5 rounded-sm px-2', 'bg-white dark:bg-[#121212]', classes.title)">
+                {{ t('Code') }}
+              </div>
               <Button
                   type="icon"
                   :icon="copied ? 'lucide:check' : 'lucide:copy'"
@@ -145,33 +150,43 @@ function updateValue(name: string, value: any) {
         </Split>
       </template>
       <template #left>
-        <div :class="cn('p-4 flex flex-col gap-4 overflow-auto min-h-96 max-h-[80vh]', classes.blockBorder)">
-          <div :class="cn(`sticky -top-4 pt-5 pl-4 pb-2 -mt-4 mb-4 z-10 bg-neutral-50 dark:bg-neutral-800`, classes.title)">
-            Options
+        <div :class="cn('p-4', classes.blockBorder)">
+          <div :class="cn('p-4', classes.title)">
+            {{ t('Options') }}
           </div>
-          <div v-for="option in options" :key="option.nameComp">
-            <Input
-                v-if="option.typeComp === 'input'"
-                v-bind="option"
-                mode="filled"
-                autocomplete="off"
-                clear
-                @update:modelValue="(value: any) => updateValue(option.nameComp, value)"
-            />
-            <Select
-                v-if="option.typeComp === 'select'"
-                v-bind="option"
-                mode="filled"
-                noQuery
-                clear
-                @update:modelValue="(value: any) => updateValue(option.nameComp, value)"
-            />
-            <Switch
-                v-if="option.typeComp === 'switch'"
-                v-bind="option"
-                switchingType="switch"
-                @update:modelValue="(value: any) => updateValue(option.nameComp, value)"
-            />
+          <div :class="cn('flex flex-col gap-4 overflow-auto min-h-96 max-h-[70vh]')">
+            <div v-for="option in options" :key="option.nameComp">
+              <Input
+                  v-if="option.typeComp === 'input'"
+                  v-bind="option"
+                  mode="filled"
+                  autocomplete="off"
+                  clear
+                  @update:modelValue="(value: any) => updateValue(option.nameComp, value)"
+              />
+              <Select
+                  v-if="option.typeComp === 'select'"
+                  v-bind="option"
+                  mode="filled"
+                  noQuery
+                  clear
+                  @update:modelValue="(value: any) => updateValue(option.nameComp, value)"
+              />
+              <Switch
+                  v-if="option.typeComp === 'switch'"
+                  v-bind="option"
+                  switchingType="switch"
+                  @update:modelValue="(value: any) => updateValue(option.nameComp, value)"
+              />
+              <Aria
+                  v-if="option.typeComp === 'aria'"
+                  v-bind="option"
+                  mode="filled"
+                  autocomplete="off"
+                  clear
+                  @update:modelValue="(value: any) => updateValue(option.nameComp, value)"
+              />
+            </div>
           </div>
         </div>
       </template>
