@@ -22,3 +22,30 @@ export const musicalInstruments = {
     "en": ["guitar", "piano", "violin", "drums", "flute", "saxophone", "trumpet", "cello", "harp", "clarinet"],
     "ru": ["гитара", "пианино", "скрипка", "барабаны", "флейта", "саксофон", "труба", "виолончель", "арфа", "кларнет"]
 }
+
+export const colorsObj:Record<string, any[]> = {
+    "en": [
+        { id: 1, name: "red", shortName: "r" },
+        { id: 2, name: "blue", shortName: "b" },
+        { id: 3, name: "green", shortName: "g" },
+        { id: 4, name: "yellow", shortName: "y" },
+        { id: 5, name: "purple", shortName: "p" },
+        { id: 6, name: "orange", shortName: "o" },
+        { id: 7, name: "black", shortName: "blk" },
+        { id: 8, name: "white", shortName: "w" },
+        { id: 9, name: "pink", shortName: "pnk" },
+        { id: 10, name: "brown", shortName: "br" }
+    ],
+    "ru": [
+        { id: 1, name: "красный", shortName: "кр" },
+        { id: 2, name: "синий", shortName: "с" },
+        { id: 3, name: "зеленый", shortName: "з" },
+        { id: 4, name: "желтый", shortName: "ж" },
+        { id: 5, name: "фиолетовый", shortName: "ф" },
+        { id: 6, name: "оранжевый", shortName: "ор" },
+        { id: 7, name: "черный", shortName: "ч" },
+        { id: 8, name: "белый", shortName: "б" },
+        { id: 9, name: "розовый", shortName: "рз" },
+        { id: 10, name: "коричневый", shortName: "кч" }
+    ]
+}

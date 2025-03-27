@@ -50,7 +50,9 @@ const isDesktop = breakpoints.greaterOrEqual('md'); // ≥768px
         <AppLocaleSwitch/>
       </div>
       <Separator class="my-2" :gradient="5"></Separator>
-      <DocSidebar :items="navigation ?? []"/>
+      <div class=" h-full overflow-y-auto max-h-[calc(100vh-8rem)]">
+        <DocSidebar :items="navigation ?? []" class="overflow-auto"/>
+      </div>
     </Dialog>
   </div>
 </template>

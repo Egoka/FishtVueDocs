@@ -8,7 +8,7 @@ const classes = ref<string[]>([
 </script>
 <template>
   <Body :class="classes">
-  <NuxtLoadingIndicator/>
+  <NuxtLoadingIndicator color="var(--color-theme-500)"/>
   <NuxtRouteAnnouncer/>
   <AppMain>
     <NuxtLayout>

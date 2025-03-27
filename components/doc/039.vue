@@ -76,11 +76,11 @@ function draw({ circle }: P5I) {
 
     if (distToMouse < GLOW_DISTANCE) {
       if (colorMode.value === 'light')
-        stroke(15, 180, 100, (Math.abs(cos(rad)) * 0.5 + 0.5) * p.opacity * 255)
+        stroke(0, 130, 0, (Math.abs(cos(rad)) * 0.5 + 0.5) * p.opacity * 255)
       else stroke(130, 200, 160, (Math.abs(cos(rad)) * 0.5 + 0.5) * p.opacity * 255)
     } else {
       if (colorMode.value === 'light')
-        stroke(150, 225, 175, (Math.abs(cos(rad)) * 0.5 + 0.5) * p.opacity * 255)
+        stroke(130, 255, 165, (Math.abs(cos(rad)) * 0.5 + 0.5) * p.opacity * 255)
       else stroke(15, 55, 30, (Math.abs(cos(rad)) * 0.5 + 0.5) * p.opacity * 255)
     }
 

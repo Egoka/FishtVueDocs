@@ -1,20 +1,18 @@
 <script setup lang="ts">
 import type {DemoOption} from "~/components/demo/index.vue";
 import type {CalendarProps} from "#fishtvue/calendar";
+import {layoutConfigOptions} from "~/components/demo/configOptions";
 
 const optionsValues = ref<CalendarProps>({})
-const options = computed<DemoOption[]>(()=>([
-  // {nameComp: "type", modelValue: optionsValues["type"], label: "Type", typeComp: "select", dataSelect: ["text", "number", "email", "password"]},
-  {nameComp: "mode", modelValue: optionsValues.value["mode"], label: "Mode", typeComp: "select", dataSelect: ["filled", "outlined", "underlined"]},
-  {nameComp: "autoFocus", modelValue: optionsValues.value["autoFocus"], label: "Auto focus", typeComp: "switch"},
-  {nameComp: "label", modelValue: optionsValues.value["label"], label: "Label", typeComp: "input"},
-  // {nameComp: "placeholder", modelValue: optionsValues.value["placeholder"], label: "Placeholder", typeComp: "input"},
-  // {nameComp: "autocomplete", modelValue: optionsValues.value["autocomplete"], label: "Autocomplete", typeComp: "select", dataSelect: ["on", "off"]},
-  // {nameComp: "maskInput", modelValue: optionsValues.value["maskInput"], label: "Mask", typeComp: "select", dataSelect: ["phone", "number", "price"]},
-  {nameComp: "clear", modelValue: optionsValues.value["clear"], label: "Is clear", typeComp: "switch"},
-  {nameComp: "help", modelValue: optionsValues.value["help"], label: "Help text", typeComp: "input"},
-  {nameComp: "required", modelValue: optionsValues.value["required"], label: "Is required", typeComp: "switch"},
-]))
+const options = computed<DemoOption[]>(() => layoutConfigOptions<CalendarProps>(optionsValues.value,
+    [
+      "mode", "label", "labelMode", "autoFocus",
+      "isNotCloseOnDateChange",
+      "isInvalid", "messageInvalid",
+      "required", "loading", "disabled", "clear", "help",
+      "width", "height", "animation",
+      "classDataPicker", "classPicker", "classDateText", "classBody", "class"
+    ]))
 </script>
 
 <template>

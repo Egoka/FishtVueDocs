@@ -36,7 +36,7 @@ const tabMenuItems = computed(() => tabMenu.value?.map((item) => {
 </script>
 
 <template>
-  <div class="px-6 md:px-8 lg:px-12 py-6 md:py-12 overflow-x-hidden flex-1 min-h-[85vh]">
+  <div class="px-6 md:px-8 lg:px-12 pt-6 md:pt-12 overflow-x-hidden flex-1 min-h-[85vh]">
     <DocTabMenu v-if="page" :tab-menu-items="tabMenuItems"/>
     <Button v-if="page && page?.body.toc?.links?.length" mode="outline" class="w-max relative xl:hidden">
       {{ t('onPage') }}
@@ -45,7 +45,7 @@ const tabMenuItems = computed(() => tabMenu.value?.map((item) => {
         <DocOutline v-if="page?.body.toc?.links?.length" :headers="page?.body.toc?.links"/>
       </FixWindow>
     </Button>
-    <article class="w-full prose prose-stone dark:prose-invert max-w-none">
+    <article class="w-full prose prose-stone dark:prose-invert max-w-none min-h-[calc(100vh-30rem)]">
       <DocHeader v-if="page" :title="page?.title" :description="page?.description" :links="page?.links"/>
       <div v-if="page" class="mt-8 space-y-12">
         <ContentRenderer :value="page"/>
@@ -55,6 +55,7 @@ const tabMenuItems = computed(() => tabMenu.value?.map((item) => {
       </template>
     </article>
     <DocFooter v-if="page" :control="surround"/>
+    <AppFooter class="w-[93vw] md:w-[65vw] md:px-8"/>
   </div>
 
   <div v-if="page"

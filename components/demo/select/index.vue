@@ -1,29 +1,25 @@
 <script setup lang="ts">
 import type {DemoOption} from "~/components/demo/index.vue";
 import type {SelectProps} from "#fishtvue/select";
-import {colors} from "~/components/demo/select/dataForExample";
+import {colorsObj} from "~/components/demo/select/dataForExample";
 import {useI18n} from "vue-i18n";
+import {layoutConfigOptions} from "~/components/demo/configOptions";
 
 const {locale} = useI18n()
 const optionsValues = ref<SelectProps>({
-  dataSelect: [colors[locale.value][0]]
+  dataSelect: [colorsObj[locale.value][0]]
 })
-const options = computed<DemoOption[]>(() => ([
-  {nameComp: "mode", modelValue: optionsValues.value["mode"], label: "Mode", typeComp: "select", dataSelect: ["filled", "outlined", "underlined"]},
-  {
-    nameComp: "dataSelect",
-    modelValue: optionsValues.value["dataSelect"],
-    label: "Data Select",
-    typeComp: "select",
-    multiple: true,
-    maxVisible: 2,
-    classSelect: "w-full",
-    dataSelect: colors[locale.value]
-  },
-  {nameComp: "multiple", modelValue: optionsValues.value["multiple"], label: "Multiple", typeComp: "switch"},
-  {nameComp: "maxVisible", modelValue: optionsValues.value["maxVisible"], label: "Max visible", disabled: !optionsValues.value["multiple"], help: "Maximum visible number of selected items", typeComp: "input", type: "number"},
-  {nameComp: "required", modelValue: optionsValues.value["required"], label: "Is required", typeComp: "switch"},
-]))
+const options = computed<DemoOption[]>(() => layoutConfigOptions<SelectProps>(optionsValues.value,
+    [
+      "dataSelect", "keySelect", "valueSelect",
+      "mode", "label", "labelMode", "autoFocus",
+      "multiple", "maxVisible", "closeButtonBadge",
+      "isInvalid", "messageInvalid",
+      "required", "loading", "disabled", "clear", "help",
+      "width", "height", "animation",
+      "noData", "noQuery",
+      "classSelect", "classSelectList", "classMaskQuery", "classBody", "class"
+    ]))
 </script>
 
 <template>
