@@ -6,6 +6,7 @@ import type {SelectProps} from "#fishtvue/select";
 import type {CalendarProps} from "#fishtvue/calendar";
 import type {SwitchProps} from "#fishtvue/switch";
 import type {AriaProps} from "#fishtvue/aria";
+import type {ButtonProps} from "#fishtvue/button";
 import {colorsObj} from "~/components/demo/select/dataForExample";
 
 export const dataSelectMode = ["filled", "outlined", "underlined"]
@@ -17,7 +18,13 @@ export const dataSelectAnimation = [
     {id: "transition-all duration-500", value: "500"},
     {id: "transition-all duration-1000", value: "1000"},
 ]
-export const layoutConfigOptions = <T extends InputProps | SelectProps | CalendarProps | SwitchProps>(optionsValues: T, namesOptions?: Array<keyof T>): DemoOption[] => {
+export const layoutConfigOptions = <T extends InputLayoutProps |
+    InputProps |
+    SelectProps |
+    CalendarProps |
+    SwitchProps |
+    ButtonProps
+>(optionsValues: T, namesOptions?: Array<keyof T>): DemoOption[] => {
     const { $i18n } = useNuxtApp()
     const {t, locale} = $i18n
     const resultOptions = ([
@@ -112,7 +119,8 @@ export const layoutConfigOptions = <T extends InputProps | SelectProps | Calenda
             modelValue: (optionsValues as InputLayoutProps)["classBody"],
             label: t("label.classBody"),
             help: t("help.classBody"),
-            typeComp: "aria"},
+            typeComp: "aria"
+        },
         {
             nameComp: "class", modelValue: (optionsValues as InputLayoutProps)["class"],
             label: t("label.class"),
@@ -193,7 +201,7 @@ export const layoutConfigOptions = <T extends InputProps | SelectProps | Calenda
             multiple: true,
             maxVisible: 2,
             classSelect: "w-full",
-            dataSelect: colorsObj[locale]
+            dataSelect: colorsObj[locale.value]
         },
         {
             nameComp: "keySelect",
@@ -201,7 +209,7 @@ export const layoutConfigOptions = <T extends InputProps | SelectProps | Calenda
             modelValue: (optionsValues as SelectProps)["keySelect"],
             label: t("label.keySelect"),
             help: t("help.keySelect"),
-            dataSelect: Object.keys(colorsObj[locale][0])
+            dataSelect: Object.keys(colorsObj[locale.value][0])
         },
         {
             nameComp: "valueSelect",
@@ -209,7 +217,7 @@ export const layoutConfigOptions = <T extends InputProps | SelectProps | Calenda
             modelValue: (optionsValues as SelectProps)["valueSelect"],
             label: t("label.valueSelect"),
             help: t("help.valueSelect"),
-            dataSelect: Object.keys(colorsObj[locale][0])
+            dataSelect: Object.keys(colorsObj[locale.value][0])
         },
         {
             nameComp: "multiple",
@@ -370,9 +378,75 @@ export const layoutConfigOptions = <T extends InputProps | SelectProps | Calenda
             type: "number",
             maskInput: "number"
         },
+        //Button
+        {
+            id: "modeButton",
+            nameComp: "mode",
+            typeComp: "select",
+            modelValue: (optionsValues as ButtonProps)["mode"],
+            label: t("label.mode"),
+            help: t("help.mode"),
+            dataSelect: ["primary", "outline", "ghost"]
+        },
+        {
+            nameComp: "size",
+            typeComp: "select",
+            modelValue: (optionsValues as ButtonProps)["size"],
+            label: t("label.size"),
+            help: t("help.size"),
+            dataSelect: ["xs", "sm", "md", "lg", "xl"]
+        },
+        {
+            id: "roundedButton",
+            nameComp: "rounded",
+            typeComp: "select",
+            modelValue: (optionsValues as ButtonProps)["rounded"],
+            label: t("label.rounded"),
+            help: t("help.rounded"),
+            dataSelect: ["none", "md", "lg", "full"]
+        },
+        {
+            nameComp: "color",
+            typeComp: "select",
+            modelValue: (optionsValues as ButtonProps)["color"],
+            label: t("label.color"),
+            help: t("help.color"),
+            dataSelect: ["theme", "neutral", "creative", "destructive"]
+        },
+        {
+            nameComp: "classIcon", modelValue: (optionsValues as ButtonProps)["classIcon"],
+            label: t("label.classIcon"),
+            help: t("help.classIcon"),
+            typeComp: "aria"
+        },
+        {
+            nameComp: "icon",
+            typeComp: "select",
+            modelValue: (optionsValues as ButtonProps)["icon"],
+            label: t("label.icon"),
+            help: t("help.icon"),
+            dataSelect: ["mdi-light:check", "mdi-light:alert-circle", "mdi-light:email", "mdi-light:lock"]
+        },
+        {
+            nameComp: "iconPosition",
+            typeComp: "select",
+            modelValue: (optionsValues as ButtonProps)["iconPosition"],
+            label: t("label.iconPosition"),
+            help: t("help.iconPosition"),
+            dataSelect: ["left", "right"]
+        },
+        {
+            id: "typeButton",
+            nameComp: "type",
+            typeComp: "select",
+            modelValue: (optionsValues as ButtonProps)["type"],
+            label: t("label.type"),
+            help: t("help.type"),
+            dataSelect: ["button", "reset", "submit", "icon"]
+        },
     ] as DemoOption[])
     return namesOptions?.length ? namesOptions.reduce((result: DemoOption[], nameOption) => {
-        const findOption = resultOptions.find(i => nameOption === i.nameComp)
+        const findOption = resultOptions.find(i => nameOption === i.nameComp || nameOption === i.id)
         if (findOption) result.push(findOption)
         return result
     }, []) as DemoOption[] : resultOptions
