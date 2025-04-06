@@ -8,9 +8,9 @@ import type {SwitchProps} from "#fishtvue/switch";
 import type {AriaProps} from "#fishtvue/aria";
 import {colorsObj} from "~/components/demo/select/dataForExample";
 
-const dataSelectMode = ["filled", "outlined", "underlined"]
-const dataSelectLabelMode = ["offsetDynamic", "offsetStatic", "dynamic", "static", "vanishing", "none"]
-const dataSelectAnimation = [
+export const dataSelectMode = ["filled", "outlined", "underlined"]
+export const dataSelectLabelMode = ["offsetDynamic", "offsetStatic", "dynamic", "static", "vanishing", "none"]
+export const dataSelectAnimation = [
     {id: "transition-none", value: "None"},
     {id: "transition-all duration-0", value: "0"},
     {id: "transition-all duration-100", value: "100"},

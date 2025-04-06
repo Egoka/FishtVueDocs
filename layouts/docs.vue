@@ -1,11 +1,15 @@
 <script setup lang="ts">
 import {useI18n} from "vue-i18n";
+import {useScroll} from "@vueuse/core";
 
 const {locale} = useI18n()
 const {data: navigation, refresh} = useAsyncData(`navigation-${locale.value}`, () =>
     queryCollectionNavigation(locale.value, ['icon', 'name'])
 )
 watch(() => locale.value, async () => await refresh())
+// Get from Top height
+const {arrivedState} = useScroll(globalThis.window)
+const {top} = toRefs(arrivedState)
 </script>
 
 <template>
@@ -29,7 +33,12 @@ watch(() => locale.value, async () => await refresh())
       <main class="flex flex-col md:flex-row">
         <aside
             v-if="navigation?.length"
-            class="hidden md:block w-[15rem] flex-shrink-0 m-2 p-2 py-4 rounded-sm sticky top-[7.25rem] h-full overflow-y-auto max-h-[calc(100vh-8rem)] bg-neutral-50/70 dark:bg-neutral-800/70">
+            class="hidden md:block w-[13rem] flex-shrink-0 m-2 p-2 py-4 rounded-sm sticky top-[5.25rem] h-full overflow-y-auto"
+            :class="[
+                top ? 'bg-transparent backdrop-blur-0' : 'bg-neutral-100/60 dark:bg-neutral-900/60',
+                'transition-all duration-500',
+                'max-h-[calc(100vh-8rem)] min-h-[calc(100vh-8rem)]'
+                ]">
           <DocSidebar :items="navigation ?? []"/>
           <div class="h-6 w-full"/>
         </aside>

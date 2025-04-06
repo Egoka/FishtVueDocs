@@ -13,6 +13,7 @@ const props = defineProps<{
   highlights?: number[]
   hideHeader?: boolean
   meta?: string
+  classPre?: any
   class?: any
 }>()
 
@@ -25,7 +26,7 @@ const classes = ref<Record<"root" | "header" | "icon" | "headerFilename" | "pre"
   icon: "size-4 shrink-0 rounded-xs text-neutral-200 dark:text-neutral-700",
   headerFilename: "text-neutral-700 dark:text-neutral-200 text-sm/6 font-bold",
   copy: "absolute top-[11px] right-[11px] opacity-0 group-hover:opacity-100 transition",
-  pre: "group font-mono text-sm/6 border border-neutral-200 dark:border-neutral-700  bg-neutral-50 dark:bg-neutral-800 rounded-sm px-4 py-3 whitespace-pre-wrap break-words overflow-x-auto focus:outline-none"
+  pre: "group font-mono text-sm/6 border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 rounded-sm px-4 py-3 whitespace-pre-wrap break-words overflow-x-auto focus:outline-none"
 })
 const language = computed(() => props.language)
 const languageIcon = computed<string>(() => language.value && Object.keys(iconsLanguage.value).includes(language.value) ? (iconsLanguage.value as any)?.[language.value ?? ""] : '')
@@ -46,7 +47,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div :class="classes.root">
+  <div :class="[classes.root, props.class]">
     <div v-if="filename && !hideHeader" :class="classes.header">
       <AppIcons :icon="icon ?? languageIcon ?? ''" :class="classes.icon"/>
       <span :class="classes.headerFilename">{{ filename }}</span>
@@ -63,7 +64,7 @@ onUnmounted(() => {
         tabindex="-1"
         @click="copy"
     />
-    <pre :class="[classes.pre, `shiki shiki-themes language-${language}`]"
+    <pre :class="[classes.pre, props.classPre, `shiki shiki-themes language-${language}`]"
          tabindex="0" ><slot/></pre>
   </div>
 </template>

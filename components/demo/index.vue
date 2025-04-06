@@ -154,7 +154,7 @@ function updateValue(name: string, value: any) {
           <div :class="cn('p-4', classes.title)">
             {{ t('Options') }}
           </div>
-          <div :class="cn('flex flex-col gap-4 pt-4 overflow-auto min-h-96 max-h-[70vh]')">
+          <div :class="cn('relative flex flex-col gap-4 pt-4 overflow-auto min-h-96 max-h-[70vh]')">
             <div v-for="option in options" :key="option.nameComp">
               <Input
                   v-if="option.typeComp === 'input'"

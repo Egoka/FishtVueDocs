@@ -1,4 +1,5 @@
 {
+  "Save": "Save",
   "start": "Start",
   "onPage": "On this page",
   "Community": "Community",
@@ -19,6 +20,9 @@
   "Component": "Component",
   "Code": "Code",
   "Options":  "Options",
+  "button": {
+    "Register": "Register"
+  },
   "label": {
     "mode": "Mode",
     "label": "Label",
@@ -62,51 +66,167 @@
     "modeSwitch": "Switch Mode",
     "rounded": "Rounded",
     "iconActive": "Active Icon",
-    "iconInactive": "Inactive Icon"
+    "iconInactive": "Inactive Icon",
+    "Username": "Username",
+    "Email": "Email",
+    "Password": "Password",
+    "additionalInformation": "Specify personal information",
+    "nameButton": "Name button",
+    "Input": "Input",
+    "Select": "Select",
+    "Calendar": "Calendar",
+    "Aria": "Aria",
+    "TextEditor": "TextEditor",
+    "Switch": "Switch",
+    "Custom": "Custom",
+    "isViewUsername": "View Username",
+    "isViewEmail": "View Email",
+    "isViewPassword": "View Password",
+    "requiredRule": "Required rule",
+    "requiredRuleBase": "Required role with a basic message",
+    "requiredRuleCustom": "Required role with a custom message",
+    "emailRule": "Email rule",
+    "emailRuleBase": "Email rule with a basic message",
+    "emailRuleCustom": "Email rule with a custom message",
+    "phoneRule": "Phone rule",
+    "phoneRuleBase": "Phone rule with a basic message",
+    "phoneRuleCustom": "Phone rule with a custom message",
+    "numericRule": "Numeric rule",
+    "numericRuleBase": "Numeric rule with a basic message",
+    "numericRuleCustom": "Numeric rule with a custom message",
+    "regularRule": "Regular rule",
+    "regularRuleBase": "Regular rule with a basic message",
+    "regularRuleCustom": "Regular rule with a custom message",
+    "rangeRule": "Range rule",
+    "rangeRuleBase": "Range rule with a basic message",
+    "rangeRuleCustom": "Range rule with a custom message",
+    "lengthRule": "Length rule",
+    "lengthRuleBase": "Length rule with a basic message",
+    "lengthRuleCustom": "Length rule with a custom message",
+    "asyncRule": "Async rule",
+    "asyncRuleBase": "Async rule with a basic message",
+    "asyncRuleCustom": "Async rule with a custom message",
+    "customRule": "Custom rule",
+    "customRuleBase": "Custom rule with a basic message",
+    "customRuleCustom": "Custom rule with a custom message",
+    "compareRule": "Compare rule",
+    "compareRuleBase": "Compare rule with a basic message",
+    "compareRuleCustom": "Compare rule with a custom message"
   },
-  "helps": {
-    "mode": "",
-    "label": "",
-    "labelMode":  "",
-    "isInvalid": "",
-    "messageInvalid":  "",
-    "required": "",
-    "loading":  "",
-    "disabled": "",
-    "clear":  "",
-    "help": "",
-    "width":  "",
-    "height": "",
-    "animation":  "",
-    "classBody": "",
-    "class":  "",
-    "Type": "",
-    "autoFocus":  "",
-    "placeholder": "",
-    "autocomplete":  "",
-    "maskInput": "",
-    "lengthInteger":  "",
-    "lengthDecimal": "",
-    "classInput":  "",
-    "DataSelect": "",
-    "keySelect":  "",
-    "valueSelect": "",
-    "multiple":  "",
-    "maxVisible": "Maximum visible number of selected items",
-    "closeButtonBadge":  "",
-    "noData": "",
-    "noQuery":  "",
-    "classSelect": "",
-    "classSelectList":  "",
-    "classMaskQuery": "",
-    "isNotCloseOnDateChange":  "",
-    "classDataPicker": "",
-    "classPicker":  "",
-    "classDateText": "",
-    "switchingType":  "",
-    "modeSwitch": "",
-    "rounded":  "",
-    "iconActive": "",
-    "iconInactive":  ""
+  "help": {
+    "mode": "Defines the styling mode for the component. Possible values: 'default', 'inline', 'block'.",
+    "label": "The text label associated with the input field. This label is displayed above or beside the input element.",
+    "labelMode": "Defines how the label is displayed. Possible values: 'floating', 'inline', 'hidden'.",
+    "isInvalid": "Indicates whether the input is in an invalid state. Set to true if the input has validation errors.",
+    "messageInvalid": "The validation error message to display when the input is invalid.",
+    "required": "Specifies whether the input field is required. Set to true if the input must be filled out before submitting the form.",
+    "loading": "Indicates whether the input field is in a loading state. Set to true to show a loading spinner.",
+    "disabled": "Disables the input field, making it uneditable. Set to true to disable the input.",
+    "clear": "Enables a clear button to reset the input field. Set to true to show a clear button.",
+    "help": "Additional help text displayed below the input field. Use this to provide extra information to the user.",
+    "width": "Specifies the width of the input field. Can be set to any valid CSS width value (e.g., '100px', '50%').",
+    "height": "Specifies the height of the input field. Can be set to any valid CSS height value (e.g., '50px', 'auto').",
+    "animation": "Defines the animation for transitions within the layout. Possible values: 'transition-all duration-500', 'transition-none'.",
+    "classBody": "Custom CSS class for the body of the layout. Use this to apply additional styles to the input body.",
+    "class": "Custom CSS class for the layout container. Use this to apply additional styles to the input layout.",
+    "Type": "The type of input field. Possible values: 'text', 'number', 'email', 'password'.",
+    "autoFocus": "Automatically focuses the input field on mount. Set to true to enable auto-focus.",
+    "placeholder": "Placeholder text for the input field. Displayed when the input is empty.",
+    "autocomplete": "Autocomplete behavior for the input field. Possible values: 'on', 'off'.",
+    "maskInput": "Mask type for the input value. Possible values: 'phone', 'number', 'price', or a custom mask string.",
+    "lengthInteger": "Maximum length for the integer part of the input value. Set to a number to limit the integer part.",
+    "lengthDecimal": "Maximum length for the decimal part of the input value. Set to a number to limit the decimal part.",
+    "classInput": "Custom CSS class for the input element. Use this to apply additional styles to the input.",
+    "DataSelect": "The data items available for selection in a dropdown list. Should be an array of items.",
+    "keySelect": "The key used to uniquely identify each item in the data set. Set to the property name used as the key.",
+    "valueSelect": "The key used to retrieve the display value of each item. Set to the property name used as the display value.",
+    "multiple": "Enables multiple item selection. Set to true to allow selecting multiple items.",
+    "maxVisible": "Maximum visible number of selected items. Set to a number to limit the number of visible items.",
+    "closeButtonBadge": "Enables a close button for badges in multiple selection mode. Set to true to show a close button on badges.",
+    "noData": "Text displayed when there are no items in the list. Use this to provide a message when the list is empty.",
+    "noQuery": "Disables the query-based filtering of items. Set to true to disable filtering.",
+    "classSelect": "Custom CSS class for the select container. Use this to apply additional styles to the select container.",
+    "classSelectList": "Custom CSS class for the dropdown list container. Use this to apply additional styles to the dropdown list.",
+    "classMaskQuery": "Custom CSS class for the query text mask. Use this to apply additional styles to the query text.",
+    "isNotCloseOnDateChange": "Prevents the calendar from closing when a date is selected. Set to true to keep the calendar open after selecting a date.",
+    "classDataPicker": "Custom CSS class for the data picker. Use this to apply additional styles to the data picker.",
+    "classPicker": "Custom CSS class for the calendar picker. Use this to apply additional styles to the calendar picker.",
+    "classDateText": "Custom CSS class for the displayed date text. Use this to apply additional styles to the date text.",
+    "switchingType": "The type of switching mechanism for a switch component. Possible values: 'checkbox', 'switch'.",
+    "modeSwitch": "The styling mode for the switch component. Possible values: 'default', 'compact'.",
+    "rounded": "Rounding of the switch corners. Possible values: 1-10, or 'full'.",
+    "iconActive": "Icon displayed when the switch is active. Set to the icon type for the active state.",
+    "iconInactive": "Icon displayed when the switch is inactive. Set to the icon type for the inactive state.",
+    "additionalInformation": "Additional information",
+    "customForm": "This place can be occupied by your HTML code or your components."
+  },
+  "placeholder": {
+    "Username": "Enter your username",
+    "Email": "Enter your email",
+    "Password": "Enter your password"
+  },
+  "content": {
+    "user": {
+      "title": "User Information",
+      "description": "Please provide your user information"
+    },
+    "additionalInformation": {
+      "title": "Personal information",
+      "description": "Use a permanent address to which you can receive mail."
+    },
+    "rules": {
+      "requiredRule": {
+        "title": "Required rule",
+        "description": "Ensures the field is not empty."
+      },
+      "emailRule": {
+        "title": "Email rule",
+        "description": "Validates that the input is a properly formatted email address."
+      },
+      "phoneRule": {
+        "title": "Phone rule",
+        "description": "Checks if the input matches a valid phone number format."
+      },
+      "numericRule": {
+        "title": "Numeric rule",
+        "description": "Confirms the input contains only numbers."
+      },
+      "regularRule": {
+        "title": "Regular rule",
+        "description": "Tests the input against a regular expression or string pattern."
+      },
+      "rangeRule": {
+        "title": "Range rule",
+        "description": "Ensures the numeric input falls within a specified min/max range."
+      },
+      "lengthRule": {
+        "title": "Length rule",
+        "description": "Validates the input length against min/max constraints."
+      },
+      "asyncRule": {
+        "title": "Async rule",
+        "description": "Runs an asynchronous validation function, useful for server-side checks."
+      },
+      "customRule": {
+        "title": "Custom rule",
+        "description": "Applies a custom synchronous validation function."
+      },
+      "compareRule": {
+        "title": "Compare rule",
+        "description": "Compares the field’s value with other form fields."
+      }
+    }
+  },
+  "message": {
+    "requiredRule": "This custom field is required",
+    "emailRule": "Please enter a valid email address",
+    "phoneRule": "Please enter a valid phone number",
+    "numericRule": "Value must be numeric",
+    "regularRule": "Input does not match required pattern",
+    "rangeRule": "Value must be between {min} and {max}",
+    "lengthRule": "Length must be between {min} and {max} characters",
+    "asyncRule": "the entered {mail} mail already exists",
+    "customRule": "Not included in the available list of fruits",
+    "compareRule": "Does not match the password"
   }
 }

@@ -37,7 +37,7 @@ const classes = ref<Record<"base" | "icon" | "title" | "description" | "external
   externalIcon: "size-4 align-top absolute right-2 top-2 " +
   "text-neutral-400 dark:text-neutral-500 " +
   "group-hover:text-neutral-900 dark:group-hover:text-white " +
-  "pointer-events-none transition-colors " + props.title?.length ? "mt-1" : ""
+  "pointer-events-none transition-colors " + (props.title?.length ? "mt-1" : "")
 })
 
 const target = computed(() => props.target || (!!props.to && props.to.startsWith('http') ? '_blank' : undefined))
