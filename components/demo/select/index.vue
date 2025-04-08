@@ -7,7 +7,7 @@ import {layoutConfigOptions} from "~/components/demo/configOptions";
 
 const {locale} = useI18n()
 const optionsValues = ref<SelectProps>({
-  dataSelect: [colorsObj[locale.value][0]]
+  // dataSelect: [colorsObj[locale.value][1]]
 })
 const options = computed<DemoOption[]>(() => layoutConfigOptions<SelectProps>(optionsValues.value,
     [

@@ -198,6 +198,8 @@ export const layoutConfigOptions = <T extends InputLayoutProps |
             label: t("label.DataSelect"),
             help: t("help.DataSelect"),
             typeComp: "select",
+            keySelect: "name",
+            valueSelect: "name",
             multiple: true,
             maxVisible: 2,
             classSelect: "w-full",
