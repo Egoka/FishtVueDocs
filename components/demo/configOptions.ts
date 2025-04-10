@@ -7,6 +7,7 @@ import type {CalendarProps} from "#fishtvue/calendar";
 import type {SwitchProps} from "#fishtvue/switch";
 import type {AriaProps} from "#fishtvue/aria";
 import type {ButtonProps} from "#fishtvue/button";
+import type {PaginationProps} from "#fishtvue/pagination";
 import {colorsObj} from "~/components/demo/select/dataForExample";
 
 export const dataSelectMode = ["filled", "outlined", "underlined"]
@@ -23,7 +24,8 @@ export const layoutConfigOptions = <T extends InputLayoutProps |
     SelectProps |
     CalendarProps |
     SwitchProps |
-    ButtonProps
+    ButtonProps |
+    PaginationProps
 >(optionsValues: T, namesOptions?: Array<keyof T>): DemoOption[] => {
     const { $i18n } = useNuxtApp()
     const {t, locale} = $i18n
@@ -66,10 +68,11 @@ export const layoutConfigOptions = <T extends InputLayoutProps |
         },
         {
             nameComp: "required",
+            typeComp: "switch",
             modelValue: (optionsValues as InputLayoutProps)["required"],
             label: t("label.required"),
             help: t("help.required"),
-            typeComp: "switch"},
+        },
         {
             nameComp: "loading",
             modelValue: (optionsValues as InputLayoutProps)["loading"],
@@ -122,7 +125,8 @@ export const layoutConfigOptions = <T extends InputLayoutProps |
             typeComp: "aria"
         },
         {
-            nameComp: "class", modelValue: (optionsValues as InputLayoutProps)["class"],
+            nameComp: "class",
+            modelValue: (optionsValues as InputLayoutProps)["class"],
             label: t("label.class"),
             help: t("help.class"),
             typeComp: "aria"
@@ -445,6 +449,56 @@ export const layoutConfigOptions = <T extends InputLayoutProps |
             label: t("label.type"),
             help: t("help.type"),
             dataSelect: ["button", "reset", "submit", "icon"]
+        },
+        {
+            nameComp: "sizePage",
+            typeComp: "select",
+            modelValue: (optionsValues as PaginationProps)["sizePage"],
+            label: t("label.sizePage"),
+            help: t("help.sizePage"),
+            dataSelect: [2, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+        },
+        {
+            nameComp: "sizesSelector",
+            typeComp: "select",
+            modelValue: (optionsValues as PaginationProps)["sizesSelector"],
+            label: t("label.sizesSelector"),
+            help: t("help.sizesSelector"),
+            multiple: true,
+            maxVisible: 0,
+            dataSelect: [5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+        },
+        {
+            nameComp: "visibleNumberPages"
+        },
+        {
+            nameComp: "total",
+            typeComp: "select",
+            modelValue: (optionsValues as PaginationProps)["total"],
+            label: t("label.total"),
+            help: t("help.total"),
+            dataSelect: [100, 200, 500, 1000, 2000, 3000]
+        },
+        {
+            nameComp: "isInfoText",
+            typeComp: "switch",
+            modelValue: (optionsValues as PaginationProps)["isInfoText"],
+            label: t("label.isInfoText"),
+            help: t("help.isInfoText"),
+        },
+        {
+            nameComp: "isPageSizeSelector",
+            typeComp: "switch",
+            modelValue: (optionsValues as PaginationProps)["isPageSizeSelector"],
+            label: t("label.isPageSizeSelector"),
+            help: t("help.isPageSizeSelector"),
+        },
+        {
+            nameComp: "isHiddenNavigationButtons",
+            typeComp: "switch",
+            modelValue: (optionsValues as PaginationProps)["isHiddenNavigationButtons"],
+            label: t("label.isHiddenNavigationButtons"),
+            help: t("help.isHiddenNavigationButtons"),
         },
     ] as DemoOption[])
     return namesOptions?.length ? namesOptions.reduce((result: DemoOption[], nameOption) => {
