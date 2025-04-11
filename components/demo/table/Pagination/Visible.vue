@@ -13,7 +13,7 @@ const { data } = useAsyncData("tablePaginationVisible", () =>
 
 <template>
   <Switch switchingType="switch" v-model="visible" :label="t('label.visible')"/>
-  <Separator class="w-full"></Separator>
+  <Separator></Separator>
   <Table
       :countVisibleRows="5"
       :data-source="data as any[]"

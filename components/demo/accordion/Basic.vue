@@ -6,7 +6,7 @@
   { title: 'Section 3', subtitle: 'Content for section 3' }
 ]">
   </Accordion>
-  <Separator class="w-full h-20"></Separator>
+  <Separator class="h-20"></Separator>
   <Accordion :dataSource="[
   { title: 'FAQ 1', subtitle: 'Answer to FAQ 1' },
   { title: 'FAQ 2', subtitle: 'Answer to FAQ 2' }

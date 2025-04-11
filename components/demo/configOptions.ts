@@ -9,6 +9,7 @@ import type {AriaProps} from "#fishtvue/aria";
 import type {ButtonProps} from "#fishtvue/button";
 import type {PaginationProps} from "#fishtvue/pagination";
 import type {AccordionProps} from "#fishtvue/accordion";
+import type {SeparatorProps} from "#fishtvue/separator";
 import {colorsObj} from "~/components/demo/select/dataForExample";
 
 export const dataSelectMode = ["filled", "outlined", "underlined"]
@@ -27,7 +28,8 @@ export const layoutConfigOptions = <T extends InputLayoutProps |
     SwitchProps |
     ButtonProps |
     PaginationProps |
-    AccordionProps
+    AccordionProps |
+    SeparatorProps
 >(optionsValues: T, namesOptions?: Array<keyof T>): DemoOption[] => {
     const { $i18n } = useNuxtApp()
     const {t, locale} = $i18n
@@ -537,7 +539,88 @@ export const layoutConfigOptions = <T extends InputLayoutProps |
             label: t("label.classSubtitle"),
             help: t("help.classSubtitle"),
             typeComp: "aria"
-        }
+        },
+        //Separator
+        {
+            nameComp: "vertical",
+            modelValue: (optionsValues as SeparatorProps)["vertical"],
+            label: t("label.vertical"),
+            help: t("help.vertical"),
+            typeComp: "switch",
+        },
+        {
+            nameComp: "contentPosition",
+            modelValue: (optionsValues as SeparatorProps)["contentPosition"],
+            label: t("label.contentPosition"),
+            help: t("help.contentPosition"),
+            typeComp: "select",
+            dataSelect: ["right", "left", "center", "full"]
+        },
+        {
+            nameComp: "gradient",
+            modelValue: (optionsValues as SeparatorProps)["gradient"],
+            label: t("label.gradient"),
+            help: t("help.gradient"),
+            typeComp: "select",
+            dataSelect: [true, 10, 30, 50, 70, 80]
+        },
+        {
+            nameComp: "depth",
+            modelValue: (optionsValues as SeparatorProps)["depth"],
+            label: t("label.depth"),
+            help: t("help.depth"),
+            typeComp: "select",
+            dataSelect: [1, 2, 3, 4, 5, 6, 7]
+        },
+        {
+            nameComp: "classBodyLine",
+            modelValue: (optionsValues as SeparatorProps)["classBodyLine"],
+            label: t("label.classBodyLine"),
+            help: t("help.classBodyLine"),
+            typeComp: "aria"
+        },
+        {
+            nameComp: "classLine",
+            modelValue: (optionsValues as SeparatorProps)["classLine"],
+            label: t("label.classLine"),
+            help: t("help.classLine"),
+            typeComp: "aria"
+        },
+        {
+            nameComp: "classContent",
+            modelValue: (optionsValues as SeparatorProps)["classContent"],
+            label: t("label.classContent"),
+            help: t("help.classContent"),
+            typeComp: "aria"
+        },
+        {
+            nameComp: "classBodyLineLeft",
+            modelValue: (optionsValues as SeparatorProps)["classBodyLineLeft"],
+            label: t("label.classBodyLineLeft"),
+            help: t("help.classBodyLineLeft"),
+            typeComp: "aria"
+        },
+        {
+            nameComp: "classLineLeft",
+            modelValue: (optionsValues as SeparatorProps)["classLineLeft"],
+            label: t("label.classLineLeft"),
+            help: t("help.classLineLeft"),
+            typeComp: "aria"
+        },
+        {
+            nameComp: "classBodyLineRight",
+            modelValue: (optionsValues as SeparatorProps)["classBodyLineRight"],
+            label: t("label.classBodyLineRight"),
+            help: t("help.classBodyLineRight"),
+            typeComp: "aria"
+        },
+        {
+            nameComp: "classLineRight",
+            modelValue: (optionsValues as SeparatorProps)["classLineRight"],
+            label: t("label.classLineRight"),
+            help: t("help.classLineRight"),
+            typeComp: "aria"
+        },
     ] as DemoOption[])
     return namesOptions?.length ? namesOptions.reduce((result: DemoOption[], nameOption) => {
         const findOption = resultOptions.find(i => nameOption === i.nameComp || nameOption === i.id)

@@ -16,7 +16,7 @@ const autocomplete = ref<FormProps["autocomplete"]>("off")
       :label="t('label.autocomplete')"
       :help="t('help.autocomplete')"
       :dataSelect="dataSelect"/>
-  <Separator class="w-full"></Separator>
+  <Separator></Separator>
   <Form
       :autocomplete="autocomplete"
       :structure="structure"

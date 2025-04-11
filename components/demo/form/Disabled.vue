@@ -14,7 +14,7 @@ const disabled = ref<FormProps["disabled"]>(false)
       switchingType="switch"
       v-model="disabled"
       :label="t('label.disabled')"/>
-  <Separator class="w-full"></Separator>
+  <Separator></Separator>
   <Form
       :disabled="disabled"
       :structure="structure"

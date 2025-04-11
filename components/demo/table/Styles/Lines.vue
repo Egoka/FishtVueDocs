@@ -36,7 +36,7 @@ const styles = reactive<ITableStyles>({
         :switching-type="'switch'">
     </Switch>
   </div>
-  <Separator class="w-full"></Separator>
+  <Separator></Separator>
   <Table
       filter
       columns

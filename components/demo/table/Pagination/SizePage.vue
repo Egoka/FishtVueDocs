@@ -19,7 +19,7 @@ const { data } = useAsyncData("tablePaginationSizePage", () =>
       :help="t('help.sizePage')"
       :dataSelect="dataSelectMode"
       v-model="sizePage"/>
-  <Separator class="w-full"></Separator>
+  <Separator></Separator>
   <Table
       :countVisibleRows="5"
       :data-source="data as any[]"

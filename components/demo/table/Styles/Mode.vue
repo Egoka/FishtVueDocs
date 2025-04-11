@@ -19,6 +19,6 @@ const modeStyle = ref<FormProps["modeStyle"]>()
       :help="t('help.mode')"
       :dataSelect="dataSelectMode"
       v-model="modeStyle"/>
-  <Separator class="w-full"></Separator>
+  <Separator></Separator>
   <Table columns summary filter :mode="modeStyle" :data-source="data as any[]" :countVisibleRows="5"></Table>
 </template>

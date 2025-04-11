@@ -19,7 +19,7 @@ const { data } = useAsyncData("tablePaginationMode", () =>
       :help="t('help.mode')"
       :dataSelect="dataSelectMode"
       v-model="modeStyle"/>
-  <Separator class="w-full"></Separator>
+  <Separator></Separator>
   <Table
       :countVisibleRows="5"
       :data-source="data as any[]"

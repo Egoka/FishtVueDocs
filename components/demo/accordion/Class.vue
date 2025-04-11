@@ -11,7 +11,7 @@ const classSubtitle = ref(false)
     <Switch v-model="classTitle" label="classTitle" switchingType="switch"/>
     <Switch v-model="classSubtitle" label="classSubtitle" switchingType="switch"/>
   </div>
-  <Separator class="w-full"></Separator>
+  <Separator></Separator>
   <Accordion
       :class="classRef ? 'custom-accordion-class': ''"
       :classItem="classItem ? 'custom-accordion-class': ''"

@@ -66,7 +66,7 @@ const borderDataSelect = ref([
         :data-select="borderDataSelect"
         @update:model-value="(value: any[])=>styles.border = (value as [])?.reduce((result,item)=>Object.assign(result, borderDataSelect.find(i=>i.id===item)?.key),{})"/>
   </div>
-  <Separator class="w-full"></Separator>
+  <Separator></Separator>
   <Table
       toolbar
       filter

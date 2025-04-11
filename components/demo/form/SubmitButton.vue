@@ -13,7 +13,7 @@ const submitButton = ref<FormProps["submitButton"]>(t("button.Register"))
   <Input
       v-model="submitButton"
       :label="t('label.nameButton')"/>
-  <Separator class="w-full"></Separator>
+  <Separator></Separator>
   <Form
       :submitButton="submitButton"
       :structure="structure"

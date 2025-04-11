@@ -19,7 +19,11 @@ const showFooter = computed(
 )
 const classTransition = ref("transition-colors duration-500")
 const classTextControl = ref("text-neutral-500 dark:text-neutral-400")
-const classButtonControl = ref(`inline-flex flex-col ${classTransition.value} bg-transparent dark:bg-transparent rounded-lg border border-neutral-200 dark:border-neutral-700 hover:border-theme-400 dark:hover:border-theme-700 w-full px-4 py-6`)
+const classButtonControl = ref([
+  'inline-flex flex-col', classTransition.value,
+  'bg-transparent dark:bg-transparent hover:bg-neutral-100/60 hover:dark:bg-neutral-900/60',
+  'rounded-lg border border-neutral-200 dark:border-neutral-700 hover:border-theme-400 dark:hover:border-theme-700',
+  'w-full px-4 py-6'])
 </script>
 
 <template>

@@ -31,7 +31,7 @@ watch(hoverRows, () => {
         :switching-type="'switch'">
     </Switch>
   </div>
-  <Separator class="w-full"></Separator>
+  <Separator></Separator>
   <Table
       :data-source="data as any[]"
       :countVisibleRows="5"

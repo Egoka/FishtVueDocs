@@ -16,6 +16,6 @@ const { data } = useAsyncData("tableCountVisibleRows", () =>
       :help="t('help.countVisibleRows')"
       :dataSelect="[3, 4, 5, 6, 7, 8]"
       v-model="countVisibleRows"/>
-  <Separator class="w-full"></Separator>
+  <Separator></Separator>
   <Table :countVisibleRows="countVisibleRows" :data-source="data as any[]"></Table>
 </template>

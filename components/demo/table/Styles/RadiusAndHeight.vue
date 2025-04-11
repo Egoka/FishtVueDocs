@@ -41,7 +41,7 @@ const styles = reactive<ITableStyles>({})
       </template>
     </Select>
   </div>
-  <Separator class="w-full"></Separator>
+  <Separator></Separator>
   <Table
       filter
       columns

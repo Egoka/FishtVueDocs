@@ -16,7 +16,7 @@ const modeLabel = ref<FormProps["modeLabel"]>()
       :help="t('help.mode')"
       :dataSelect="dataSelectLabelMode"
       v-model="modeLabel"/>
-  <Separator class="w-full"></Separator>
+  <Separator></Separator>
   <Form
       :modeLabel="modeLabel"
       :structure="structure"

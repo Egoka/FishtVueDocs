@@ -18,6 +18,6 @@ const columns = ref<TableProps["columns"]>([
 
 <template>
   <Switch switchingType="switch" v-model="visible" :label="t('label.visible')"/>
-  <Separator class="w-full"></Separator>
+  <Separator></Separator>
   <Table :data-source="data as any[]" :columns="columns"></Table>
 </template>

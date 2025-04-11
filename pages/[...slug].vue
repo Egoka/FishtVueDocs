@@ -55,7 +55,7 @@ const tabMenuItems = computed(() => tabMenu.value?.map((item) => {
       </template>
     </article>
     <DocFooter v-if="page" :control="surround"/>
-    <AppFooter class="w-[93vw] md:w-[65vw] md:px-8"/>
+    <AppFooter class="w-[93vw] md:w-full md:px-8"/>
   </div>
 
   <div v-if="page"
