@@ -8,6 +8,7 @@ import type {SwitchProps} from "#fishtvue/switch";
 import type {AriaProps} from "#fishtvue/aria";
 import type {ButtonProps} from "#fishtvue/button";
 import type {PaginationProps} from "#fishtvue/pagination";
+import type {AccordionProps} from "#fishtvue/accordion";
 import {colorsObj} from "~/components/demo/select/dataForExample";
 
 export const dataSelectMode = ["filled", "outlined", "underlined"]
@@ -25,7 +26,8 @@ export const layoutConfigOptions = <T extends InputLayoutProps |
     CalendarProps |
     SwitchProps |
     ButtonProps |
-    PaginationProps
+    PaginationProps |
+    AccordionProps
 >(optionsValues: T, namesOptions?: Array<keyof T>): DemoOption[] => {
     const { $i18n } = useNuxtApp()
     const {t, locale} = $i18n
@@ -450,6 +452,7 @@ export const layoutConfigOptions = <T extends InputLayoutProps |
             help: t("help.type"),
             dataSelect: ["button", "reset", "submit", "icon"]
         },
+        //Pagination
         {
             nameComp: "sizePage",
             typeComp: "select",
@@ -469,7 +472,12 @@ export const layoutConfigOptions = <T extends InputLayoutProps |
             dataSelect: [5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
         },
         {
-            nameComp: "visibleNumberPages"
+            nameComp: "visibleNumberPages",
+            typeComp: "select",
+            modelValue: (optionsValues as PaginationProps)["visibleNumberPages"],
+            label: t("label.visibleNumberPages"),
+            help: t("help.visibleNumberPages"),
+            dataSelect: [5, 6, 7, 8, 9, 10, 11]
         },
         {
             nameComp: "total",
@@ -500,6 +508,36 @@ export const layoutConfigOptions = <T extends InputLayoutProps |
             label: t("label.isHiddenNavigationButtons"),
             help: t("help.isHiddenNavigationButtons"),
         },
+        //Accordion
+        {
+            nameComp: "animationDuration",
+            typeComp: "select",
+            modelValue: (optionsValues as AccordionProps)["animationDuration"],
+            label: t("label.animationDuration"),
+            help: t("help.animationDuration"),
+            dataSelect: [100, 200, 500, 700, 1000, 1500, 2000]
+        },
+        {
+            nameComp: "classItem",
+            modelValue: (optionsValues as AccordionProps)["classItem"],
+            label: t("label.classItem"),
+            help: t("help.classItem"),
+            typeComp: "aria"
+        },
+        {
+            nameComp: "classTitle",
+            modelValue: (optionsValues as AccordionProps)["classTitle"],
+            label: t("label.classTitle"),
+            help: t("help.classTitle"),
+            typeComp: "aria"
+        },
+        {
+            nameComp: "classSubtitle",
+            modelValue: (optionsValues as AccordionProps)["classSubtitle"],
+            label: t("label.classSubtitle"),
+            help: t("help.classSubtitle"),
+            typeComp: "aria"
+        }
     ] as DemoOption[])
     return namesOptions?.length ? namesOptions.reduce((result: DemoOption[], nameOption) => {
         const findOption = resultOptions.find(i => nameOption === i.nameComp || nameOption === i.id)

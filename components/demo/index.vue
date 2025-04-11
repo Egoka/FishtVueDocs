@@ -9,7 +9,6 @@ type OptionInput = BaseOption & { typeComp: "input" } & InputProps;
 type OptionSelect = BaseOption & { typeComp: "select" } & SelectProps;
 type OptionSwitch = BaseOption & { typeComp: "switch" } & SwitchProps;
 type OptionAria = BaseOption & { typeComp: "aria" } & AriaProps;
-export type PropsComponentsType = InputProps | SelectProps
 export type DemoOption = OptionInput | OptionSelect | OptionSwitch | OptionAria;
 export type DemoEmits = {
   (event: "update:modelValue", payload: any): void;
@@ -23,14 +22,12 @@ import {createHighlighter} from "shiki";
 import {isClient, useClipboard} from "@vueuse/core";
 import {useI18n} from "vue-i18n";
 const {t} = useI18n()
-
-
-// Пропсы и события
 const props = defineProps<{
   modelValue: any;
   title?: string;
   options: DemoOption[];
   class?: string;
+  classDemo?: string;
 }>();
 const emit = defineEmits<DemoEmits>();
 const colorMode = useColorMode()
@@ -54,7 +51,7 @@ const highlighter = await createHighlighter({
   langs: ['vue', 'javascript'],
 });
 
-const optionsValues = reactive<Record<string, any>>({})
+const optionsValues = reactive<Record<string, any>>(props.modelValue)
 const generatedCode = ref("");
 const highlightedCode = ref("")
 
@@ -123,7 +120,7 @@ function updateValue(name: string, value: any) {
             <div :class="cn('absolute top-2 left-3 pt-5 pl-4', classes.title)">
               {{ props.title ?? t('Component') }}
             </div>
-            <div :class="cn(classes.demo)">
+            <div :class="cn(classes.demo, props.classDemo)">
               <slot/>
             </div>
           </template>

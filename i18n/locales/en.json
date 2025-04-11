@@ -104,6 +104,10 @@
     "additionalInformation": "Specify personal information",
     "countVisibleRows": "Visible rows",
     "nameButton": "Name button",
+    "animationDuration": "Animation Duration",
+    "classItem": "Item Class",
+    "classTitle": "Title Class",
+    "classSubtitle": "Subtitle Class",
     "Input": "Input",
     "Select": "Select",
     "Calendar": "Calendar",
@@ -216,7 +220,11 @@
     "updatedAt": "Indicates the date and time when the record was last updated. This helps track changes and modifications to the data.",
     "isActive": "Shows whether the record is currently active or inactive. This can be used to filter out inactive records.",
     "role": "Specifies the role or permission level associated with the record. This helps in managing access and responsibilities.",
-    "age": "Displays the age of the record or entity. This can be used for demographic analysis or to track the lifecycle of the data."
+    "age": "Displays the age of the record or entity. This can be used for demographic analysis or to track the lifecycle of the data.",
+    "animationDuration": "Set the duration of the animation in milliseconds. This controls how long the animation effects will last, enhancing the visual experience.",
+    "classItem": "Specify the CSS class for individual items. This allows you to apply custom styles to items within the component.",
+    "classTitle": "Specify the CSS class for the title. This allows you to apply custom styles to the title element within the component.",
+    "classSubtitle": "Specify the CSS class for the subtitle. This allows you to apply custom styles to the subtitle element within the component."
   },
   "placeholder": {
     "Username": "Enter your username",
