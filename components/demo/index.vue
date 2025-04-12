@@ -38,7 +38,7 @@ const classes = ref({
       "border border-dashed border-neutral-200 dark:border-neutral-700 " +
       "bg-neutral-50/70 dark:bg-neutral-800/70",
   demo:
-      "flex justify-center items-center p-8 gap-4 w-full h-full " +
+      "flex justify-center items-center overflow-auto p-8 gap-4 w-full h-full " +
       "rounded-sm border border-neutral-200 dark:border-neutral-700 " +
       "text-neutral-950/5 dark:text-neutral-50/5 bg-[size:10px_10px] bg-fixed bg-[image:repeating-linear-gradient(315deg,currentColor_0,currentColor_1px,_transparent_0,_transparent_50%)]",
   title: "font-asap font-bold text-neutral-400 dark:text-neutral-400",
