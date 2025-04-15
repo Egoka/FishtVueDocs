@@ -10,6 +10,7 @@ import type {ButtonProps} from "#fishtvue/button";
 import type {PaginationProps} from "#fishtvue/pagination";
 import type {AccordionProps} from "#fishtvue/accordion";
 import type {SeparatorProps} from "#fishtvue/separator";
+import type {DialogProps} from "#fishtvue/dialog";
 import {colorsObj} from "~/components/demo/select/dataForExample";
 
 export const dataSelectMode = ["filled", "outlined", "underlined"]
@@ -29,7 +30,8 @@ export const layoutConfigOptions = <T extends InputLayoutProps |
     ButtonProps |
     PaginationProps |
     AccordionProps |
-    SeparatorProps
+    SeparatorProps |
+    DialogProps
 >(optionsValues: T, namesOptions?: Array<keyof T>): DemoOption[] => {
     const { $i18n } = useNuxtApp()
     const {t, locale} = $i18n
@@ -621,6 +623,52 @@ export const layoutConfigOptions = <T extends InputLayoutProps |
             help: t("help.classLineRight"),
             typeComp: "aria"
         },
+        //Dialog
+        {
+            id: "sizeDialog",
+            nameComp: "size",
+            typeComp: "select",
+            modelValue: (optionsValues as DialogProps)["size"],
+            label: t("label.size"),
+            help: t("help.size"),
+            dataSelect: ["xs", "sm", "md", "lg", "xl", "2xl", "3xl", "4xl", "5xl", "6xl", "7xl"]
+        },
+        {
+            nameComp: "position",
+            modelValue: (optionsValues as DialogProps)["position"],
+            label: t("label.position"),
+            help: t("help.position"),
+            typeComp: "select",
+            dataSelect: ["top", "bottom", "left", "right", "center", "bottom-left", "top-left", "bottom-right", "top-right"]
+        },
+        {
+            nameComp: "notAnimate",
+            modelValue: (optionsValues as DialogProps)["notAnimate"],
+            label: t("label.notAnimate"),
+            help: t("help.notAnimate"),
+            typeComp: "switch",
+        },
+        {
+            nameComp: "closeButton",
+            modelValue: (optionsValues as DialogProps)["closeButton"],
+            label: t("label.closeButton"),
+            help: t("help.closeButton"),
+            typeComp: "switch",
+        },
+        {
+            nameComp: "withoutMargin",
+            modelValue: (optionsValues as DialogProps)["withoutMargin"],
+            label: t("label.withoutMargin"),
+            help: t("help.withoutMargin"),
+            typeComp: "switch",
+        },
+        {
+            nameComp: "notCloseBackground",
+            modelValue: (optionsValues as DialogProps)["notCloseBackground"],
+            label: t("label.notCloseBackground"),
+            help: t("help.notCloseBackground"),
+            typeComp: "switch",
+        }
     ] as DemoOption[])
     return namesOptions?.length ? namesOptions.reduce((result: DemoOption[], nameOption) => {
         const findOption = resultOptions.find(i => nameOption === i.nameComp || nameOption === i.id)

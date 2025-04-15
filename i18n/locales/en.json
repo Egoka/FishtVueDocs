@@ -23,7 +23,11 @@
   "nameTable": "Name table",
   "resultsTable": "Table results",
   "button": {
-    "Register": "Register"
+    "yes": "Yes",
+    "no": "No",
+    "Register": "Register",
+    "deactivate": "Deactivate",
+    "cancel": "Cancel"
   },
   "label": {
     "name": "Name",
@@ -117,6 +121,11 @@
     "isActive": "Is Active",
     "role": "Role",
     "age": "Age",
+    "position": "Position",
+    "notAnimate": "Disable Animation",
+    "closeButton": "Close Button",
+    "withoutMargin": "Without Margin",
+    "notCloseBackground": "Disable Background Close",
     "additionalInformation": "Specify personal information",
     "countVisibleRows": "Visible rows",
     "nameButton": "Name button",
@@ -255,7 +264,12 @@
     "wrap": "Enable or disable text wrapping within the component. Wrapping text can improve readability by preventing overflow.",
     "rows": "Specify the number of rows to display. This setting controls the vertical size of the component.",
     "maxLength": "Set the maximum length of the text or content. This limits the number of characters that can be entered or displayed.",
-    "direction": "Set the direction of the content flow. Options typically include 'ltr' (left-to-right) and 'rtl' (right-to-left). This setting is useful for supporting different languages and reading directions."
+    "direction": "Set the direction of the content flow. Options typically include 'ltr' (left-to-right) and 'rtl' (right-to-left). This setting is useful for supporting different languages and reading directions.",
+    "closeButton": "Toggle the visibility of the close button. This button allows users to close the component or dialog.",
+    "withoutMargin": "Remove margins around the component. This setting can be used to eliminate extra spacing and make the component fit more tightly within its container.",
+    "notAnimate": "Disable animations for the component. This can improve performance and reduce visual distractions.",
+    "position": "Set the position of the component on the screen. Options may include top, bottom, left, right, center, etc.",
+    "notCloseBackground": "Prevent the component from closing when clicking outside of it. This ensures the component remains open until explicitly closed by the user."
   },
   "placeholder": {
     "Username": "Enter your username",
@@ -311,6 +325,28 @@
       "compareRule": {
         "title": "Compare rule",
         "description": "Compares the field’s value with other form fields."
+      }
+    },
+    "dialog": {
+      "index": "Dialog",
+      "base": {
+        "button": "Base Dialog"
+      },
+      "size": {
+        "title": "Dialog Title",
+        "size": "Size",
+        "text": "Welcome to our project! This platform is designed to streamline collaboration, enhance productivity,\nand provide a seamless experience for managing tasks. Whether you are working individually or with a team,\nour tools and features are tailored to ensure efficiency and success in achieving your goals. Join us as we redefine\nhow modern projects are executed."
+      },
+      "position": {
+        "title": "The headline",
+        "text": "There can be any text, images, instructions, forms, and any interface at all."
+      },
+      "notCloseBackground": {
+        "title": "Deactivate your account",
+        "message": "Are you sure you want to deactivate your account? All your data will be permanently deleted. This action cannot be undone."
+      },
+      "background": {
+        "text": "This dialog has a custom background."
       }
     }
   },

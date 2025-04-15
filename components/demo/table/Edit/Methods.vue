@@ -124,7 +124,7 @@ function submit(fields: any) {
       toTeleport="#__nuxt"
       position="center"
       close-button
-      class="left-1/2 -translate-x-1/4 p-0 sm:max-w-xl">
+      class="p-0 sm:max-w-xl">
     <Form
         class="relative m-5"
         :structure="structureDialog"

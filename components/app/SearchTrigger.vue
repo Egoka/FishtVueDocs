@@ -124,7 +124,7 @@ onUnmounted(() => {
   </Button>
   <ClientOnly>
     <Dialog v-model:model-value="isOpenDialogWindow" notAnimate toTeleport="#__nuxt" position="top"
-             class="top-20 left-1/2 -translate-x-1/4 p-0 sm:max-w-xl">
+             class="top-20 p-0 sm:max-w-xl">
       <Input
           ref="selectSearch"
           v-model="searchTerm"
