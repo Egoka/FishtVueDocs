@@ -21,13 +21,12 @@ const dialog = ref(false)
 </template>
 
 <style scoped>
-:deep(.custom-dialog-class){
-  padding: 10px;
+.custom-dialog-class{
   --pattern-fg: color-mix(in oklab, var(--color-theme-500) 40%, transparent);
   background-size: 10px 10px;
   background-image: repeating-linear-gradient(315deg, var(--pattern-fg) 0, var(--pattern-fg) 1px, transparent 0, transparent 50%);
 }
-:deep(.custom-dialog-body-class){
+.custom-dialog-body-class{
   padding: 10px;
   --pattern-fg: color-mix(in oklab, var(--color-neutral-500) 20%, transparent);
   background-image: radial-gradient(var(--pattern-fg) 1px, transparent 1px);

@@ -60,7 +60,7 @@ onUnmounted(() => {
         mode="outline"
         size="xs"
         :aria-label="t('CopyCode')"
-        class="absolute m-0 top-[11px] right-[11px] opacity-0 group-hover:opacity-100 transition"
+        class="absolute z-1 m-0 top-[11px] right-[11px] opacity-0 group-hover:opacity-100 transition"
         tabindex="-1"
         @click="copy"
     />

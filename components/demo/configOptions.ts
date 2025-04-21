@@ -11,6 +11,7 @@ import type {PaginationProps} from "#fishtvue/pagination";
 import type {AccordionProps} from "#fishtvue/accordion";
 import type {SeparatorProps} from "#fishtvue/separator";
 import type {DialogProps} from "#fishtvue/dialog";
+import type {FixWindowProps} from "#fishtvue/fixwindow";
 import {colorsObj} from "~/components/demo/select/dataForExample";
 
 export const dataSelectMode = ["filled", "outlined", "underlined"]
@@ -31,7 +32,8 @@ export const layoutConfigOptions = <T extends InputLayoutProps |
     PaginationProps |
     AccordionProps |
     SeparatorProps |
-    DialogProps
+    DialogProps |
+    FixWindowProps
 >(optionsValues: T, namesOptions?: Array<keyof T>): DemoOption[] => {
     const { $i18n } = useNuxtApp()
     const {t, locale} = $i18n
@@ -667,6 +669,88 @@ export const layoutConfigOptions = <T extends InputLayoutProps |
             modelValue: (optionsValues as DialogProps)["notCloseBackground"],
             label: t("label.notCloseBackground"),
             help: t("help.notCloseBackground"),
+            typeComp: "switch",
+        },
+        //FixWindow
+        {
+            nameComp: "typePosition",
+            modelValue: (optionsValues as FixWindowProps)["typePosition"],
+            label: t("label.typePosition"),
+            help: t("help.typePosition"),
+            typeComp: "select",
+            dataSelect: ["absolute", "fixed"]
+        },
+        {
+            id: "positionFixWindow",
+            nameComp: "position",
+            modelValue: (optionsValues as FixWindowProps)["position"],
+            label: t("label.position"),
+            help: t("help.position"),
+            typeComp: "select",
+            dataSelect: ["top", "bottom", "left", "right", "center", "bottom-left", "top-left", "bottom-right", "top-right", "center-top", "center-bottom", "center-right", "center-left", "right-top", "right-bottom", "left-top", "left-bottom"]
+        },
+        {
+            nameComp: "eventOpen",
+            modelValue: (optionsValues as FixWindowProps)["eventOpen"],
+            label: t("label.eventOpen"),
+            help: t("help.eventOpen"),
+            typeComp: "select",
+            dataSelect: ["hover", "click", "mousedown", "mouseup", "dblclick", "contextmenu", "none"]
+        },
+        {
+            nameComp: "eventClose",
+            modelValue: (optionsValues as FixWindowProps)["eventClose"],
+            label: t("label.eventClose"),
+            help: t("help.eventClose"),
+            typeComp: "select",
+            dataSelect: ["hover", "click", "mousedown", "mouseup", "dblclick", "contextmenu", "none"]
+        },
+        {
+            nameComp: "delay",
+            modelValue: (optionsValues as FixWindowProps)["delay"],
+            label: t("label.delay"),
+            help: t("help.delay"),
+            typeComp: "select",
+            dataSelect: [{id: 100, value: "100 ms"}, {id: 200, value: "200 ms"}, {id: 300, value: "300 ms"},
+                {id: 500, value: "500 ms"},
+                {id: 700, value: "700 ms"},
+                {id: 1000, value: "1000 ms"},
+                {id: 1200, value: "1200 ms"},
+                {id: 1500, value: "1500 ms"},
+                {id: 2000, value: "2000 ms"}]
+        },
+        {
+            nameComp: "marginPx",
+            modelValue: (optionsValues as FixWindowProps)["marginPx"],
+            label: t("label.marginPx"),
+            help: t("help.marginPx"),
+            typeComp: "input",
+            type: "number",
+            maskInput: "number"
+        },
+        {
+            nameComp: "translatePx",
+            modelValue: (optionsValues as FixWindowProps)["translatePx"],
+            label: t("label.translatePx"),
+            help: t("help.translatePx"),
+            typeComp: "input",
+            type: "number",
+            maskInput: "number"
+        },
+        {
+            nameComp: "paddingWindow",
+            modelValue: (optionsValues as FixWindowProps)["paddingWindow"],
+            label: t("label.paddingWindow"),
+            help: t("help.paddingWindow"),
+            typeComp: "input",
+            type: "number",
+            maskInput: "number"
+        },
+        {
+            nameComp: "closeButton",
+            modelValue: (optionsValues as DialogProps)["closeButton"],
+            label: t("label.closeButton"),
+            help: t("help.closeButton"),
             typeComp: "switch",
         }
     ] as DemoOption[])

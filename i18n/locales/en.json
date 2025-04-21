@@ -27,11 +27,15 @@
     "no": "No",
     "Register": "Register",
     "deactivate": "Deactivate",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "clickMe": "Click Me",
+    "check": "Check",
+    "loading": "Loading"
   },
   "label": {
     "name": "Name",
     "mode": "Mode",
+    "open": "Open",
     "label": "Label",
     "labelMode": "Label Mode",
     "isInvalid": "Is Invalid",
@@ -122,6 +126,13 @@
     "role": "Role",
     "age": "Age",
     "position": "Position",
+    "typePosition": "Type Position",
+    "eventOpen": "Event Open",
+    "eventClose": "Event Close",
+    "delay": "Delay",
+    "marginPx": "Margin (px)",
+    "translatePx": "Translate (px)",
+    "paddingWindow": "Padding Window (px)",
     "notAnimate": "Disable Animation",
     "closeButton": "Close Button",
     "withoutMargin": "Without Margin",
@@ -269,7 +280,14 @@
     "withoutMargin": "Remove margins around the component. This setting can be used to eliminate extra spacing and make the component fit more tightly within its container.",
     "notAnimate": "Disable animations for the component. This can improve performance and reduce visual distractions.",
     "position": "Set the position of the component on the screen. Options may include top, bottom, left, right, center, etc.",
-    "notCloseBackground": "Prevent the component from closing when clicking outside of it. This ensures the component remains open until explicitly closed by the user."
+    "notCloseBackground": "Prevent the component from closing when clicking outside of it. This ensures the component remains open until explicitly closed by the user.",
+    "typePosition": "Specify the type of positioning for the element.",
+    "eventOpen": "Specify the event that triggers the opening of the fixed window.",
+    "eventClose": "Specify the event that triggers the closing of the fixed window.",
+    "delay": "Set the delay time in milliseconds.",
+    "marginPx": "Set the margin in pixels.",
+    "translatePx": "Set the translation in pixels.",
+    "paddingWindow": "Set the padding for the window in pixels."
   },
   "placeholder": {
     "Username": "Enter your username",
@@ -453,6 +471,7 @@
   "title": {
     "toolbar": "Toolbar",
     "header": "Header",
-    "footer": "Footer"
+    "footer": "Footer",
+    "openedOnClick": "Opened on click"
   }
 }

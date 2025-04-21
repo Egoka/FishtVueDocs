@@ -40,7 +40,7 @@ const tabMenuItems = computed(() => tabMenu.value?.map((item) => {
     <DocTabMenu v-if="page" :tab-menu-items="tabMenuItems"/>
     <Button v-if="page && page?.body.toc?.links?.length" mode="outline" class="w-max relative md:hidden">
       {{ t('onPage') }}
-      <FixWindow stylePosition="fixed" position="bottom-left" eventOpen="click" eventClose="hover"
+      <FixWindow typePosition="fixed" position="bottom-left" eventOpen="click" eventClose="hover"
                   class="max-w-80 max-h-96 overflow-auto bg-neutral-100 dark:bg-neutral-800 p-5 text-left rounded-xl flex-col space-y-6 no-scrollbar border dark:border-neutral-800">
         <DocOutline v-if="page?.body.toc?.links?.length" :headers="page?.body.toc?.links"/>
       </FixWindow>

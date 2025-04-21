@@ -38,7 +38,7 @@ const structureDialog = ref<Array<FormStructure>>([
         classCol: "sm:col-span-2",
         required: true,
         paramsFixWindow: {
-          stylePosition: "absolute"
+          typePosition: "absolute"
         }
       },
       {
@@ -47,7 +47,7 @@ const structureDialog = ref<Array<FormStructure>>([
         classCol: "sm:col-span-3",
         label: t("label.createdAt"),
         paramsFixWindow: {
-          stylePosition: "absolute"
+          typePosition: "absolute"
         }
       },
       {
@@ -56,7 +56,7 @@ const structureDialog = ref<Array<FormStructure>>([
         classCol: "sm:col-span-3",
         label: t("label.updatedAt"),
         paramsFixWindow: {
-          stylePosition: "absolute"
+          typePosition: "absolute"
         }
       }
     ]
