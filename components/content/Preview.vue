@@ -18,7 +18,7 @@ function useDevice() {
 const isMobile = ref(props.noMobile && useDevice().isMobile)
 const classes = ref({
   root: "flex flex-col justify-center items-center overflow-auto " +
-      "rounded-sm w-full relative my-4 p-8 gap-4 " +
+      "rounded-sm w-full relative my-4 p-2 sm:p-8 gap-4 " +
       "border border-neutral-200 dark:border-neutral-700 " +
       "bg-neutral-100/70 dark:bg-neutral-900/70"
 })

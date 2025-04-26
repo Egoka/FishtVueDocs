@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+const {t} = useI18n()
 const classRef = ref(false)
 const classItem = ref(false)
 const classTitle = ref(false)
@@ -6,10 +7,10 @@ const classSubtitle = ref(false)
 </script>
 <template>
   <div class="flex flex-wrap justify-center">
-    <Switch v-model="classRef" label="class" switchingType="switch"/>
-    <Switch v-model="classItem" label="classItem" switchingType="switch"/>
-    <Switch v-model="classTitle" label="classTitle" switchingType="switch"/>
-    <Switch v-model="classSubtitle" label="classSubtitle" switchingType="switch"/>
+    <Switch v-model="classRef" :label="t('class')" switchingType="switch"/>
+    <Switch v-model="classItem" :label="t('classItem')" switchingType="switch"/>
+    <Switch v-model="classTitle" :label="t('classTitle')" switchingType="switch"/>
+    <Switch v-model="classSubtitle" :label="t('classSubtitle')" switchingType="switch"/>
   </div>
   <Separator></Separator>
   <Accordion

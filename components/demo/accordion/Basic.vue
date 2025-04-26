@@ -1,17 +1,18 @@
+<script lang="ts" setup>
+const {t} = useI18n()
+</script>
 <template>
 
   <Accordion :dataSource="[
-  { title: 'Section 1', subtitle: 'Content for section 1' },
-  { title: 'Section 2', subtitle: 'Content for section 2', open: true },
-  { title: 'Section 3', subtitle: 'Content for section 3' }
+  { title: t('content.accordion.base.1.title'), subtitle: t('content.accordion.base.1.subtitle') },
+  { title: t('content.accordion.base.2.title'), subtitle: t('content.accordion.base.2.subtitle'), open: true },
+  { title: t('content.accordion.base.2.title'), subtitle: t('content.accordion.base.2.subtitle') }
 ]">
   </Accordion>
   <Separator class="h-20"></Separator>
   <Accordion :dataSource="[
-  { title: 'FAQ 1', subtitle: 'Answer to FAQ 1' },
-  { title: 'FAQ 2', subtitle: 'Answer to FAQ 2' }
+  { title: t('content.accordion.base.FAQ1.title'), subtitle: t('content.accordion.base.FAQ1.subtitle') },
+  { title: t('content.accordion.base.FAQ2.title'), subtitle: t('content.accordion.base.FAQ2.subtitle') }
 ]" :multiple="true">
   </Accordion>
 </template>
-<script lang="ts" setup>
-</script>

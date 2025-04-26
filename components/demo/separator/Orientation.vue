@@ -15,7 +15,7 @@ const vertical = ref(false)
     <div class="flex justify-center items-center custom-separator-class" :class="[vertical ? 'w-1/2 h-full mx-2': 'w-full h-1/2 my-2']">
       The first content
     </div>
-    <Separator :vertical="vertical" depth="3"></Separator>
+    <Separator :vertical="vertical" :depth="3"></Separator>
     <div class="flex justify-center items-center custom-separator-class" :class="[vertical ? ' w-1/2 h-full mx-2': 'w-full h-1/2 my-2']">
       The second content
     </div>
@@ -29,12 +29,3 @@ const vertical = ref(false)
   background-image: repeating-linear-gradient(315deg, var(--pattern-fg) 0, var(--pattern-fg) 1px, transparent 0, transparent 50%);
 }
 </style>
-
-
-label.wrap
-label.rows
-label.maxLength
-
-help.wrap
-help.rows
-help.maxLength

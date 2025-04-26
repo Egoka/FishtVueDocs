@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+const {t} = useI18n()
 const classRef = ref(false)
 const classBodyLine = ref(false)
 const classLine = ref(false)
@@ -9,15 +10,15 @@ const classLineRight = ref(false)
 </script>
 <template>
   <div class="flex flex-wrap justify-center">
-    <Switch v-model="classRef" label="Class" switchingType="switch"/>
-    <Switch v-model="classBodyLine" label="Class body line" switchingType="switch"/>
-    <Switch v-model="classBodyLineLeft" label="Class body line left" switchingType="switch"/>
-    <Switch v-model="classBodyLineRight" label="Class body line right" switchingType="switch"/>
+    <Switch v-model="classRef" :label="t('class')" switchingType="switch"/>
+    <Switch v-model="classBodyLine" :label="t('classBodyLine')" switchingType="switch"/>
+    <Switch v-model="classBodyLineLeft" :label="t('classBodyLineLeft')" switchingType="switch"/>
+    <Switch v-model="classBodyLineRight" :label="t('classBodyLineRight')" switchingType="switch"/>
   </div>
   <div class="flex flex-wrap justify-center">
-    <Switch v-model="classLine" label="Classline" switchingType="switch"/>
-    <Switch v-model="classLineLeft" label="Class line left" switchingType="switch"/>
-    <Switch v-model="classLineRight" label="Class line right" switchingType="switch"/>
+    <Switch v-model="classLine" :label="t('classLine')" switchingType="switch"/>
+    <Switch v-model="classLineLeft" :label="t('classLineLeft')" switchingType="switch"/>
+    <Switch v-model="classLineRight" :label="t('classLineRight')" switchingType="switch"/>
   </div>
   <Separator  class="w-full"></Separator>
   <Separator
