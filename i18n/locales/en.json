@@ -7,6 +7,7 @@
   "Searching":"Search...",
   "Menu": "Menu",
   "Pager": "Pager",
+  "Discover": "Discover",
   "SidebarMenu": "Sidebar menu",
   "NavigationItem": "List of navigation item",
   "EditThisPage": "Edit this page",
@@ -25,12 +26,17 @@
   "button": {
     "yes": "Yes",
     "no": "No",
+    "custom": "Custom",
     "Register": "Register",
     "deactivate": "Deactivate",
     "cancel": "Cancel",
     "clickMe": "Click Me",
     "check": "Check",
-    "loading": "Loading"
+    "loading": "Loading",
+    "open": "Open",
+    "onlyTitle": "Only title",
+    "onlySubtitle": "Only subtitle",
+    "withHtml": "With html"
   },
   "label": {
     "name": "Name",
@@ -137,6 +143,9 @@
     "isActive": "Is Active",
     "role": "Role",
     "age": "Age",
+    "title": "Title",
+    "subtitle": "Subtitle",
+    "displayTime": "Display Time",
     "position": "Position",
     "typePosition": "Type Position",
     "eventOpen": "Event Open",
@@ -192,7 +201,12 @@
     "customRuleCustom": "Custom rule with a custom message",
     "compareRule": "Compare rule",
     "compareRuleBase": "Compare rule with a basic message",
-    "compareRuleCustom": "Compare rule with a custom message"
+    "compareRuleCustom": "Compare rule with a custom message",
+    "success": "Success",
+    "warning": "Warning",
+    "info": "Info",
+    "error": "Error",
+    "neutral": "Neutral"
   },
   "help": {
     "mode": "Defines the styling mode for the component. Possible values: 'filled', 'outlined', 'underlined'.",
@@ -305,7 +319,10 @@
     "classItemIcon": "Icon associated with a specific class item.",
     "classItemTitle": "The title or name of a specific class item.",
     "classItemInfo": "Additional information or description about a class item.",
-    "classItemRightIcon": "Icon displayed on the right side of a class item, often for actions."
+    "classItemRightIcon": "Icon displayed on the right side of a class item, often for actions.",
+    "title": "The main heading or name of the item.",
+    "subtitle": "A secondary heading or additional information about the item.",
+    "displayTime": "The duration or time period for which the item is displayed."
 
   },
   "placeholder": {
@@ -408,6 +425,50 @@
           "title": "FAQ 2",
           "subtitle": "Answer to FAQ 2"
         }
+      }
+    },
+    "alert": {
+      "type": {
+        "success": {
+          "title": "Success",
+          "subtitle": "Your changes have been saved successfully"
+        },
+        "warning": {
+          "title": "Warning",
+          "subtitle": "Unsaved changes detected"
+        },
+        "info": {
+          "title": "Update Available",
+          "subtitle": "A new version is available"
+        },
+        "error": {
+          "title": "Error",
+          "subtitle": "Operation failed"
+        },
+        "neutral": {
+          "title": "Notification",
+          "subtitle": "New chat message"
+        }
+      },
+      "html": {
+        "title": "Notification with html",
+        "subtitle": "An example of an alert in which {which} can be used",
+        "subtitleHtml": "html markup"
+      },
+      "size": {
+        "subtitle": "This is an example of a subtitle text to demonstrate different alert widths. The text will wrap for small sizes and stretch to fit the alert window size for wider displays."
+      },
+      "class": {
+        "subtitle": "A new software update is available. Find out what's new in version 2.0.4.",
+        "line":"Custom with a side line",
+        "corners":"Custom with corners",
+        "rounded":"Custom rounded",
+        "gradient":"Custom with a gradient"
+      },
+      "custom": {
+        "title": "Comprehensive Alert",
+        "subtitle": "Custom HTML Content:",
+        "subtitleText": "This alert demonstrates multiple features."
       }
     }
   },

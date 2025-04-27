@@ -12,6 +12,7 @@ import type {AccordionProps} from "#fishtvue/accordion";
 import type {SeparatorProps} from "#fishtvue/separator";
 import type {DialogProps} from "#fishtvue/dialog";
 import type {FixWindowProps} from "#fishtvue/fixwindow";
+import type {AlertProps} from "#fishtvue/alert";
 import {colorsObj} from "~/components/demo/select/dataForExample";
 
 export const dataSelectMode = ["filled", "outlined", "underlined"]
@@ -33,7 +34,8 @@ export const layoutConfigOptions = <T extends InputLayoutProps |
     AccordionProps |
     SeparatorProps |
     DialogProps |
-    FixWindowProps
+    FixWindowProps |
+    AlertProps
 >(optionsValues: T, namesOptions?: Array<keyof T>): DemoOption[] => {
     const { $i18n } = useNuxtApp()
     const {t, locale} = $i18n
@@ -752,7 +754,57 @@ export const layoutConfigOptions = <T extends InputLayoutProps |
             label: t("label.closeButton"),
             help: t("help.closeButton"),
             typeComp: "switch",
-        }
+        },
+        //Alert
+        {
+            id: "typeAlert",
+            nameComp: "type",
+            modelValue: (optionsValues as AlertProps)["type"],
+            label: t("label.type"),
+            help: t("help.type"),
+            typeComp: "select",
+            dataSelect: ["success", "warning", "info", "error", "neutral"]
+        },
+        {
+            id: "positionAlert",
+            nameComp: "position",
+            modelValue: (optionsValues as AlertProps)["position"],
+            label: t("label.position"),
+            help: t("help.position"),
+            typeComp: "select",
+            dataSelect: ["top", "bottom", "left", "right", "center", "bottom-left", "top-left", "bottom-right", "top-right"]
+        },
+        {
+            id: "sizeAlert",
+            nameComp: "size",
+            modelValue: (optionsValues as AlertProps)["size"],
+            label: t("label.size"),
+            help: t("help.size"),
+            typeComp: "select",
+            dataSelect: ["xs", "sm", "md", "lg", "xl", "2xl", "3xl", "4xl", "5xl", "6xl", "7xl"]
+        },
+        {
+            nameComp: "title",
+            modelValue: (optionsValues as AlertProps)["title"],
+            label: t("label.title"),
+            help: t("help.title"),
+            typeComp: "input",
+        },
+        {
+            nameComp: "subtitle",
+            modelValue: (optionsValues as AlertProps)["subtitle"],
+            label: t("label.subtitle"),
+            help: t("help.subtitle"),
+            typeComp: "aria"
+        },
+        {
+            nameComp: "displayTime",
+            modelValue: (optionsValues as AlertProps)["displayTime"],
+            label: t("label.displayTime"),
+            help: t("help.displayTime"),
+            typeComp: "select",
+            dataSelect: [1000, 2000, 3000, 4000, 5000]
+        },
     ] as DemoOption[])
     return namesOptions?.length ? namesOptions.reduce((result: DemoOption[], nameOption) => {
         const findOption = resultOptions.find(i => nameOption === i.nameComp || nameOption === i.id)

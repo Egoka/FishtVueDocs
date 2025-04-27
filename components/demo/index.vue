@@ -125,7 +125,7 @@ function updateValue(name: string, value: any) {
             </div>
           </template>
           <template #bottom>
-            <div :class="cn('group', 'w-full h-full p-4 pt-10 overflow-auto', 'bg-white dark:bg-[#121212]', classes.blockBorder)">
+            <div :class="cn('group fishtvue-button', 'w-full h-full p-4 pt-10 overflow-auto', 'bg-white dark:bg-[#121212]', classes.blockBorder)">
               <div :class="cn('absolute top-2 left-5 rounded-sm px-2', 'bg-white dark:bg-[#121212]', classes.title)">
                 {{ t('Code') }}
               </div>
