@@ -7,6 +7,7 @@ import type {CalendarProps} from "#fishtvue/calendar";
 import type {SwitchProps} from "#fishtvue/switch";
 import type {AriaProps} from "#fishtvue/aria";
 import type {ButtonProps} from "#fishtvue/button";
+import type {BadgeProps} from "#fishtvue/badge";
 import type {PaginationProps} from "#fishtvue/pagination";
 import type {AccordionProps} from "#fishtvue/accordion";
 import type {SeparatorProps} from "#fishtvue/separator";
@@ -30,6 +31,7 @@ export const layoutConfigOptions = <T extends InputLayoutProps |
     CalendarProps |
     SwitchProps |
     ButtonProps |
+    BadgeProps |
     PaginationProps |
     AccordionProps |
     SeparatorProps |
@@ -748,13 +750,6 @@ export const layoutConfigOptions = <T extends InputLayoutProps |
             type: "number",
             maskInput: "number"
         },
-        {
-            nameComp: "closeButton",
-            modelValue: (optionsValues as DialogProps)["closeButton"],
-            label: t("label.closeButton"),
-            help: t("help.closeButton"),
-            typeComp: "switch",
-        },
         //Alert
         {
             id: "typeAlert",
@@ -804,6 +799,23 @@ export const layoutConfigOptions = <T extends InputLayoutProps |
             help: t("help.displayTime"),
             typeComp: "select",
             dataSelect: [1000, 2000, 3000, 4000, 5000]
+        },
+        //Badge
+        {
+            id: "modeBadge",
+            nameComp: "mode",
+            typeComp: "select",
+            modelValue: (optionsValues as BadgeProps)["mode"],
+            label: t("label.mode"),
+            help: t("help.mode"),
+            dataSelect: ["primary", "secondary", "outline", "neutral"]
+        },
+        {
+            nameComp: "point",
+            modelValue: (optionsValues as BadgeProps)["point"],
+            label: t("label.point"),
+            help: t("help.point"),
+            typeComp: "switch",
         },
     ] as DemoOption[])
     return namesOptions?.length ? namesOptions.reduce((result: DemoOption[], nameOption) => {

@@ -206,7 +206,11 @@
     "warning": "Warning",
     "info": "Info",
     "error": "Error",
-    "neutral": "Neutral"
+    "primary": "Primary",
+    "secondary": "Secondary",
+    "outline": "Outline",
+    "neutral": "Neutral",
+    "point": "Point"
   },
   "help": {
     "mode": "Defines the styling mode for the component. Possible values: 'filled', 'outlined', 'underlined'.",
@@ -322,8 +326,8 @@
     "classItemRightIcon": "Icon displayed on the right side of a class item, often for actions.",
     "title": "The main heading or name of the item.",
     "subtitle": "A secondary heading or additional information about the item.",
-    "displayTime": "The duration or time period for which the item is displayed."
-
+    "displayTime": "The duration or time period for which the item is displayed.",
+    "point": "A specific location or coordinate on the item."
   },
   "placeholder": {
     "Username": "Enter your username",
@@ -470,6 +474,9 @@
         "subtitle": "Custom HTML Content:",
         "subtitleText": "This alert demonstrates multiple features."
       }
+    },
+    "badge": {
+      "closeButton": "Badge is closed"
     }
   },
   "message": {
