@@ -1,10 +1,10 @@
-import type {Groups} from "fishtvue/menu"
 import {useNuxtApp} from "#app";
+import type {GroupMenu} from "#fishtvue/menu";
 const { $i18n } = useNuxtApp()
 const {t} = $i18n
 
 
-export const groupsMenu = (): Groups => [
+export const groupsMenu = (): Array<GroupMenu> => [
     {
         items: [
             {
@@ -143,7 +143,7 @@ export const groupsMenu = (): Groups => [
         ]
     }
 ]
-export const groupsMenuMini = (): Groups => [
+export const groupsMenuMini = (): Array<GroupMenu> => [
     {
         items: [
             {
@@ -169,7 +169,7 @@ export const groupsMenuMini = (): Groups => [
         ]
     }
 ]
-export const groupsMenuSeparatorMini = (): Groups => [
+export const groupsMenuSeparatorMini = (): Array<GroupMenu> => [
     {
         items: [
             {
@@ -204,7 +204,7 @@ export const groupsMenuSeparatorMini = (): Groups => [
         ]
     }
 ]
-export const groupsMenuSubmenuMini = (): Groups => [
+export const groupsMenuSubmenuMini = (): Array<GroupMenu> => [
     {
         items: [
             {
@@ -440,7 +440,7 @@ export const groupHorizontal = () => [{
             disabled: true
         },]
 }]
-export const icons = (): Groups => [
+export const icons = (): Array<GroupMenu> => [
     {
         items: [
             {
@@ -508,7 +508,7 @@ export const icons = (): Groups => [
         ]
     }
 ]
-export const onlyIcons = (): Groups => [
+export const onlyIcons = (): Array<GroupMenu> => [
     {
         items: [
             {
