@@ -38,9 +38,9 @@ const tabMenuItems = computed(() => tabMenu.value?.map((item) => {
 <template>
   <div class="px-6 md:px-8 lg:pl-4 lg:pr-4 pt-6 md:pt-12 overflow-x-hidden flex-1 min-h-[85vh]">
     <DocTabMenu v-if="page" :tab-menu-items="tabMenuItems"/>
-    <Button v-if="page && page?.body.toc?.links?.length" mode="outline" class="w-max relative md:hidden">
+    <Button v-if="page && page?.body.toc?.links?.length" mode="outline" class="w-max relative lg:hidden">
       {{ t('onPage') }}
-      <FixWindow typePosition="fixed" position="bottom-left" eventOpen="click" eventClose="hover"
+      <FixWindow typePosition="absolute" position="bottom-left" eventOpen="click" eventClose="hover"
                   class="max-w-80 max-h-96 overflow-auto bg-neutral-100 dark:bg-neutral-800 p-5 text-left rounded-xl flex-col space-y-6 no-scrollbar border dark:border-neutral-800">
         <DocOutline v-if="page?.body.toc?.links?.length" :headers="page?.body.toc?.links"/>
       </FixWindow>
@@ -59,7 +59,7 @@ const tabMenuItems = computed(() => tabMenu.value?.map((item) => {
   </div>
 
   <div v-if="page"
-      class="hidden md:flex w-64 flex-shrink-0 py-12 pl-2 sticky top-[5.25rem] overflow-y-auto md:overflow-x-hidden h-[calc(100vh-5rem)] flex-col space-y-6 no-scrollbar">
+      class="hidden lg:flex w-64 flex-shrink-0 py-12 pl-2 sticky top-[5.25rem] overflow-y-auto md:overflow-x-hidden h-[calc(100vh-5rem)] flex-col space-y-6 no-scrollbar">
     <DocOutline v-if="page?.body.toc?.links?.length" :headers="page?.body.toc?.links"/>
     <DocCommunity/>
     <div class="fixed bottom-0 z-10 w-64 h-12 bg-gradient-to-b from-transparent to-neutral-100 dark:to-neutral-900"/>

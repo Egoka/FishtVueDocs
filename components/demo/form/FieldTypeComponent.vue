@@ -9,7 +9,7 @@ const formValues = ref({
   Select: "",
   Calendar: "",
   Aria: "",
-  TextEditor: "",
+  // TextEditor: "",
   Switch: "",
   Custom: "",
 })
@@ -18,7 +18,7 @@ const structure = ref<FormProps["structure"]>([{fields: structureFields([
     "Select",
     "Calendar",
     "Aria",
-    "TextEditor",
+    // "TextEditor",
     "Switch",
     "Custom",
   ])}])

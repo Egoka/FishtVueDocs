@@ -10,15 +10,15 @@ const classLineRight = ref(false)
 </script>
 <template>
   <div class="flex flex-wrap justify-center">
-    <Switch v-model="classRef" :label="t('class')" switchingType="switch"/>
-    <Switch v-model="classBodyLine" :label="t('classBodyLine')" switchingType="switch"/>
-    <Switch v-model="classBodyLineLeft" :label="t('classBodyLineLeft')" switchingType="switch"/>
-    <Switch v-model="classBodyLineRight" :label="t('classBodyLineRight')" switchingType="switch"/>
+    <Switch v-model="classRef" :label="t('label.class')" switchingType="switch"/>
+    <Switch v-model="classBodyLine" :label="t('label.classBodyLine')" switchingType="switch"/>
+    <Switch v-model="classBodyLineLeft" :label="t('label.classBodyLineLeft')" switchingType="switch"/>
+    <Switch v-model="classBodyLineRight" :label="t('label.classBodyLineRight')" switchingType="switch"/>
   </div>
   <div class="flex flex-wrap justify-center">
-    <Switch v-model="classLine" :label="t('classLine')" switchingType="switch"/>
-    <Switch v-model="classLineLeft" :label="t('classLineLeft')" switchingType="switch"/>
-    <Switch v-model="classLineRight" :label="t('classLineRight')" switchingType="switch"/>
+    <Switch v-model="classLine" :label="t('label.classLine')" switchingType="switch"/>
+    <Switch v-model="classLineLeft" :label="t('label.classLineLeft')" switchingType="switch"/>
+    <Switch v-model="classLineRight" :label="t('label.classLineRight')" switchingType="switch"/>
   </div>
   <Separator  class="w-full"></Separator>
   <Separator
