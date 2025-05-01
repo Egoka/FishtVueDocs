@@ -1,169 +1,343 @@
-<script lang="ts">
-export type SearchSections = {
+<script setup lang="ts">
+import { debounce } from 'lodash';
+import { useI18n } from 'vue-i18n';
+import Fuse from 'fuse.js';
+import type { FuseResult, FuseResultMatch } from 'fuse.js';
+import { useSearchHotkeys } from '~/composables/useSearchHotkeys';
+import sanitizeHtml from 'sanitize-html';
+
+interface SearchItem {
   id: string;
   title: string;
-  titles: string[];
-  level: number;
   content: string;
-}
-</script>
-<script setup lang="ts">
-import {useFuse, type UseFuseOptions} from '@vueuse/integrations/useFuse'
-import {useI18n} from "vue-i18n";
-import type {GroupMenu} from "fishtvue/menu";
-import type {FuseResultMatch} from "fuse.js";
-
-const {locale, t} = useI18n()
-const isOpenDialogWindow = ref(false)
-const {data, refresh} = await useAsyncData(`search-${locale.value}`,
-    () => Promise.all([
-      queryCollectionSearchSections(locale.value),
-      queryCollectionNavigation(locale.value, ['icon'])
-    ]),
-    {
-      transform: ([files, navigation]) => ({files, navigation})
-    })
-watch(() => locale.value, async () => await refresh(), {immediate: true})
-const files = computed<SearchSections[]>(() => data.value?.files ?? [])
-const icons = ref<Record<number, string>>({
-  1: "mage:book",
-  2: "stash:hash-solid",
-  3: "stash:hash-light"
-})
-const fuseOptions = computed(() => ({
-  "fuseOptions": {
-    "keys": ['title', 'content'],
-    "ignoreLocation": true,
-    "ignoreDiacritics": false,
-    "threshold": 0.2,
-    "includeMatches": true,
-  },
-  "resultLimit": 20,
-  "matchAllWhenSearchEmpty": true
-} as UseFuseOptions<SearchSections>))
-const searchTerm = ref()
-const {results: fuseResults} = useFuse<SearchSections>(searchTerm, files, fuseOptions.value)
-const navigation = computed(() => data.value?.navigation)
-const menu = computed(() => navigation.value
-    ?.map((item) => {
-      console.log("fuseResults.value", fuseResults.value)
-      return {
-        title: item.title,
-        separator: {
-          icon: item.icon, gradient: 5
-        },
-        items: fuseResults.value?.filter((i) => i.item.id.startsWith(item?.path))
-            .filter((i) => i.item.content?.length)
-            .map((i) =>
-                ({
-                  title: i.item.title,
-                  path: i.item.id,
-                  level: i.item?.level,
-                  icon: i.item?.level ? icons.value?.[i.item?.level] : undefined,
-                  info: highlightIndices(i.matches?.find(m => m.key === "content"))
-                }))
-            .filter((i) => !(!searchTerm.value?.length && i?.level !== 1))
-      } as GroupMenu
-    })
-    .filter(item => item.items?.length)
-)
-
-function highlightIndices(match: FuseResultMatch | undefined) {
-  if (!match) return undefined
-  if (!match?.value) return undefined
-  const {value} = match
-  if (!searchTerm?.value) return value;
-
-  const regex = new RegExp(searchTerm.value, 'g');
-  return value.replace(regex, `<mark>${searchTerm.value}</mark>`);
+  titles: string[];
 }
 
-function toPath(item: any) {
-  isOpenDialogWindow.value = false
-  navigateTo(item.path ?? "")
-}
+const { locale, t } = useI18n();
+const isOpenDialogWindow = ref(false);
+const buttonRef = ref<HTMLButtonElement>();
+const inputRef = ref<HTMLInputElement>();
 
-const handleKeyCombo = (event: KeyboardEvent) => {
-  const isMac = navigator.platform.toLowerCase().includes('mac');
-  const isModifierPressed = isMac ? event.metaKey : event.ctrlKey;
+// Загрузка данных
+const { data, error, refresh } = await useAsyncData<SearchItem[]>(`search-${locale.value}`, () =>
+        queryCollectionSearchSections(locale.value),
+    { server: true, lazy: true }
+);
 
-  if (isModifierPressed &&
-      event.key.toLowerCase() === 'k' &&
-      !event.altKey &&
-      !event.shiftKey) {
-    event.preventDefault();
-    isOpenDialogWindow.value = true;
+watch(error, () => {
+  if (error.value) {
+    console.error('Failed to load search data:', error.value);
+    // useToast().add({ title: 'Error', description: 'Failed to load search data.', color: 'red' });
   }
-  if (
-      event.key === 'Escape' &&
-      !event.metaKey &&
-      !event.ctrlKey &&
-      !event.altKey &&
-      !event.shiftKey
-  ) {
-    event.preventDefault();
-    isOpenDialogWindow.value = false;
+});
+
+// Инициализация Fuse.js
+const fuse = ref<Fuse<SearchItem>>();
+const updateFuse = () => {
+  fuse.value = new Fuse(data.value ?? [], {
+    keys: [
+      { name: 'title', weight: 0.7 }, // Высокий приоритет для title
+      { name: 'content', weight: 0.2 },
+      { name: 'titles', weight: 0.1 },
+    ],
+    includeMatches: true,
+    includeScore: true,
+    threshold: 0.2,
+    ignoreLocation: true,
+    minMatchCharLength: 2,
+  });
+};
+
+// Обновление данных при смене локали
+watch(locale, async () => {
+  await refresh(); // Запрашиваем новые данные
+  updateFuse(); // Обновляем Fuse после загрузки
+}, { immediate: true });
+
+// Поиск
+const visibleResultsCountConst = 5;
+const searchTerm = ref('');
+const loading = ref(false);
+const fuseResults = shallowRef<FuseResult<SearchItem>[]>();
+const visibleResultsCount = ref(visibleResultsCountConst);
+const searchCache = new Map<string, FuseResult<SearchItem>[]>();
+
+const search = debounce(() => {
+  if (!searchTerm.value) {
+    fuseResults.value = [];
+    visibleResultsCount.value = visibleResultsCountConst;
+    searchCache.clear();
+    loading.value = false;
+    return;
+  }
+
+  // Проверяем кэш
+  if (searchCache.has(searchTerm.value)) {
+    fuseResults.value = prioritizeTitleMatches(searchCache.get(searchTerm.value) ?? []);
+    loading.value = false;
+    return;
+  }
+
+  const results = fuse.value?.search(searchTerm.value) ?? [];
+  const sortedResults = prioritizeTitleMatches(results);
+  fuseResults.value = sortedResults;
+  searchCache.set(searchTerm.value, sortedResults);
+
+  // Ограничиваем размер кэша
+  if (searchCache.size > 50) {
+    const firstKey = searchCache.keys().next().value;
+    if (firstKey) searchCache.delete(firstKey);
+  }
+  loading.value = false;
+}, 300);
+
+watch(searchTerm, () => {
+  loading.value = true;
+  visibleResultsCount.value = visibleResultsCountConst;
+  search();
+});
+
+// Приоритизация совпадений по title
+const prioritizeTitleMatches = (results: FuseResult<SearchItem>[]) => {
+  return results.sort((a, b) => {
+    const aHasTitleMatch = a.matches?.some(m => m.key === 'title') ? -1 : 1;
+    const bHasTitleMatch = b.matches?.some(m => m.key === 'title') ? -1 : 1;
+    if (aHasTitleMatch !== bHasTitleMatch) return aHasTitleMatch - bHasTitleMatch;
+    return (a.score ?? 0) - (b.score ?? 0); // Сортировка по score, если оба имеют/не имеют title
+  });
+};
+
+// Обработка активного элемента
+const activeIndex = ref<number | null>(null);
+const toggleIndex = (index: number) => {
+  activeIndex.value = activeIndex.value === index ? null : index;
+};
+
+// Навигация
+const toPath = (path: string) => {
+  isOpenDialogWindow.value = false;
+  navigateTo(path ?? '');
+};
+
+// Подсветка совпадений
+const truncateText = (text: string, maxLength: number = 100) => {
+  return text.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
+};
+
+const highlightMatch = (text: string, matches: FuseResultMatch[] = [], maxLength: number = 100) => {
+  const cleanText = sanitizeHtml(truncateText(text, maxLength), {
+    allowedTags: [],
+    allowedAttributes: {},
+  });
+
+  if (!matches.length) return cleanText;
+
+  const sortedIndices = matches
+      .flatMap(match => match.indices)
+      .filter(([start, end]) => end - start + 1 >= 3 && start < cleanText.length && end < cleanText.length)
+      .sort((a, b) => b[0] - a[0]);
+
+  let result = cleanText;
+  sortedIndices.forEach(([start, end]) => {
+    const before = result.slice(0, start);
+    const matched = result.slice(start, end + 1);
+    const after = result.slice(end + 1);
+    result = `${before}<mark>${matched}</mark>${after}`;
+  });
+
+  return result;
+};
+
+// Показать больше результатов
+const showMore = () => {
+  visibleResultsCount.value += visibleResultsCountConst * 3;
+};
+
+// Клавиатурная навигация
+const handleKeyNavigation = (event: KeyboardEvent) => {
+  if (!isOpenDialogWindow.value || !fuseResults.value?.length) return;
+  const indexActiveIndex = fuseResults.value.findIndex(r => r.refIndex === activeIndex.value);
+  switch (event.key) {
+    case 'ArrowDown':
+      event.preventDefault();
+      activeIndex.value = activeIndex.value == null ? fuseResults.value[0].refIndex : Math.min(fuseResults.value[indexActiveIndex + 1].refIndex, fuseResults.value[fuseResults.value.length - 1].refIndex);
+      break;
+    case 'ArrowUp':
+      event.preventDefault();
+      activeIndex.value = activeIndex.value == null ? fuseResults.value[0].refIndex : Math.max(fuseResults.value[indexActiveIndex - 1].refIndex, fuseResults.value[0].refIndex);
+      break;
+    case 'Enter':
+      if (activeIndex.value != null) {
+        event.preventDefault();
+        toPath(fuseResults.value[indexActiveIndex].item.id);
+      }
+      break;
+    case 'Escape':
+      event.preventDefault();
+      isOpenDialogWindow.value = false;
+      break;
   }
 };
+
 onMounted(() => {
-  document.addEventListener('keydown', handleKeyCombo);
+  document.removeEventListener('keydown', handleKeyNavigation); // Предотвращаем дублирование
+  document.addEventListener('keydown', handleKeyNavigation);
 });
 
 onUnmounted(() => {
-  document.removeEventListener('keydown', handleKeyCombo);
+  document.removeEventListener('keydown', handleKeyNavigation);
 });
+
+useSearchHotkeys(isOpenDialogWindow);
 </script>
 
 <template>
-  <Button mode="ghost" @click="isOpenDialogWindow = true" class="m-0 transition-colors duration-300">
+  <Button
+      ref="buttonRef"
+      mode="ghost"
+      @click="isOpenDialogWindow = true"
+      class="m-0 transition-colors duration-300"
+      aria-label="Open search dialog"
+  >
     <AppIcons icon="material-symbols:search-rounded" class="size-5 text-neutral-600 dark:text-neutral-400" />
-    <FixWindow :delay="3"
-                class="hidden lg:flex lg:border-transparent px-2 py-0.5 rounded-xs bg-neutral-100 dark:bg-neutral-900">
-      {{ t("Search") }}
+    <FixWindow
+        :delay="3"
+        class="hidden lg:flex lg:border-transparent px-2 py-0.5 rounded-xs bg-neutral-100 dark:bg-neutral-900"
+    >
+      {{ t('Search') }}
     </FixWindow>
   </Button>
   <ClientOnly>
-    <Dialog v-model:model-value="isOpenDialogWindow" notAnimate toTeleport="#__nuxt" position="top"
-             class="top-20 p-0 sm:max-w-xl">
+    <Dialog
+        v-model="isOpenDialogWindow"
+        notAnimate
+        toTeleport="#__nuxt"
+        position="top"
+        class="top-20 p-0 mx-auto transform-gpu overflow-hidden rounded-xl bg-white shadow-xl sm:max-w-lg w-full dark:bg-neutral-950 dark:ring-1 ring-theme-100 dark:ring-theme-900"
+    >
       <Input
-          ref="selectSearch"
+          ref="inputRef"
           v-model="searchTerm"
-          :placeholder="t('Searching')"
+          :placeholder="t('Searching', 'Search...')"
           auto-focus
+          :loading="loading"
           label-mode="vanishing"
           autocomplete="off"
           mode="outlined"
           class-input="text-lg"
-          class-body="m-2 pb-2 mb-0 z-20 bg-white dark:bg-neutral-950"
+          class-body="m-2 z-20 bg-white dark:bg-neutral-950"
           class="border-0 ring-0"
           clear
+          aria-label="Search input"
       >
         <template #before>
           <AppIcons icon="material-symbols:search-rounded" class="size-5 text-gray-400 dark:text-gray-600" />
         </template>
       </Input>
-      <Menu
-          class="w-full max-w-xl m-auto max-h-150 border-0 -mt-5 pt-10 "
-          :groups="menu"
-          :styles="{ class: { title: 'p-0', item: 'items-start', itemInfo: 'max-w-[20rem]', itemIcon: 'size-5 text-theme-600 dark:text-theme-300' }}"
-          @on-click="(_:any, item: any) => toPath(item)">
-        <template #title>
-        </template>
-      </Menu>
+      <div
+          v-if="fuseResults?.length"
+          class="border-t border-slate-200 bg-white dark:bg-theme-950/50 px-2 py-3 empty:hidden dark:border-slate-400/10"
+      >
+        <TransitionGroup
+            name="ul"
+            tag="ul"
+            role="listbox"
+            class="overflow-auto max-h-[360px]"
+            :aria-activedescendant="activeIndex ? `documentation-item-${activeIndex}` : undefined"
+        >
+          <li
+              v-for="result in fuseResults.slice(0, visibleResultsCount)"
+              :key="result.refIndex"
+              :id="`documentation-item-${result.refIndex}`"
+              role="option"
+              :aria-selected="result.refIndex === activeIndex"
+              class="group block cursor-default rounded-lg mt-4 px-3 py-2 aria-selected:bg-slate-100 dark:aria-selected:bg-slate-700/30 touch:p-4"
+              @pointerenter="toggleIndex(result.refIndex)"
+              @pointerleave="toggleIndex(result.refIndex)"
+              @click="toPath(result.item.id)"
+          >
+            <div
+                :id="`:${result.refIndex}:-title`"
+                class="text-sm text-slate-700 group-aria-selected:text-theme-600 dark:text-slate-300 dark:group-aria-selected:text-theme-400"
+                v-html="highlightMatch(result.item.title, result.matches?.filter((m: FuseResultMatch) => m.key === 'title'), 100)"
+            />
+            <div
+                v-if="result.item.titles.length"
+                :id="`:${result.refIndex}:-hierarchy`"
+                class="mt-0.5 truncate text-xs font-bold whitespace-nowrap text-slate-500 dark:text-slate-400"
+            >
+              <template v-for="(title, key) in result.item.titles" :key="key">
+                <span>{{ title }}</span>
+                <span
+                    v-if="result.item.titles.length - 1 !== key"
+                    class="mx-2 text-theme-300 dark:text-theme-700"
+                >/</span>
+                <span v-else class="sr-only">/</span>
+              </template>
+            </div>
+            <div
+                v-if="result.item.content.length"
+                :id="`:${result.refIndex}:-content`"
+                :aria-hidden="result.refIndex !== activeIndex"
+                class="mt-3 truncate text-xs text-slate-500 dark:text-slate-400"
+                v-html="highlightMatch(result.item.content, result.matches?.filter((m: FuseResultMatch) => m.key === 'content'), 150)"
+            />
+          </li>
+        <Button
+            v-if="fuseResults.length > visibleResultsCount"
+            mode="ghost"
+            class="mt-2 mx-auto text-sm text-theme-600 dark:text-theme-400 hover:bg-theme-200 dark:hover:bg-theme-900  hover:text-theme-600 dark:hover:text-theme-400 flex items-center justify-center"
+            @click="showMore"
+        >
+          <AppIcons icon="material-symbols:expand-more" class="size-4" />
+          {{ t('Show more', 'Show more') }}
+        </Button>
+        </TransitionGroup>
+      </div>
+
+      <div
+          v-if="!loading && searchTerm && !fuseResults?.length"
+          class="h-48 content-center text-sm text-center text-slate-500 dark:text-slate-400"
+      >
+        {{ t('No results found', 'No results found') }}
+      </div>
     </Dialog>
   </ClientOnly>
 </template>
 
 <style scoped>
 :global(html mark) {
-  color: var(--color-theme-50);
-  background-color: var(--color-theme-700);
-  border-radius: 3px;
-  padding: 0 2px;
+  color: var(--color-theme-600);
+  background-color: transparent;
+  font-weight: 500;
 }
 
 :global(html.dark mark) {
-  color: var(--color-theme-100);
-  background-color: var(--color-theme-700);
+  color: var(--color-theme-400);
+  background-color: transparent;
+  font-weight: 500;
+}
+
+/* Анимации для TransitionGroup */
+.ul-enter-active,
+.ul-leave-active {
+  transition: all 0.3s ease;
+}
+
+.ul-enter-from,
+.ul-leave-to {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.ul-move {
+  transition: transform 0.3s ease;
+}
+
+/* Увеличение области клика для сенсорных устройств */
+.touch\:p-4 {
+  @media (pointer: coarse) {
+    padding: 1rem;
+  }
 }
 </style>

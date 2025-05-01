@@ -8,5 +8,5 @@ const selectedValues = ref()
 </script>
 
 <template>
-  <Select :dataSelect="data" multiple v-model="selectedItems"/>
+  <Select :dataSelect="data" multiple v-model="selectedValues"/>
 </template>
