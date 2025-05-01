@@ -33,11 +33,11 @@ const {top} = toRefs(arrivedState)
       <main class="flex flex-col md:flex-row">
         <aside
             v-if="navigation?.length"
-            class="hidden md:block w-[13rem] flex-shrink-0 m-2 p-2 py-4 rounded-sm sticky top-[5.25rem] h-full overflow-y-auto"
+            class="hidden md:block w-[13rem] flex-shrink-0 p-2 py-8 rounded-sm sticky top-[67px] lg:[83px] top h-full overflow-y-auto"
             :class="[
                 top ? 'bg-transparent backdrop-blur-0' : 'bg-neutral-100/60 dark:bg-neutral-900/60',
                 'transition-all duration-500',
-                'max-h-[calc(100vh-8rem)] min-h-[calc(100vh-8rem)]'
+                'max-h-[calc(100vh-4rem)] min-h-[calc(100vh-4rem)]'
                 ]">
           <DocSidebar :items="navigation ?? []"/>
           <div class="h-6 w-full"/>

@@ -23,7 +23,7 @@ const isDesktop = breakpoints.greaterOrEqual('md'); // ≥768px
 
 <template>
   <nav class="hidden md:flex items-center">
-    <AppSearchTrigger/>
+    <AppSearch/>
     <AppThemeToggle/>
     <AppLocaleSwitch/>
     <NuxtLink
@@ -38,7 +38,7 @@ const isDesktop = breakpoints.greaterOrEqual('md'); // ≥768px
     </NuxtLink>
   </nav>
   <div class="md:hidden flex flex-row gap-2">
-    <AppSearchTrigger v-if="!isDesktop"/>
+    <AppSearch v-if="!isDesktop"/>
     <Button mode="outline" @click="isSidebarOpen = true" class="m-0 px-2"
              :class="[!top?'border-transparent bg-neutral-50 dark:bg-neutral-900':'border-neutral-200']">
       <AppIcons icon="lucide:menu" class="text-lg text-neutral-800 dark:text-neutral-200 iconify iconify--lucide"/>

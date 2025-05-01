@@ -251,14 +251,14 @@ useSearchHotkeys(isOpenDialogWindow);
               :id="`documentation-item-${result.refIndex}`"
               role="option"
               :aria-selected="result.refIndex === activeIndex"
-              class="group block cursor-default rounded-lg mt-4 px-3 py-2 aria-selected:bg-slate-100 dark:aria-selected:bg-slate-700/30 touch:p-4"
+              class="group block cursor-default rounded-lg mt-4 px-3 py-2 aria-selected:bg-slate-100 dark:aria-selected:bg-slate-700/30 touch:p-4 transition-all duration-200"
               @pointerenter="toggleIndex(result.refIndex)"
               @pointerleave="toggleIndex(result.refIndex)"
               @click="toPath(result.item.id)"
           >
             <div
                 :id="`:${result.refIndex}:-title`"
-                class="text-sm text-slate-700 group-aria-selected:text-theme-600 dark:text-slate-300 dark:group-aria-selected:text-theme-400"
+                class="text-sm text-slate-700 group-aria-selected:text-theme-600 dark:text-slate-300 dark:group-aria-selected:text-theme-400 transition-all duration-200"
                 v-html="highlightMatch(result.item.title, result.matches?.filter((m: FuseResultMatch) => m.key === 'title'), 100)"
             />
             <div
@@ -318,7 +318,8 @@ useSearchHotkeys(isOpenDialogWindow);
   font-weight: 500;
 }
 
-/* Анимации для TransitionGroup */
+/* Анимация для списка результатов */
+.ul-move,
 .ul-enter-active,
 .ul-leave-active {
   transition: all 0.3s ease;
@@ -327,11 +328,22 @@ useSearchHotkeys(isOpenDialogWindow);
 .ul-enter-from,
 .ul-leave-to {
   opacity: 0;
-  transform: translateY(10px);
+  transform: translateY(-10px);
 }
 
-.ul-move {
-  transition: transform 0.3s ease;
+/* Анимация для содержимого элементов */
+.content-expand-enter-active,
+.content-expand-leave-active {
+  transition: all 0.3s ease-in-out;
+  max-height: 500px; /* Достаточно большое значение для контента */
+  overflow: hidden;
+}
+
+.content-expand-enter-from,
+.content-expand-leave-to {
+  max-height: 0;
+  opacity: 0;
+  margin: 0;
 }
 
 /* Увеличение области клика для сенсорных устройств */

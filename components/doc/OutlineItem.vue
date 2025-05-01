@@ -6,11 +6,35 @@ defineProps<{
   root?: boolean
 }>()
 
-function onClick({target: el}: Event) {
-  const id = (el as HTMLAnchorElement).href!.split('#')[1]
+function onClick(event: Event) {
+  event.preventDefault()
+  const target = event.target as HTMLAnchorElement
+  const id = target.href!.split('#')[1]
   const heading = document.getElementById(decodeURIComponent(id))
-  heading?.focus({preventScroll: false})
+  
+  if (heading) {
+    // Получаем позицию элемента
+    const elementPosition = heading.getBoundingClientRect().top
+    // Учитываем текущий скролл
+    const offsetPosition = elementPosition + window.pageYOffset
+    // Добавляем отступ для fixed header (100px)
+    const finalPosition = offsetPosition - 100
+
+    window.scrollTo({
+      top: finalPosition,
+      behavior: 'smooth'
+    })
+    
+    // Устанавливаем фокус после завершения скролла
+    setTimeout(() => {
+      heading.focus({ preventScroll: true })
+      // Обновляем URL с хэшем без перезагрузки страницы
+      history.pushState(null, '', `#${id}`)
+    }, 800) // Задержка для завершения анимации скролла
+  }
 }
+
+const classLink = ref("block whitespace-nowrap overflow-hidden text-ellipsis text-neutral-600  dark:text-neutral-400 data-[active]:text-neutral-800 dark:data-[active]:text-neutral-200 hover:text-neutral-800  dark:hover:text-neutral-200 text-sm leading-8 w-full transition-colors duration-300")
 </script>
 
 <template>
@@ -19,15 +43,14 @@ function onClick({target: el}: Event) {
         v-for="{ children, id, text } in headers"
         :key="text"
     >
-      <a
-          class="outline-link block whitespace-nowrap overflow-hidden text-ellipsis text-neutral-600  dark:text-neutral-400 data-[active]:text-neutral-800 dark:data-[active]:text-neutral-200 hover:text-neutral-800  dark:hover:text-neutral-200 text-sm leading-8 w-full transition-colors duration-300"
-          :class="{ 'font-medium': root }"
+      <NuxtLink
+          :class="[ root ? 'font-medium' : '', 'outline-link', classLink]"
           :href="`#${id}`"
           :title="text"
           @click="onClick"
       >
         {{ text }}
-      </a>
+      </NuxtLink>
       <template v-if="children?.length">
         <DocOutlineItem :headers="children"/>
       </template>
