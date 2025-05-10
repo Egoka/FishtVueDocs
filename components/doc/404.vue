@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {useI18n} from "vue-i18n";
-
 const {t} = useI18n()
+const localePath = useLocalePath()
 </script>
 
 <template>
@@ -13,7 +13,7 @@ const {t} = useI18n()
         {{ t("PageNotFound") }}
       </h1>
     </div>
-    <NuxtLink to="/">
+    <NuxtLink :to="localePath('/')">
       <Button mode="outline" class="mt-8">{{ t("GoBackHome") }}</Button>
     </NuxtLink>
   </div>

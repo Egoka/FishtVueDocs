@@ -39,8 +39,8 @@ importers:
         specifier: ^2.1.1
         version: 2.1.1
       fishtvue:
-        specifier: file:fishtvue-0.0.8.tgz
-        version: file:fishtvue-0.0.8.tgz(@nuxt/kit@3.17.1(magicast@0.3.5))(@nuxt/schema@3.17.1)(@popperjs/core@2.11.8)(nuxt@3.17.1(@netlify/blobs@8.2.0)(@parcel/watcher@2.5.1)(@types/node@22.15.3)(better-sqlite3@11.9.1)(db0@0.3.2(better-sqlite3@11.9.1))(eslint@9.25.1(jiti@2.4.2))(ioredis@5.6.1)(lightningcss@1.29.2)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.40.1)(terser@5.39.0)(typescript@5.8.3)(vite@6.3.4(@types/node@22.15.3)(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0)(yaml@2.7.1))(yaml@2.7.1))(typescript@5.8.3)
+        specifier: file:fishtvue-0.1.0.tgz
+        version: file:fishtvue-0.1.0.tgz(@nuxt/kit@3.17.1(magicast@0.3.5))(@nuxt/schema@3.17.1)(@popperjs/core@2.11.8)(nuxt@3.17.1(@netlify/blobs@8.2.0)(@parcel/watcher@2.5.1)(@types/node@22.15.3)(better-sqlite3@11.9.1)(db0@0.3.2(better-sqlite3@11.9.1))(eslint@9.25.1(jiti@2.4.2))(ioredis@5.6.1)(lightningcss@1.29.2)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.40.1)(terser@5.39.0)(typescript@5.8.3)(vite@6.3.4(@types/node@22.15.3)(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0)(yaml@2.7.1))(yaml@2.7.1))(typescript@5.8.3)
       fuse.js:
         specifier: ^7.1.0
         version: 7.1.0
@@ -2720,9 +2720,9 @@ packages:
     resolution: {integrity: sha512-YyZM99iHrqLKjmt4LJDj58KI+fYyufRLBSYcqycxf//KpBk9FoewoGX0450m9nB44qrZnovzC2oeP5hUibxc/g==}
     engines: {node: '>=18'}
 
-  fishtvue@file:fishtvue-0.0.8.tgz:
-    resolution: {integrity: sha512-a3ZV2A97CJ4sGi0woQwuDFSL6/wy2CwSOOCeamvyYJ87MAWOI2r1h92N7ZoMjvDmJZegHA3k/8JpfS/iWJzJ9g==, tarball: file:fishtvue-0.0.8.tgz}
-    version: 0.0.8
+  fishtvue@file:fishtvue-0.1.0.tgz:
+    resolution: {integrity: sha512-2GB68gBauvqrMfCFVlH2hu8AlG/TUvUAT6H1EQQBHW68zMv8EWs29N8RRgCq0WL22qDfkFkdEku0OenwjXxeOw==, tarball: file:fishtvue-0.1.0.tgz}
+    version: 0.1.0
     peerDependencies:
       '@nuxt/kit': ^3.0.0
       '@nuxt/schema': ^3.0.0
@@ -8356,7 +8356,7 @@ snapshots:
       path-exists: 5.0.0
       unicorn-magic: 0.1.0
 
-  fishtvue@file:fishtvue-0.0.8.tgz(@nuxt/kit@3.17.1(magicast@0.3.5))(@nuxt/schema@3.17.1)(@popperjs/core@2.11.8)(nuxt@3.17.1(@netlify/blobs@8.2.0)(@parcel/watcher@2.5.1)(@types/node@22.15.3)(better-sqlite3@11.9.1)(db0@0.3.2(better-sqlite3@11.9.1))(eslint@9.25.1(jiti@2.4.2))(ioredis@5.6.1)(lightningcss@1.29.2)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.40.1)(terser@5.39.0)(typescript@5.8.3)(vite@6.3.4(@types/node@22.15.3)(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0)(yaml@2.7.1))(yaml@2.7.1))(typescript@5.8.3):
+  fishtvue@file:fishtvue-0.1.0.tgz(@nuxt/kit@3.17.1(magicast@0.3.5))(@nuxt/schema@3.17.1)(@popperjs/core@2.11.8)(nuxt@3.17.1(@netlify/blobs@8.2.0)(@parcel/watcher@2.5.1)(@types/node@22.15.3)(better-sqlite3@11.9.1)(db0@0.3.2(better-sqlite3@11.9.1))(eslint@9.25.1(jiti@2.4.2))(ioredis@5.6.1)(lightningcss@1.29.2)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.40.1)(terser@5.39.0)(typescript@5.8.3)(vite@6.3.4(@types/node@22.15.3)(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0)(yaml@2.7.1))(yaml@2.7.1))(typescript@5.8.3):
     dependencies:
       '@heroicons/vue': 2.2.0(vue@3.5.13(typescript@5.8.3))
       '@iconify/vue': 4.3.0(vue@3.5.13(typescript@5.8.3))

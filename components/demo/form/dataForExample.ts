@@ -2,8 +2,6 @@ import type {FieldType, FormStructure} from "#fishtvue/form"
 import {useNuxtApp} from "#app";
 import {fruits} from "~/components/demo/select/dataForExample";
 
-const {$i18n} = useNuxtApp()
-const {locale, t} = $i18n
 type Keys =
     "username" |
     "email" |
@@ -25,8 +23,17 @@ type Keys =
     "lengthRule" |
     "asyncRule" |
     "customRule" |
-    "compareRule"
+    "compareRule" |
+    "customPayment" |
+    "namePayment" |
+    "city" |
+    "cardNumber" |
+    "expires" |
+    "year" |
+    "CVC"
 export const structureFields = (namesFields: Keys[]): FormStructure["fields"] => {
+    const {$i18n} = useNuxtApp()
+    const {locale, t} = $i18n
     const fields: Partial<Record<Keys, FieldType>> = {
         username: {
             typeComponent: 'Input',
@@ -153,6 +160,63 @@ export const structureFields = (namesFields: Keys[]): FormStructure["fields"] =>
             typeComponent: "Input",
             name: "compareRule",
             label: t("label.compareRule")
+        },
+        customPayment: {
+            typeComponent: "Custom",
+            name: 'customPayment',
+            nameTemplate: "customPayment",
+        },
+        namePayment: {
+            typeComponent: "Input",
+            name: "namePayment",
+            label: t("label.name"),
+            placeholder: t("placeholder.firstLast")
+        },
+        city: {
+            typeComponent: "Input",
+            name: "city",
+            label: t("label.city")
+        },
+        cardNumber: {
+            typeComponent: "Input",
+            name: "cardNumber",
+            label: t("label.cardNumber")
+        },
+        expires: {
+            typeComponent: "Select",
+            name: "expires",
+            label: t("label.expires"),
+            dataSelect:[
+                "January",
+                "February",
+                "March",
+                "April",
+                "May",
+                "June",
+                "July",
+                "August",
+                "September",
+                "October",
+                "November",
+                "December"
+            ],
+            classCol: 'sm:col-span-2'
+        },
+        year: {
+            typeComponent: "Select",
+            name: "year",
+            label: t("label.year"),
+            dataSelect: ["2024", "2025", "2026", "2027", "2028"],
+            classCol: 'sm:col-span-2'
+        },
+        CVC: {
+            typeComponent: "Input",
+            name: "CVC",
+            type: "number",
+            label: t("label.CVC"),
+            maskInput: "number",
+            classCol: "sm:col-span-2",
+            lengthInteger: 3
         }
     }
     return namesFields.reduce((result: FormStructure["fields"], key) => {

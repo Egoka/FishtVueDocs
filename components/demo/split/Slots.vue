@@ -1,6 +1,6 @@
 <template>
-  <div class="preview flex min-h-[250px] w-full justify-center max-w-[448px] mx-auto items-center h-[5rem]">
-    <Split :panels="[{name: 'right'}, {name: 'left'}]" class="relative rounded-lg border dark:border-gray-800" units="percentages">
+  <div class="preview flex min-h-[250px] w-full justify-center min-w-[448px] max-w-[448px] mx-auto items-center h-[5rem]">
+    <Split :panels="[{name: 'right'}, {name: 'left'}]" class="relative rounded-lg overflow-auto border dark:border-gray-800" units="percentages">
       <template #right>
         <div class="relative overflow-hidden w-full h-full flex justify-center items-center">
           <img class="absolute left-0 max-w-[448px]"  src="@/assets/image/pramod-tiwari-16-unsplash.jpg" alt=""/>

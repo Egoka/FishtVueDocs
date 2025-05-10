@@ -62,7 +62,7 @@ export default defineNuxtConfig({
   devtools: {enabled: false},
   css: ['~/assets/css/main.css'],
   vite: {plugins: [tailwindcss()]},
-  plugins: ['~/plugins/suppress-hydration-warning.client.ts'],
+  // plugins: ['~/plugins/suppress-hydration-warning.client.ts'],
   nitro: {
     prerender: {
       routes: [

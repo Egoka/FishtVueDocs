@@ -87,7 +87,6 @@ const tabMenuItems = computed(() => tabMenu.value?.map((item) => {
       </FixWindow>
     </Button>
     <article class="w-full prose prose-stone dark:prose-invert max-w-none min-h-[calc(100vh-30rem)]">
-      <DocHeader v-if="page" :title="page?.title" :description="page?.description" :links="page?.links"/>
       <template v-if="showLoading">
         <div class="animate-pulse mt-8">
           <div class="h-8 bg-neutral-200 dark:bg-neutral-800 rounded-lg w-1/3 mb-4"></div>
@@ -100,6 +99,7 @@ const tabMenuItems = computed(() => tabMenu.value?.map((item) => {
         </div>
       </template>
       <template v-else>
+        <DocHeader v-if="page" :title="page?.title" :description="page?.description" :links="page?.links"/>
         <div v-if="page" class="mt-8 space-y-12">
           <ContentRenderer :value="page"/>
         </div>

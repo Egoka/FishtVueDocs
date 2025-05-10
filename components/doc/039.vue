@@ -5,6 +5,7 @@ import { p5i } from "p5i";
 import { onMounted, onUnmounted, ref } from "vue";
 const colorMode = useColorMode();
 const el = ref<HTMLCanvasElement | null>(null);
+const isVisible = ref(false)
 
 const {
   mount,
@@ -58,7 +59,6 @@ function addPoints() {
 function setup() {
   createCanvas(w, h);
   frameRate(30);
-  background("#ffffff");
   stroke("#ccc");
   noFill();
   noiseSeed(+new Date());
@@ -97,12 +97,12 @@ function draw({ circle }: P5I) {
         else stroke(130, 200, 160, alpha);
       } else {
         if (colorMode.value === "light")
-          stroke(130, 255, 165, alpha);
+          stroke(130, 185, 165, alpha);
         else stroke(15, 55, 30, alpha);
       }
     } else {
       if (colorMode.value === "light")
-        stroke(130, 255, 165, alpha);
+        stroke(130, 185, 165, alpha);
       else stroke(15, 55, 30, alpha);
     }
 
@@ -116,6 +116,9 @@ function restart() {
 
 onMounted(() => {
   restart();
+  setTimeout(() => {
+    isVisible.value = true
+  }, 50)
 
   useEventListener("mousemove", (event) => {
     mouseX = event.clientX;
@@ -141,5 +144,19 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div ref="el" class="pointer-events-none fixed bottom-0 left-0 right-0 top-0 -z-1" />
+  <div
+    ref="el"
+    class="pointer-events-none fixed bottom-0 left-0 right-0 top-0 -z-1 fade-canvas"
+    :class="{ visible: isVisible }"
+  />
 </template>
+
+<style scoped>
+.fade-canvas {
+  opacity: 0;
+  transition: opacity 1s ease-in;
+}
+.fade-canvas.visible {
+  opacity: 1;
+}
+</style>

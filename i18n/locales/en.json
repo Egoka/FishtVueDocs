@@ -1,6 +1,5 @@
 {
   "Save": "Save",
-  "start": "Start",
   "onPage": "On this page",
   "Community": "Community",
   "Search": "Search",
@@ -26,7 +25,18 @@
   "button": {
     "yes": "Yes",
     "no": "No",
+    "add": "Add",
+    "more": "More",
+    "search": "Search",
     "custom": "Custom",
+    "Archive": "Archive",
+    "Snooze": "Snooze",
+    "Send": "Send",
+    "Reply": "Reply",
+    "replyAll": "Reply all",
+    "Forward": "Forward",
+    "moveToJunk": "Move to junk",
+    "moveToTrash": "Move to trash",
     "Register": "Register",
     "deactivate": "Deactivate",
     "cancel": "Cancel",
@@ -57,6 +67,11 @@
     "animation": "Animation",
     "class": "Class",
     "Type": "Type",
+    "city": "City",
+    "cardNumber": "Card number",
+    "expires":  "Expires",
+    "year": "Year",
+    "CVC": "CVC",
     "sizePage": "Size Page",
     "sizesSelector": "Page Size Selector",
     "visibleNumberPages": "Visible Number of Pages",
@@ -162,6 +177,7 @@
     "countVisibleRows": "Visible rows",
     "nameButton": "Name button",
     "animationDuration": "Animation Duration",
+    "muteThisThread": "Mute this thread",
     "Input": "Input",
     "Select": "Select",
     "Calendar": "Calendar",
@@ -332,12 +348,22 @@
   "placeholder": {
     "Username": "Enter your username",
     "Email": "Enter your email",
-    "Password": "Enter your password"
+    "Password": "Enter your password",
+    "Reply": "Reply {name}...",
+    "firstLast": "First Last"
   },
   "content": {
     "user": {
       "title": "User Information",
       "description": "Please provide your user information"
+    },
+    "payment": {
+      "title": "Payment Method",
+      "description": "Add a new payment method to your account."
+    },
+    "hotels": {
+      "title": "Hotels and Ratings",
+      "description": "List of hotels with country, recommendations, and star ratings."
     },
     "additionalInformation": {
       "title": "Personal information",
@@ -628,5 +654,50 @@
     "account": "Account",
     "notifications": "Notifications",
     "logout": "Logout"
+  },
+  "start": {
+    "intro": {
+      "title": "Build web apps easily with ",
+      "name": "FishtVue",
+      "description": "Beautifully designed, artfully crafted components created by the makers of FishtVue. The perfect starting point for your next project.",
+      "getStarted": "Get started",
+      "exploreComponent": "Explore components"
+    },
+    "features": {
+      "title": "Features",
+      "subtitle": "Fisht UI is a modern and flexible component library for rapid interface development.",
+      "Components": {
+        "title": "Rich Component Set",
+        "description": "Forms, tables, buttons, panels, menus, messages, badges, icons and much more for any task."
+      },
+      "Design": {
+        "title": "Flexible Design System",
+        "description": "Customization via design tokens, light and dark themes, TailwindCSS integration."
+      },
+      "Accessibility": {
+        "title": "Accessibility",
+        "description": "Components comply with WCAG 2.0 standards and support ARIA attributes."
+      },
+      "Internationalization": {
+        "title": "Internationalization",
+        "description": "Easy localization, LTR/RTL support and multilingual interface."
+      },
+      "Icons": {
+        "title": "Large Icon Set",
+        "description": "Integration with external libraries, 200,000+ icons, easy customization."
+      },
+      "Performance": {
+        "title": "Performance",
+        "description": "Optimized resources, fast loading and smooth operation on all devices."
+      },
+      "Mobile": {
+        "title": "Mobile Friendly",
+        "description": "Components are adapted for mobile devices and touch interfaces."
+      },
+      "TypeScript": {
+        "title": "TypeScript Support",
+        "description": "Full TypeScript support for reliable and convenient development."
+      }
+    }
   }
 }

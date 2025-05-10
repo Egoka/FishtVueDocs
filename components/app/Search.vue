@@ -236,7 +236,7 @@ useSearchHotkeys(isOpenDialogWindow);
       </Input>
       <div
           v-if="fuseResults?.length"
-          class="border-t border-slate-200 bg-white dark:bg-theme-950/50 px-2 py-3 empty:hidden dark:border-slate-400/10"
+          class="search border-t border-slate-200 bg-white dark:bg-theme-950/50 px-2 py-3 empty:hidden dark:border-slate-400/10"
       >
         <TransitionGroup
             name="ul"
@@ -306,13 +306,13 @@ useSearchHotkeys(isOpenDialogWindow);
 </template>
 
 <style scoped>
-:global(html mark) {
+:global(html .search mark) {
   color: var(--color-theme-600);
   background-color: transparent;
   font-weight: 500;
 }
 
-:global(html.dark mark) {
+:global(html.dark .search mark) {
   color: var(--color-theme-400);
   background-color: transparent;
   font-weight: 500;
