@@ -33,7 +33,7 @@ const {top} = toRefs(arrivedState)
       <main class="flex flex-col md:flex-row">
         <aside
             v-if="navigation?.length"
-            class="hidden md:block w-[13rem] flex-shrink-0 p-2 py-8 rounded-sm sticky top-[67px] lg:[83px] top h-full overflow-y-auto"
+            class="hidden md:block w-[13rem] flex-shrink-0 p-2 py-8 sticky top-[67px] lg:top-[83px] top h-full overflow-y-auto"
             :class="[
                 top ? 'bg-transparent backdrop-blur-0' : 'bg-neutral-100/60 dark:bg-neutral-900/60',
                 'transition-all duration-500',

@@ -93,7 +93,7 @@ function send() {
           <div class="flex flex-row w-full">
             <div
                 class="inline-flex items-center justify-center bg-transparent rounded-full size-12 min-w-12 text-2xl font-medium mr-3">
-              <img :src="`/_nuxt/assets/image/avatars/${mail.avatar}`" alt="avatar"
+              <img :src="`/avatars/${mail.avatar}`" alt="avatar"
                    class="rounded-full h-full min-w-full object-cover "/>
             </div>
             <div class="flex w-auto flex-col gap-1">
@@ -141,7 +141,7 @@ function send() {
             <div class="flex items-start gap-4 text-sm">
               <div
                   class="inline-flex items-center justify-center bg-transparent rounded-full size-16 min-w-16 text-2xl font-medium">
-                <img :src="`/_nuxt/assets/image/avatars/${mails[activeMail].avatar}`" alt="avatar"
+                <img :src="`/avatars/${mails[activeMail].avatar}`" alt="avatar"
                      class="rounded-xl h-full min-w-full object-cover "/>
               </div>
               <div class="grid gap-1">

@@ -44,6 +44,7 @@
     "check": "Check",
     "loading": "Loading",
     "open": "Open",
+    "dialog": "Dialog",
     "onlyTitle": "Only title",
     "onlySubtitle": "Only subtitle",
     "withHtml": "With html"
@@ -166,6 +167,10 @@
     "eventOpen": "Event Open",
     "eventClose": "Event Close",
     "delay": "Delay",
+    "fruits": "Fruits",
+    "event": "Event",
+    "message": "Message",
+    "enableNotifications": "Enable Notifications",
     "marginPx": "Margin (px)",
     "translatePx": "Translate (px)",
     "paddingWindow": "Padding Window (px)",
@@ -413,9 +418,6 @@
     },
     "dialog": {
       "index": "Dialog",
-      "base": {
-        "button": "Base Dialog"
-      },
       "size": {
         "title": "Dialog Title",
         "size": "Size",

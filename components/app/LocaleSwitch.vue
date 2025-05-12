@@ -13,7 +13,7 @@ const {t, locale, locales, setLocale} = useI18n()
 const groupsLocales = computed(()=>([{
   items: locales.value?.map((loc)=>({
     title: loc.name,
-    icon: `flag:${loc.flag}-4x3`,
+    // icon: `flag:${loc.flag}-4x3`,
     code: loc.code,
     class: locale.value === loc.code ? "bg-neutral-200 dark:bg-neutral-900" : ""
   }))

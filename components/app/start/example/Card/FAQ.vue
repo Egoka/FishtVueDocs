@@ -33,10 +33,10 @@ const faqData = ref([
 
 <template>
   <div class="max-w-[600px] m-auto">
-    <h1 class="text-xl font-semibold leading-7 text-gray-900 dark:text-gray-100">
+    <h1 class="text-xl font-semibold leading-7 text-gray-900 dark:text-gray-100 mb-3">
       FAQ
       <span class="text-neutral-300 dark:text-neutral-700 font-normal">(Frequently Asked Questions)</span>
     </h1>
-    <Accordion :dataSource="faqData" multiple class="max-h-80 overflow-auto"/>
+    <Accordion :dataSource="faqData" class="h-80 max-h-80 overflow-auto"/>
   </div>
 </template>

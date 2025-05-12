@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { debounce } from 'lodash';
-import { useI18n } from 'vue-i18n';
+import {debounce} from 'lodash';
+import {useI18n} from 'vue-i18n';
+import type {FuseResult, FuseResultMatch} from 'fuse.js';
 import Fuse from 'fuse.js';
-import type { FuseResult, FuseResultMatch } from 'fuse.js';
-import { useSearchHotkeys } from '~/composables/useSearchHotkeys';
+import {useSearchHotkeys} from '~/composables/useSearchHotkeys';
 import sanitizeHtml from 'sanitize-html';
 
 interface SearchItem {
@@ -49,10 +49,10 @@ const updateFuse = () => {
 };
 
 // Обновление данных при смене локали
-watch(locale, async () => {
+watch(() => locale.value, async () => {
   await refresh(); // Запрашиваем новые данные
   updateFuse(); // Обновляем Fuse после загрузки
-}, { immediate: true });
+});
 
 // Поиск
 const visibleResultsCountConst = 5;
@@ -180,6 +180,7 @@ const handleKeyNavigation = (event: KeyboardEvent) => {
 };
 
 onMounted(() => {
+  updateFuse()
   document.removeEventListener('keydown', handleKeyNavigation); // Предотвращаем дублирование
   document.addEventListener('keydown', handleKeyNavigation);
 });

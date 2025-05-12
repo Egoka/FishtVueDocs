@@ -27,7 +27,7 @@ const {t} = useI18n()
         </Button>
         <Button icon="chevron-right" size="lg" mode="outline"
                 class="font-semibold bg-neutral-100 dark:bg-neutral-900">
-          <NuxtLink :to="localePath('/examples')">
+          <NuxtLink :to="localePath('/components/components')">
             {{ t('start.intro.exploreComponent') }}
           </NuxtLink>
         </Button>

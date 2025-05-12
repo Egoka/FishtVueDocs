@@ -9,6 +9,7 @@ export const menuGroups = (): GroupMenu[] => {
     const {t} = $i18n
     return [
         {
+
             items: [
                 // {
                 //     title: "Home",
@@ -33,7 +34,7 @@ export const menuGroups = (): GroupMenu[] => {
                 {
                     title: "Chat",
                     icon: "lucide:message-circle",
-                    class: "mb-68",
+                    class: "mb-62",
                     to: "/chat"
                 },
                 // {
@@ -60,14 +61,16 @@ export const features = (): Features[] => {
             iconColor: 'text-blue-500',
             bg: 'bg-blue-50 dark:bg-blue-950/70',
             title: t("start.features.Components.title"),
-            description: t("start.features.Components.description")
+            description: t("start.features.Components.description"),
+            link: '/components/components'
         },
         {
             icon: 'tabler:palette',
             iconColor: 'text-pink-500',
             bg: 'bg-pink-50 dark:bg-pink-950/70',
             title: t("start.features.Design.title"),
-            description: t("start.features.Design.description")
+            description: t("start.features.Design.description"),
+            link: '/configuration/theming'
         },
         {
             icon: 'mdi:accessibility',
@@ -82,7 +85,8 @@ export const features = (): Features[] => {
             iconColor: 'text-yellow-500',
             bg: 'bg-yellow-50 dark:bg-yellow-950/70',
             title: t("start.features.Internationalization.title"),
-            description: t("start.features.Internationalization.description")
+            description: t("start.features.Internationalization.description"),
+            link: "/configuration/internationalization"
         },
         {
             icon: 'mdi:emoticon-outline',

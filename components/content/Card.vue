@@ -26,9 +26,9 @@ const slots = defineSlots<CardSlots>()
 
 const classes = ref<Record<"base" | "icon" | "title" | "description" | "externalIcon", string>>({
   base: "group relative block items-center p-4 sm:p-6 border border-dashed " +
-      "rounded-sm transition-colors " +
+      "rounded-sm transition-colors duration-300 " +
       "border-neutral-200 dark:border-neutral-800 " +
-      "bg-neutral-50 dark:bg-neutral-800 " +
+      "bg-neutral-50 dark:bg-neutral-800/20 backdrop-blur-[1px] " +
       "hover:bg-neutral-100/50 dark:hover:bg-neutral-800/50 " +
       "hover:border-theme-500 dark:hover:border-theme-400",
   icon: "size-7 sm:size-6 m-2 block text-neutral-900 dark:text-neutral-400",

@@ -18,7 +18,17 @@ export default defineNuxtConfig({
       }
     },
     optionsTheme: {
-      darkModeSelector: "html.dark"
+      nameTheme: "Aurora",
+      prefix: "fishtvue",
+      layers: "layer",
+      isNotMinifyCSS: true,
+      lightModeSelector: "html.light",
+      darkModeSelector: "html.dark",
+    },
+    componentsOptions: {
+      Input: {
+        clear: true
+      }
     }
   },
   content: {
@@ -62,7 +72,6 @@ export default defineNuxtConfig({
   devtools: {enabled: false},
   css: ['~/assets/css/main.css'],
   vite: {plugins: [tailwindcss()]},
-  // plugins: ['~/plugins/suppress-hydration-warning.client.ts'],
   nitro: {
     prerender: {
       routes: [

@@ -14,20 +14,20 @@
       <div class="rounded-xl max-w-full md:max-w-7/12 bg-stone-100 dark:bg-stone-900">
         <AppStartExampleCardTable/>
       </div>
-      <div class="max-w-full min-w-[448px] md:max-w-5/12 bg-stone-100 dark:bg-stone-900">
+      <div class="max-w-full min-w-[448px] md:max-w-5/12 rounded-lg bg-stone-100 dark:bg-stone-900">
         <AppStartExampleCardSplit/>
       </div>
       <div class="rounded-xl p-5 max-w-full md:max-w-6/12 border border-black/10 dark:border-white/5 bg-stone-100 dark:bg-stone-900">
         <AppStartExampleCardFAQ/>
       </div>
-      <div class="rounded-xl p-5 max-w-full md:max-w-4/12 bg-stone-100 dark:bg-stone-900">
+      <div class="rounded-xl p-5 min-w-[21rem] max-w-full md:max-w-4/12 bg-stone-100 dark:bg-stone-900">
         <DemoMenuItemsGroupInfo/>
       </div>
       <div class="rounded-xl p-5 max-w-full md:max-w-7/12 border border-black/10 dark:border-white/5 bg-stone-100 dark:bg-stone-900">
         <DemoPaginationIsPageSizeSelector/>
       </div>
-      <div class="rounded-xl p-5 w-full text-center text-neutral-400 dark:text-neutral-400 ">
-        <div class="text-2xl leading-8 my-22">
+      <div class="rounded-xl p-5 w-full text-center text-neutral-400 dark:text-neutral-700 ">
+        <div class="text-4xl sm:text-7xl font-thin leading-8 my-22">
         and more ...
         </div>
       </div>

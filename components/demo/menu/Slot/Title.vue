@@ -2,8 +2,8 @@
 import { groupsMenuMini } from "~/components/demo/menu/dataForExamples"
 
 const user = ref({
-  name: 'Иван Петров',
-  email: 'ivan@example.com',
+  name: 'Emma Wilson',
+  email: 'emma.wilson@company.com',
 })
 </script>
 
@@ -13,7 +13,7 @@ const user = ref({
       <div class="flex items-center gap-3 p-2">
         <div class="relative">
           <img
-              src="@/assets/image/default-avatar.png"
+              src="/avatars/Emma_Wilson.jpg"
               :alt="user.name"
               class="size-10 rounded-full object-cover"
           />

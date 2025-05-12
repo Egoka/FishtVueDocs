@@ -56,7 +56,7 @@ watch(chat, () => {
               </div>
               <div
                   class="inline-flex items-center justify-center bg-transparent rounded-full size-12 text-2xl font-medium">
-                <img :src="`/_nuxt/assets/image/avatars/${chatItem.avatar}`" alt="avatar"
+                <img :src="`/avatars/${chatItem.avatar}`" alt="avatar"
                      class="rounded-full h-full min-w-full object-cover "/>
               </div>
             </div>
@@ -82,7 +82,7 @@ watch(chat, () => {
           <div class="flex items-center">
             <div
                 class="inline-flex items-center justify-center bg-transparent rounded-full size-12 text-2xl font-medium mr-2">
-              <img :src="`/_nuxt/assets/image/avatars/${chats[0].avatar}`" alt="avatar"
+              <img :src="`/avatars/${chats[0].avatar}`" alt="avatar"
                    class="rounded-full h-full min-w-full object-cover "/>
             </div>
             <div class="flex-1">
@@ -107,7 +107,7 @@ watch(chat, () => {
                  :class="[item.isMe ? 'flex-row-reverse': '']">
               <div
                   class="inline-flex items-center justify-center bg-transparent rounded-full size-10 text-sm font-medium">
-                <img :src="`/_nuxt/assets/image/avatars/${item.avatar}`" alt="avatar"
+                <img :src="`/avatars/${item.avatar}`" alt="avatar"
                      class="rounded-full h-full min-w-full object-cover "/>
               </div>
               <div>

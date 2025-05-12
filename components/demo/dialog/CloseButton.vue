@@ -20,12 +20,12 @@ const closeButton = ref(false)
       <Split :panels="[{name: 'right'}, {name: 'left'}]" class="relative rounded-lg overflow-auto border dark:border-gray-800" units="percentages">
         <template #right>
           <div class="relative overflow-hidden w-full h-full flex justify-center items-center">
-            <img class="absolute left-0 max-w-[448px]"  src="@/assets/image/pramod-tiwari-16-unsplash.jpg" alt=""/>
+            <img class="absolute left-0 max-w-[448px]"  src="/pramod-tiwari-16-unsplash.jpg" alt=""/>
           </div>
         </template>
         <template #left>
           <div class="relative overflow-hidden w-full h-full flex justify-center items-center">
-            <img class="absolute right-0 max-w-[448px]" src="@/assets/image/pramod-tiwari-17-unsplash.jpg" alt=""/>
+            <img class="absolute right-0 max-w-[448px]" src="/pramod-tiwari-17-unsplash.jpg" alt=""/>
           </div>
         </template>
       </Split>

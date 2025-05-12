@@ -30,7 +30,7 @@ const green = 'bg-green-50 text-green-700 ring-green-600/20 dark:bg-green-950 da
       <div class="flex flex-row w-full min-w-max items-center">
         <div
             class="inline-flex items-center justify-center bg-transparent rounded-xl size-8 min-w-8 text-2xl font-medium mr-3">
-          <img :src="`/_nuxt/assets/image/avatars/${rowData.avatar}`" alt="avatar"
+          <img :src="`/avatars/${rowData.avatar}`" alt="avatar"
                class="rounded-full h-full min-w-full object-cover "/>
         </div>
         <div>

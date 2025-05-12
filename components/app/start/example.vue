@@ -51,7 +51,7 @@ function switchPage(_:any, data:ItemMenu) {
           </div>
         </template>
         <template #footer>
-            <img src="@/assets/image/avatars/William_Taylor.jpg" alt="avatar" class="mt-3 size-10 rounded-md object-cover"/>
+            <img src="/avatars/William_Taylor.jpg" alt="avatar" class="mt-3 size-10 rounded-md object-cover"/>
         </template>
       </Menu>
       <component :is="pages[activePage]" class="w-full" />
