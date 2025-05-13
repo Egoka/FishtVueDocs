@@ -1,31 +1,32 @@
 <script setup lang="ts">
 import { ref } from "vue"
-
+import {useI18n} from "vue-i18n";
+const {t} = useI18n()
 // FAQ Data
 const faqData = ref([
   {
-    title: "What is FishtVue, and why should I use it?",
-    subtitle: "FishtVue is an open-source library of beautiful and customizable Vue.js components. It helps developers save time by providing pre-built, reusable UI components for their applications.",
+    title: t("start.FAQ.title.Q1"),
+    subtitle: t("start.FAQ.subtitle.Q1"),
     open: false
   },
   {
-    title: "Is there a demo or documentation available for FishtVue?",
-    subtitle: "Yes, you can find the documentation and live examples in the repository or its dedicated website (if available). Check the README.md or the repository for more details.",
+    title: t("start.FAQ.title.Q2"),
+    subtitle: t("start.FAQ.subtitle.Q2"),
     open: false
   },
   {
-    title: "What kind of components does FishtVue offer?",
-    subtitle: "FishtVue provides a variety of UI components like buttons, modals, accordions, dropdowns, and more. These components are designed to be customizable and easy to integrate.",
+    title: t("start.FAQ.title.Q3"),
+    subtitle: t("start.FAQ.subtitle.Q3"),
     open: false
   },
   {
-    title: "Do I need to use Vue 3 to work with FishtVue?",
-    subtitle: "Yes, FishtVue is compatible with Vue 3. Make sure your project is using Vue 3 for the components to work properly.",
+    title: t("start.FAQ.title.Q4"),
+    subtitle: t("start.FAQ.subtitle.Q4"),
     open: false
   },
   {
-    title: "Can I customize the appearance of components?",
-    subtitle: "Absolutely! FishtVue components are designed to be highly customizable. You can adjust styles, classes, and other properties to match your application's design.",
+    title: t("start.FAQ.title.Q5"),
+    subtitle: t("start.FAQ.subtitle.Q5"),
     open: false
   }
 ])
@@ -35,7 +36,7 @@ const faqData = ref([
   <div class="max-w-[600px] m-auto">
     <h1 class="text-xl font-semibold leading-7 text-gray-900 dark:text-gray-100 mb-3">
       FAQ
-      <span class="text-neutral-300 dark:text-neutral-700 font-normal">(Frequently Asked Questions)</span>
+      <span class="text-neutral-300 dark:text-neutral-700 font-normal">({{ t("start.FAQ.header") }})</span>
     </h1>
     <Accordion :dataSource="faqData" class="h-80 max-h-80 overflow-auto"/>
   </div>

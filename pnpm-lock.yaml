@@ -2721,7 +2721,7 @@ packages:
     engines: {node: '>=18'}
 
   fishtvue@file:fishtvue-0.1.0.tgz:
-    resolution: {integrity: sha512-alieSHZacjZMCi4ISLfhJd08tizCncl3KqK7GKSeAIo9holLsqWlaH1F7bnXjOqnQ6LqaAzSqR8C+YLMZhMDnw==, tarball: file:fishtvue-0.1.0.tgz}
+    resolution: {integrity: sha512-3M+hi0PKnSfy6I9j/BDipJ6y/xA3LSXob0nGpmo4p6G8dZ0T0m+fdzdU0bzF1EmOgXHo61ebKdWY5WOgHaoW4Q==, tarball: file:fishtvue-0.1.0.tgz}
     version: 0.1.0
     peerDependencies:
       '@nuxt/kit': ^3.0.0

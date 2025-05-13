@@ -6,8 +6,7 @@ import {useScroll, useBreakpoints, breakpointsTailwind} from "@vueuse/core";
 const route = useRoute()
 const {locale} = useI18n()
 const {theme} = useAppConfig()
-
-const {data: navigation} = await useAsyncData(`navigation-${locale.value}`, () =>
+const {data: navigation} = await useAsyncData(`navigation-${locale.value}-${Math.random().toString(36).slice(2)}`, () =>
     queryCollectionNavigation(locale.value, ['icon', 'name'])
 )
 const isSidebarOpen = ref(false)

@@ -41,8 +41,8 @@ const columns = ref<TableProps["columns"]>([
       <Icons type="ion:star" v-for="star in Number(countStars)" :key="star" class="w-5 h-5 text-amber-300 dark:text-amber-700"></Icons>
     </template>
     <template #status="{value}">
-      <Badge v-if="value === 'true'" mode="neutral" :class="styleOne.green">yes</Badge>
-      <Badge v-else-if="value === 'false'" mode="neutral" :class="styleOne.red">no</Badge>
+      <Badge v-if="value === 'true'" mode="neutral" :class="styleOne.green">{{ t("yes") }}</Badge>
+      <Badge v-else-if="value === 'false'" mode="neutral" :class="styleOne.red">{{ t("no") }}</Badge>
     </template>
   </Table>
 </template>

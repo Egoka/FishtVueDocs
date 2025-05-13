@@ -32,7 +32,7 @@ watch(chat, () => {
       <div class="overflow-auto flex flex-col gap-6 h-[82vh] max-h-[1040px]">
         <div class="flex flex-col gap-6 pt-7 pb-2 -mb-2 px-5 sticky top-0 bg-stone-100 dark:bg-stone-900 z-11">
           <div class="flex items-center justify-between gap-6 text-color">
-            <div class="text-2xl font-medium text-black dark:text-zinc-300">Chats</div>
+            <div class="text-2xl font-medium text-black dark:text-zinc-300">{{ t("start.example.chat.title") }}</div>
             <Button type="icon" icon="plus" mode="ghost"> {{ t('button.add') }}</Button>
           </div>
         </div>
@@ -138,7 +138,3 @@ watch(chat, () => {
     </template>
   </Split>
 </template>
-
-<style scoped>
-
-</style>

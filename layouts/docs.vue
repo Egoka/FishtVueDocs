@@ -3,7 +3,7 @@ import {useI18n} from "vue-i18n";
 import {useScroll} from "@vueuse/core";
 
 const {locale} = useI18n()
-const {data: navigation, refresh} = useAsyncData(`navigation-${locale.value}`, () =>
+const {data: navigation, refresh} = useAsyncData(`navigation-${locale.value}-${Math.random().toString(36).slice(2)}`, () =>
     queryCollectionNavigation(locale.value, ['icon', 'name'])
 )
 watch(() => locale.value, async () => await refresh())

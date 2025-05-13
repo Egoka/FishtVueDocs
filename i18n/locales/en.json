@@ -1,4 +1,6 @@
 {
+  "yes":  "Yes",
+  "no": "No",
   "Save": "Save",
   "onPage": "On this page",
   "Community": "Community",
@@ -660,14 +662,14 @@
   },
   "start": {
     "intro": {
-      "title": "Build web apps easily with ",
+      "title": "Create easily with ",
       "name": "FishtVue",
       "description": "Beautifully designed, artfully crafted components created by the makers of FishtVue. The perfect starting point for your next project.",
       "getStarted": "Get started",
       "exploreComponent": "Explore components"
     },
     "features": {
-      "title": "Features",
+      "title": "Advantages",
       "subtitle": "Fisht UI is a modern and flexible component library for rapid interface development.",
       "Components": {
         "title": "Rich Component Set",
@@ -700,6 +702,247 @@
       "TypeScript": {
         "title": "TypeScript Support",
         "description": "Full TypeScript support for reliable and convenient development."
+      }
+    },
+    "example": {
+      "cards": {
+        "title": "Welcome to FishtVue",
+        "subtitle": "Examples of various components and cards for your application \uD83D\uDC47",
+        "more": "and more ..."
+      },
+      "chat": {
+        "title": "Chats"
+      },
+      "customers": {
+        "title": "Customers",
+        "subtitle": "The analysis list here shows all users"
+      },
+      "inbox": {
+        "title": "Mails",
+        "replyTo": "Reply-To"
+      }
+    },
+    "menu": {
+      "Home": "Home",
+      "Cards": "Cards",
+      "Inbox": "Inbox",
+      "Customers": "Customers",
+      "Chat": "Chat",
+      "Settings": "Settings",
+      "Starry": "Starry",
+      "Drafts": "Drafts",
+      "Important": "Important",
+      "Sent": "Sent",
+      "Archive": "Archive",
+      "Spam": "Spam",
+      "Trash": "Trash"
+    },
+    "name": {
+      "Fisht_Team": "Fisht Team",
+      "Emma_Wilson": "Emma Wilson",
+      "James_Chen": "James Chen",
+      "Sophia_Rodriguez": "Sophia Rodriguez",
+      "Lucas_Miller": "Lucas Miller",
+      "Olivia_Brown": "Olivia Brown",
+      "Ava_Johnson": "Ava Johnson",
+      "Ethan_Davis": "Ethan Davis",
+      "Isabella_Garcia": "Isabella Garcia",
+      "Mason_Thompson": "Mason Thompson",
+      "Charlotte_Lee": "Charlotte Lee",
+      "Alexander_Wright": "Alexander Wright",
+      "Mia_Martinez": "Mia Martinez",
+      "Daniel_Anderson": "Daniel Anderson",
+      "Sophie_Turner": "Sophie Turner",
+      "David_Kim": "David Kim",
+      "Emily_White": "Emily White",
+      "Michael_Scott": "Michael Scott"
+    },
+    "message": {
+      "Fisht_Team": "Hey, did you check out that new café downtown?",
+      "Emma_Wilson": "Hey, did you check out that new café downtown?",
+      "James_Chen": "The project deadline has been extended",
+      "Sophia_Rodriguez": "Thanks for the help yesterday!",
+      "Lucas_Miller": "Are we still meeting today?",
+      "Olivia_Brown": "Just sent you the files",
+      "Ava_Johnson": "Can you review my code?",
+      "Ethan_Davis": "Movie night on Friday?",
+      "Isabella_Garcia": "The new design looks amazing!",
+      "Mason_Thompson": "Don't forget about the meeting",
+      "Charlotte_Lee": "How was your weekend?",
+      "Alexander_Wright": "Check out this new framework",
+      "Mia_Martinez": "The bug has been fixed",
+      "Daniel_Anderson": "Lunch tomorrow?",
+      "Sophie_Turner": "Great work on the project!",
+      "David_Kim": "Need your feedback on this",
+      "Emily_White": "Happy birthday! 🎉",
+      "Michael_Scott": "That's what she said!"
+    },
+    "activeChat": {
+      "10:00": "I've been looking for a good UI library for our new project. Anyone tried fishtvue?",
+      "10:02": "Yes! We're using it on our current project. The component set is amazing - forms, tables, everything you need.",
+      "10:03": "The TypeScript support is really solid. Made our development much more reliable.",
+      "10:05": "We love how easy it is to customize the themes. The TailwindCSS integration is seamless.",
+      "10:07": "Has anyone tried it on mobile? How's the responsiveness?",
+      "10:08": "Works great on mobile! All components are well-adapted for touch interfaces.",
+      "10:10": "Thanks for the feedback everyone! Don't forget about our huge icon set and accessibility features!",
+      "10:12": "Sounds perfect! One last question - how's the performance?",
+      "10:15": "Super fast loading times and smooth operation. Plus the i18n support is great for our international users!",
+      "10:17": "Sold! Going to start implementing it tomorrow. Thanks everyone!"
+    },
+    "mailsTitle": {
+      "Fisht_Team": "Welcome to Fisht UI Library",
+      "Emma_Wilson": "Project Status Update",
+      "James_Chen": "Code Review Request",
+      "Sophia_Rodriguez": "New Design Mockups",
+      "Lucas_Miller": "Team Meeting Notes",
+      "Olivia_Brown": "Holiday Schedule",
+      "Ava_Johnson": "Bug Report: Login Issues",
+      "Ethan_Davis": "Weekend Team Building Event",
+      "Isabella_Garcia": "New Feature Proposal",
+      "Mason_Thompson": "Security Update Required",
+      "Charlotte_Lee": "Client Feedback Summary",
+      "Alexander_Wright": "API Documentation Updates",
+      "Mia_Martinez": "Performance Testing Results",
+      "Daniel_Anderson": "Deployment Schedule",
+      "Sophie_Turner": "Marketing Campaign Draft",
+      "David_Kim": "Budget Review Meeting",
+      "Emily_White": "New Office Guidelines",
+      "Michael_Scott": "Team Lunch Plan"
+    },
+    "mailsText": {
+      "Fisht_Team": "Thank you for choosing Fisht UI! We're excited to help you get started with our component library. In this email, you'll find everything you need to begin building amazing user interfaces: documentation links, setup guides, best practices, and example code. We've also included information about our support channels and community resources. Don't hesitate to reach out if you have any questions!",
+      "Emma_Wilson": "Here's the latest progress report on the dashboard implementation. We've successfully completed the core functionality modules and integrated the new analytics features. The team has resolved 15 high-priority bugs and implemented 3 new feature requests from the client. Performance metrics are showing a 40% improvement in load times. Next steps include finalizing the UI/UX refinements and conducting comprehensive testing across all supported browsers.",
+      "James_Chen": "Could you please review my latest PR when you have a moment? I've implemented the new authentication system with OAuth2 integration. The changes include updated user flow, improved error handling, and comprehensive unit tests. I've also added documentation for the new endpoints and included migration scripts for existing users. Looking forward to your feedback, particularly on the security implementations and performance optimizations.",
+      "Sophia_Rodriguez": "I've finished the new mockups for the mobile app. The designs focus on improving user engagement through a more intuitive navigation system and streamlined checkout process. I've incorporated the latest material design guidelines while maintaining our brand identity. Included are both light and dark mode variants, responsive layouts for different screen sizes, and interactive prototypes for key user flows. Would love to get your thoughts on the new micro-interactions and animation proposals!",
+      "Lucas_Miller": "Here are the minutes from yesterday's team sync. Key points discussed: 1. Q4 roadmap and priority features 2. Current sprint challenges and solutions 3. Resource allocation for upcoming projects 4. Technical debt reduction strategy 5. New hiring plans for the backend team. Action items have been assigned in Jira. Next week's focus will be on scaling our infrastructure and improving our CI/CD pipeline. Please review and let me know if I missed anything important.",
+      "Olivia_Brown": "Please review the upcoming holiday schedule and coverage plan. We're implementing a new rotation system to ensure adequate support during the holiday season while allowing everyone to enjoy some time off. The schedule includes backup contacts for critical systems, emergency response procedures, and on-call rotations. I've also attached the updated PTO policy and guidelines for remote work during holiday periods. Please confirm your availability by end of week.",
+      "Ava_Johnson": "Users are reporting intermittent login failures in production. Initial investigation shows potential issues with the session management system and database connection pooling. Impact: Approximately 15% of login attempts failing during peak hours. Temporary workaround has been implemented while we investigate root cause. Current theories: 1. Recent CDN configuration changes 2. Database connection limits 3. Caching layer inconsistencies. Need immediate attention from the infrastructure team.",
+      "Ethan_Davis": "Don't forget about our team building activity this Saturday! We've planned an exciting day of outdoor activities and team challenges. The schedule includes morning yoga, team strategy games, and an afternoon cooking competition. There will be prizes for the winning teams! Location: Central Park. Time: 9 AM - 4 PM. Please let me know about any dietary restrictions or accessibility requirements. Remember to bring comfortable clothes and your team spirit!",
+      "Isabella_Garcia": "I have an idea for improving our user onboarding process based on recent user feedback and analytics data. The proposal includes a redesigned welcome flow, interactive tutorials, and contextual help system. Initial estimates suggest this could reduce our user drop-off rate by 30% and improve feature adoption metrics. I've prepared a detailed presentation with mockups, implementation timeline, and resource requirements. Would love to discuss this in detail during next week's product meeting.",
+      "Mason_Thompson": "Please update your passwords according to the new security policy. Recent security audits have identified several areas for improvement in our system access protocols. Key changes: 1. Minimum 12-character passwords 2. Multi-factor authentication mandatory for all employees 3. New password rotation schedule 4. Updated VPN access protocols 5. Enhanced logging for sensitive operations. Detailed instructions attached. Compliance deadline: End of next week.",
+      "Charlotte_Lee": "Here's what our users are saying about the latest release. Overall satisfaction score: 4.2/5. Key highlights: Improved performance (92% positive), New UI design (88% positive), Enhanced search functionality (95% positive). Areas for improvement: Mobile responsiveness, Error message clarity, Documentation completeness. I've attached the full report with detailed analytics and user interviews. Several users have volunteered for follow-up research sessions.",
+      "Alexander_Wright": "I've updated the API docs with the new endpoints. Changes include: Comprehensive endpoint descriptions, Request/response examples, Authentication details, Rate limiting information, Error handling guidelines. The documentation now features interactive examples using OpenAPI Specification 3.0. Also added new sections on websocket integration and batch processing capabilities. Please review the changes and let me know if you spot any inconsistencies.",
+      "Mia_Martinez": "The latest performance metrics are looking good. Load testing results show 99.9% uptime under simulated peak conditions. Average response time: 120ms (down from 200ms). Server resource utilization optimized by 25%. Cache hit ratio improved to 95%. Identified minor bottlenecks in the database queries which will be addressed in the next sprint. Full report with graphs and recommendations attached.",
+      "Daniel_Anderson": "Here's the deployment timeline for next week. Major updates include: New payment processing system, Enhanced search functionality, UI/UX improvements, Database optimization patches. Deployment windows: Tuesday 2 AM - 6 AM EST. Rollback procedures and monitoring protocols are in place. All teams please verify your components are ready for deployment and update the pre-deployment checklist. Change management tickets have been created.",
+      "Sophie_Turner": "Please review the draft for our upcoming campaign. The strategy focuses on highlighting our platform's unique features and competitive advantages. Campaign elements include: Social media content calendar, Email marketing sequences, Blog post series, Video testimonials, Partnership announcements. Target metrics: 50% increase in sign-ups, 30% boost in engagement rates. Budget allocation and timeline details are in the attached presentation.",
+      "David_Kim": "Let's schedule a meeting to review Q3 budget. Topics to cover: Department expenditure analysis, Resource allocation efficiency, ROI on recent investments, Projected Q4 spending, Cost optimization opportunities. I've prepared a detailed financial report comparing actual vs. budgeted expenses. Special focus needed on the infrastructure scaling costs and new hire onboarding expenses. Please come prepared with your department's budget requirements for Q4.",
+      "Emily_White": "Important updates to our office policies. Changes include: Updated hybrid work schedule, New meeting room booking system, Revised security protocols, Updated visitor policy, Equipment checkout procedures. These changes aim to improve office efficiency and maintain a safe working environment. The new policies will take effect from next month. Training sessions will be conducted next week to familiarize everyone with the new systems.",
+      "Michael_Scott": "Who's up for lunch at that new place downtown? They've got amazing reviews for their international cuisine and vegetarian options. I was thinking we could use this as an opportunity to celebrate our recent project success and discuss some team building ideas in a casual setting. They have private dining rooms perfect for our group size. Looking at this Thursday around 12:30 PM. Please reply with your dietary preferences and availability."
+    },
+    "time": {
+      "Yesterday": "Yesterday",
+      "Monday": "Monday",
+      "Sunday": "Sunday",
+      "Saturday": "Saturday",
+      "Friday": "Friday",
+      "Thursday": "Thursday",
+      "days2": "2 days ago",
+      "days3": "3 days ago",
+      "days4": "4 days ago",
+      "days5": "5 days ago",
+      "days6": "6 days ago",
+      "week1": "1 week ago",
+      "week2": "2 weeks ago"
+    },
+    "tags": {
+      "important": "important",
+      "work": "work",
+      "design": "design",
+      "bug": "bug",
+      "urgent": "urgent",
+      "social": "social",
+      "feature": "feature",
+      "security": "security",
+      "feedback": "feedback",
+      "documentation": "documentation",
+      "testing": "testing",
+      "deployment": "deployment",
+      "marketing": "marketing",
+      "finance": "finance"
+    },
+    "location": {
+      "New_York": "New York, NY",
+      "San_Francisco": "San Francisco, CA",
+      "Miami": "Miami, FL",
+      "Chicago": "Chicago, IL",
+      "Austin": "Austin, TX",
+      "Seattle": "Seattle, WA",
+      "Boston": "Boston, MA",
+      "Los_Angeles": "Los Angeles, CA",
+      "Denver": "Denver, CO",
+      "Portland": "Portland, OR",
+      "Atlanta": "Atlanta, GA",
+      "Phoenix": "Phoenix, AZ",
+      "Houston": "Houston, TX",
+      "San_Diego": "San Diego, CA",
+      "Philadelphia": "Philadelphia, PA",
+      "Minneapolis": "Minneapolis, MN",
+      "Scranton": "Scranton, PA"
+    },
+    "occupation": {
+      "Graphic_Designer": "Graphic Designer",
+      "Software_Engineer": "Software Engineer",
+      "Marketing_Specialist": "Marketing Specialist",
+      "Data_Analyst": "Data Analyst",
+      "Product_Manager": "Product Manager",
+      "Content_Creator": "Content Creator",
+      "Financial_Advisor": "Financial Advisor",
+      "Ux_Designer": "UX Designer",
+      "Web_Developer": "Web Developer",
+      "Hr_Manager": "HR Manager",
+      "Architect": "Architect",
+      "Social_Media_Manager": "Social Media Manager",
+      "Civil_Engineer": "Civil Engineer",
+      "Teacher": "Teacher",
+      "Cybersecurity_Analyst": "Cybersecurity Analyst",
+      "Journalist": "Journalist",
+      "Regional_Manager": "Regional Manager"
+    },
+    "position": {
+      "Senior_Designer": "Senior Designer",
+      "Lead_Engineer": "Lead Engineer",
+      "Marketing_Coordinator": "Marketing Coordinator",
+      "Data_Scientist": "Data Scientist",
+      "Associate_Product_Manager": "Associate Product Manager",
+      "Social_Media_Influencer": "Social Media Influencer",
+      "Wealth_Management_Consultant": "Wealth Management Consultant",
+      "Lead_Ux_Designer": "Lead UX Designer",
+      "Frontend_Developer": "Frontend Developer",
+      "Hr_Business_Partner": "HR Business Partner",
+      "Senior_Architect": "Senior Architect",
+      "Digital_Marketing_Specialist": "Digital Marketing Specialist",
+      "Project_Engineer": "Project Engineer",
+      "High_School_Teacher": "High School Teacher",
+      "Security_Consultant": "Security Consultant",
+      "Investigative_Reporter": "Investigative Reporter",
+      "Branch_Manager": "Branch Manager"
+    },
+    "status": {
+      "Active": "Active",
+      "Inactive": "Inactive"
+    },
+    "columnsCustomers": {
+      "name": "Name",
+      "occupation": "Occupation",
+      "position": "Position",
+      "address": "Address",
+      "status": "Status"
+    },
+    "FAQ": {
+      "header": "Frequently Asked Questions",
+      "title": {
+        "Q1": "What is FishtVue, and why should I use it?",
+        "Q2": "Is there a demo or documentation available for FishtVue?",
+        "Q3": "What kind of components does FishtVue offer?",
+        "Q4": "Do I need to use Vue 3 to work with FishtVue?",
+        "Q5": "Can I customize the appearance of components?"
+      },
+      "subtitle": {
+        "Q1": "FishtVue is an open-source library of beautiful and customizable Vue.js components. It helps developers save time by providing pre-built, reusable UI components for their applications.",
+        "Q2": "Yes, you can find the documentation and live examples in the repository or its dedicated website (if available). Check the README.md or the repository for more details.",
+        "Q3": "FishtVue provides a variety of UI components like buttons, modals, accordions, dropdowns, and more. These components are designed to be customizable and easy to integrate.",
+        "Q4": "Yes, FishtVue is compatible with Vue 3. Make sure your project is using Vue 3 for the components to work properly.",
+        "Q5": "Absolutely! FishtVue components are designed to be highly customizable. You can adjust styles, classes, and other properties to match your application's design."
       }
     }
   }

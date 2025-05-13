@@ -11,8 +11,9 @@ const {t} = useI18n()
       <div class="mt-20 px-5 grid w-full max-w-4xl justify-items-center gap-[inherit]">
         <div class="flex flex-col items-center gap-4">
           <h1 class="font-asap sm:leading-22 text-center text-4xl font-bold sm:text-6xl sm:font-extrabold md:text-7xl text-foreground text-stone-800 dark:text-neutral-300">
-            {{ t('start.intro.title') }}<span
-              class="font-asap text-theme-900 dark:text-theme-300">{{ t('start.intro.name') }}</span>
+            {{ t('start.intro.title') }}
+            <br>
+            <span class="font-asap text-theme-900 dark:text-theme-300">{{ t('start.intro.name') }}</span>
           </h1>
         </div>
         <p class="font-asap max-w-[720px] text-pretty text-center text-lg md:text-xl md:leading-8 lg:leading-9 lg:text-2xl text-stone-600 dark:text-stone-400">
@@ -35,7 +36,3 @@ const {t} = useI18n()
     </div>
   </section>
 </template>
-
-<style scoped>
-
-</style>

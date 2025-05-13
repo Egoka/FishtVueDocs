@@ -66,7 +66,7 @@ function send() {
           <template #title>
             <div class="flex items-center justify-between"
                  :class="[!isOnlyIcons ? 'justify-between': 'justify-center']">
-              <div v-show="!isOnlyIcons" class="text-2xl font-medium">Mails</div>
+              <div v-show="!isOnlyIcons" class="text-2xl font-medium">{{ t("start.example.inbox.title") }}</div>
               <Button size="sm" type="icon" icon="plus" mode="ghost"></Button>
             </div>
           </template>
@@ -148,7 +148,7 @@ function send() {
                 <div class="font-semibold">{{ mails[activeMail].name }}</div>
                 <div class="line-clamp-1 text-xs">{{ mails[activeMail].title }}</div>
                 <div class="line-clamp-1 text-xs">
-                  <span class="font-medium">Reply-To:</span>
+                  <span class="font-medium">{{ t("start.example.inbox.replyTo") }}</span>
                   {{ mails[activeMail].email }}
                 </div>
               </div>
@@ -162,9 +162,8 @@ function send() {
             <Aria v-model="message" :placeholder="t('placeholder.Reply', {name: mails[activeMail].name})"></Aria>
             <div class="flex justify-between">
               <Switch v-model="muteThisThread" :label="t('label.muteThisThread')" switchingType="switch"></Switch>
-              <Button class="mt-4" color="theme" :disabled="!message.length" @click="send">{{
-                  t('button.Send')
-                }}
+              <Button class="mt-4" color="theme" :disabled="!message.length" @click="send">
+                {{t('button.Send') }}
               </Button>
             </div>
           </div>
@@ -173,7 +172,3 @@ function send() {
     </template>
   </Split>
 </template>
-
-<style scoped>
-
-</style>

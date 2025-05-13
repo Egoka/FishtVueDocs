@@ -21,8 +21,13 @@ const green = 'bg-green-50 text-green-700 ring-green-600/20 dark:bg-green-950 da
     <template #toolbar>
       <div class="flex items-start gap-2 justify-between mt-7 ml-5">
         <div>
-          <div class="text-2xl font-medium leading-8 text-color text-black dark:text-zinc-300">Customers</div>
-          <div class="mt-1 leading-6 text-neutral-400 dark:text-neutral-500">The analysis list here shows all users</div>
+          <div class="text-2xl font-medium leading-8 text-color text-black dark:text-zinc-300">
+            {{ t("start.example.customers.title") }}
+          </div>
+          <div class="mt-1 leading-6 text-neutral-400 dark:text-neutral-500">{{
+              t("start.example.customers.subtitle")
+            }}
+          </div>
         </div>
       </div>
     </template>
@@ -39,8 +44,8 @@ const green = 'bg-green-50 text-green-700 ring-green-600/20 dark:bg-green-950 da
         </div>
       </div>
     </template>
-    <template #status="{value}">
-      <Badge :class="[value === 'Active' ? green: '', value === 'Inactive' ? red: '', ]">
+    <template #status="{rowData, value}">
+      <Badge :class="[rowData.isActive ? green: red]">
       {{value}}
       </Badge>
     </template>

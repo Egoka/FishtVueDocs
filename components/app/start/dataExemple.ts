@@ -12,33 +12,33 @@ export const menuGroups = (): GroupMenu[] => {
 
             items: [
                 // {
-                //     title: "Home",
+                //     title: t("start.menu.Home"),
                 //     icon: "lucide:home",
                 //     to: "/",
                 // },
                 {
-                    title: "Cards",
+                    title: t("start.menu.Cards"),
                     icon: "lucide:layout-grid",
                     to: "/cards"
                 },
                 {
-                    title: "Inbox",
+                    title: t("start.menu.Inbox"),
                     icon: "lucide:inbox",
                     to: "/inbox"
                 },
                 {
-                    title: "Customers",
+                    title: t("start.menu.Customers"),
                     icon: "lucide:users",
                     to: "/customers"
                 },
                 {
-                    title: "Chat",
+                    title: t("start.menu.Chat"),
                     icon: "lucide:message-circle",
                     class: "mb-62",
                     to: "/chat"
                 },
                 // {
-                //     title: "Settings",
+                //     title: t("start.menu.Settings"),
                 //     icon: "lucide:settings",
                 //     to: "/settings"
                 // }
@@ -142,148 +142,150 @@ export type Chat = {
     newMessages: number,
 }
 export const chatsData = (): Chat[] => {
+    const {$i18n} = useNuxtApp()
+    const {t} = $i18n
     return [
         {
-            name: "Fisht Team",
+            name: t("start.name.Fisht_Team"),
             avatar: "logo.png",
-            message: "Hey, did you check out that new café downtown?",
+            message: t("start.message.Fisht_Team"),
             time: "12:30",
             isOnline: false,
             newMessages: 3
         },
         {
-            name: "Emma Wilson",
+            name: t("start.name.Emma_Wilson"),
             avatar: "Emma_Wilson.jpg",
-            message: "Hey, did you check out that new café downtown?",
+            message: t("start.message.Emma_Wilson"),
             time: "12:30",
             isOnline: true,
             newMessages: 3
         },
         {
-            name: "James Chen",
+            name: t("start.name.James_Chen"),
             avatar: "James_Chen.jpg",
-            message: "The project deadline has been extended",
+            message: t("start.message.James_Chen"),
             time: "11:45",
             isOnline: true,
             newMessages: 0
         },
         {
-            name: "Sophia Rodriguez",
+            name: t("start.name.Sophia_Rodriguez"),
             avatar: "Sophia_Rodriguez.jpg",
-            message: "Thanks for the help yesterday!",
+            message: t("start.message.Sophia_Rodriguez"),
             time: "10:15",
             isOnline: false,
             newMessages: 1
         },
         {
-            name: "Lucas Miller",
+            name: t("start.name.Lucas_Miller"),
             avatar: "Lucas_Miller.jpg",
-            message: "Are we still meeting today?",
+            message: t("start.message.Lucas_Miller"),
             time: "09:50",
             isOnline: true,
             newMessages: 2
         },
         {
-            name: "Olivia Brown",
+            name: t("start.name.Olivia_Brown"),
             avatar: "Olivia_Brown.jpg",
-            message: "Just sent you the files",
-            time: "Yesterday",
+            message: t("start.message.Olivia_Brown"),
+            time:  t("start.time.Yesterday"),
             isOnline: false,
             newMessages: 0
         },
         {
-            name: "Ava Johnson",
+            name: t("start.name.Ava_Johnson"),
             avatar: "Ava_Johnson.jpg",
-            message: "Can you review my code?",
-            time: "Yesterday",
+            message: t("start.message.Ava_Johnson"),
+            time:  t("start.time.Yesterday"),
             isOnline: false,
             newMessages: 5
         },
         {
-            name: "Ethan Davis",
+            name: t("start.name.Ethan_Davis"),
             avatar: "Ethan_Davis.jpg",
-            message: "Movie night on Friday?",
-            time: "Yesterday",
+            message: t("start.message.Ethan_Davis"),
+            time:  t("start.time.Yesterday"),
             isOnline: true,
             newMessages: 0
         },
         {
-            name: "Isabella Garcia",
+            name: t("start.name.Isabella_Garcia"),
             avatar: "Isabella_Garcia.jpg",
-            message: "The new design looks amazing!",
-            time: "Monday",
+            message: t("start.message.Isabella_Garcia"),
+            time:  t("start.time.Monday"),
             isOnline: false,
             newMessages: 0
         },
         {
-            name: "Mason Thompson",
+            name: t("start.name.Mason_Thompson"),
             avatar: "Mason_Thompson.jpg",
-            message: "Don't forget about the meeting",
-            time: "Monday",
+            message: t("start.message.Mason_Thompson"),
+            time:  t("start.time.Monday"),
             isOnline: true,
             newMessages: 1
         },
         {
-            name: "Charlotte Lee",
+            name: t("start.name.Charlotte_Lee"),
             avatar: "Charlotte_Lee.jpg",
-            message: "How was your weekend?",
-            time: "Sunday",
+            message: t("start.message.Charlotte_Lee"),
+            time:  t("start.time.Sunday"),
             isOnline: false,
             newMessages: 0
         },
         {
-            name: "Alexander Wright",
+            name: t("start.name.Alexander_Wright"),
             avatar: "Alexander_Wright.jpg",
-            message: "Check out this new framework",
-            time: "Sunday",
+            message: t("start.message.Alexander_Wright"),
+            time:  t("start.time.Sunday"),
             isOnline: true,
             newMessages: 2
         },
         {
-            name: "Mia Martinez",
+            name: t("start.name.Mia_Martinez"),
             avatar: "Mia_Martinez.jpg",
-            message: "The bug has been fixed",
-            time: "Saturday",
+            message: t("start.message.Mia_Martinez"),
+            time:  t("start.time.Saturday"),
             isOnline: false,
             newMessages: 0
         },
         {
-            name: "Daniel Anderson",
+            name: t("start.name.Daniel_Anderson"),
             avatar: "Daniel_Anderson.jpg",
-            message: "Lunch tomorrow?",
-            time: "Saturday",
+            message: t("start.message.Daniel_Anderson"),
+            time:  t("start.time.Saturday"),
             isOnline: true,
             newMessages: 0
         },
         {
-            name: "Sophie Turner",
+            name: t("start.name.Sophie_Turner"),
             avatar: "Sophie_Turner.jpg",
-            message: "Great work on the project!",
-            time: "Friday",
+            message: t("start.message.Sophie_Turner"),
+            time:  t("start.time.Friday"),
             isOnline: false,
             newMessages: 3
         },
         {
-            name: "David Kim",
+            name: t("start.name.David_Kim"),
             avatar: "David_Kim.jpg",
-            message: "Need your feedback on this",
-            time: "Friday",
+            message: t("start.message.David_Kim"),
+            time:  t("start.time.Friday"),
             isOnline: true,
             newMessages: 0
         },
         {
-            name: "Emily White",
+            name: t("start.name.Emily_White"),
             avatar: "Emily_White.jpg",
-            message: "Happy birthday! 🎉",
-            time: "Thursday",
+            message: t("start.message.Emily_White"),
+            time:  t("start.time.Thursday"),
             isOnline: false,
             newMessages: 1
         },
         {
-            name: "Michael Scott",
+            name: t("start.name.Michael_Scott"),
             avatar: "Michael_Scott.jpg",
-            message: "That's what she said!",
-            time: "Thursday",
+            message: t("start.message.Michael_Scott"),
+            time: t("start.time.Thursday"),
             isOnline: true,
             newMessages: 4
         }
@@ -297,74 +299,76 @@ export type Message = {
     isMe: boolean,
 }
 export const activeChat = (): Message[] => {
+    const {$i18n} = useNuxtApp()
+    const {t} = $i18n
     return [
         {
-            name: "William Taylor",
+            name:  t("start.name.William_Taylor"),
             avatar: "William_Taylor.jpg",
-            message: "I've been looking for a good UI library for our new project. Anyone tried fishtvue?",
+            message:  t("start.activeChat.10:00"),
             time: "10:00",
             isMe: true
         },
         {
-            name: "Emma Wilson",
+            name:  t("start.name.Emma_Wilson"),
             avatar: "Emma_Wilson.jpg",
-            message: "Yes! We're using it on our current project. The component set is amazing - forms, tables, everything you need.",
+            message:  t("start.activeChat.10:02"),
             time: "10:02",
             isMe: false
         },
         {
-            name: "James Chen",
+            name:  t("start.name.James_Chen"),
             avatar: "James_Chen.jpg",
-            message: "The TypeScript support is really solid. Made our development much more reliable.",
+            message:  t("start.activeChat.10:03"),
             time: "10:03",
             isMe: false
         },
         {
-            name: "Sophia Rodriguez",
+            name:  t("start.name.Sophia_Rodriguez"),
             avatar: "Sophia_Rodriguez.jpg",
-            message: "We love how easy it is to customize the themes. The TailwindCSS integration is seamless.",
+            message:  t("start.activeChat.10:05"),
             time: "10:05",
             isMe: false
         },
         {
-            name: "Lucas Miller",
+            name:  t("start.name.Lucas_Miller"),
             avatar: "Lucas_Miller.jpg",
-            message: "Has anyone tried it on mobile? How's the responsiveness?",
+            message:  t("start.activeChat.10:07"),
             time: "10:07",
             isMe: false
         },
         {
-            name: "Olivia Brown",
+            name:  t("start.name.Olivia_Brown"),
             avatar: "Olivia_Brown.jpg",
-            message: "Works great on mobile! All components are well-adapted for touch interfaces.",
+            message:  t("start.activeChat.10:08"),
             time: "10:08",
             isMe: false
         },
         {
-            name: "Fisht Team",
+            name:  t("start.name.logo"),
             avatar: "logo.png",
-            message: "Thanks for the feedback everyone! Don't forget about our huge icon set and accessibility features!",
+            message:  t("start.activeChat.10:10"),
             time: "10:10",
             isMe: false
         },
         {
-            name: "William Taylor",
+            name:  t("start.name.William_Taylor"),
             avatar: "William_Taylor.jpg",
-            message: "Sounds perfect! One last question - how's the performance?",
+            message:  t("start.activeChat.10:12"),
             time: "10:12",
             isMe: true
         },
         {
-            name: "Emma Wilson",
+            name:  t("start.name.Emma_Wilson"),
             avatar: "Emma_Wilson.jpg",
-            message: "Super fast loading times and smooth operation. Plus the i18n support is great for our international users!",
+            message:  t("start.activeChat.10:15"),
             time: "10:15",
             isMe: false
         },
         {
-            name: "William Taylor",
+            name:  t("start.name.William_Taylor"),
             avatar: "William_Taylor.jpg",
-            message: "Sold! Going to start implementing it tomorrow. Thanks everyone!",
+            message:  t("start.activeChat.10:17"),
             time: "10:17",
             isMe: true
         }
@@ -391,43 +395,45 @@ export const mailsPanels = (): Panel[] => {
 }
 
 export const menuMails = (): GroupMenu[] => {
+    const {$i18n} = useNuxtApp()
+    const {t} = $i18n
     return [
         {
             // title: "Navigation",
             items: [
                 {
-                    title: "Inbox",
+                    title:  t("start.menu.Inbox"),
                     icon: "lucide:inbox",
                     info: "140"
                 },
                 {
-                    title: "Starry",
+                    title:  t("start.menu.Starry"),
                     icon: "lucide:star",
                     info: '5'
                 },
                 {
-                    title: "Drafts",
+                    title:  t("start.menu.Drafts"),
                     icon: "lucide:file",
                     info: '9'
                 },
                 {
-                    title: "Important",
+                    title:  t("start.menu.Important"),
                     icon: "lucide:alert-circle",
                 },
                 {
-                    title: "Sent",
+                    title:  t("start.menu.Sent"),
                     icon: "lucide:send",
                 },
                 {
-                    title: "Archive",
+                    title:  t("start.menu.Archive"),
                     icon: "lucide:archive",
                 },
                 {
-                    title: "Spam",
+                    title:  t("start.menu.Spam"),
                     icon: "lucide:alert-triangle",
                 },
                 {
-                    title: "Trash",
+                    title:  t("start.menu.Trash"),
                     icon: "lucide:trash-2",
                 }
             ]
@@ -445,386 +451,410 @@ type Mail = {
     tags: string[],
 }
 export const dataMails = (): Mail[] => {
+    const {$i18n} = useNuxtApp()
+    const {t} = $i18n
     return [
         {
-            name: "Fisht Team",
+            name: t("start.name.Fisht_Team"),
             email: "team@fisht.io",
             avatar: "logo.png",
-            title: "Welcome to Fisht UI Library",
-            text: "Thank you for choosing Fisht UI! We're excited to help you get started with our component library. In this email, you'll find everything you need to begin building amazing user interfaces: documentation links, setup guides, best practices, and example code. We've also included information about our support channels and community resources. Don't hesitate to reach out if you have any questions!",
+            title: t("start.mailsTitle.Fisht_Team"),
+            text: t("start.mailsText.Fisht_Team"),
             time: "10:00 AM",
             timeFull: "Oct 22, 2023, 10:00:00 AM",
-            tags: ["important", "work"]
+            tags: [ t("start.tags.important"), t("start.tags.work")]
         },
         {
-            name: "Emma Wilson",
+            name: t("start.name.Emma_Wilson"),
             email: "emma.wilson@company.com",
             avatar: "Emma_Wilson.jpg",
-            title: "Project Status Update",
-            text: "Here's the latest progress report on the dashboard implementation. We've successfully completed the core functionality modules and integrated the new analytics features. The team has resolved 15 high-priority bugs and implemented 3 new feature requests from the client. Performance metrics are showing a 40% improvement in load times. Next steps include finalizing the UI/UX refinements and conducting comprehensive testing across all supported browsers.",
+            title: t("start.mailsTitle.Emma_Wilson"),
+            text: t("start.mailsText.Emma_Wilson"),
             time: "9:45 AM",
             timeFull: "Oct 22, 2023, 9:45:00 AM",
-            tags: ["work"]
+            tags: [t("start.tags.work")]
         },
         {
-            name: "James Chen",
+            name: t("start.name.James_Chen"),
             email: "james.chen@company.com",
             avatar: "James_Chen.jpg",
-            title: "Code Review Request",
-            text: "Could you please review my latest PR when you have a moment? I've implemented the new authentication system with OAuth2 integration. The changes include updated user flow, improved error handling, and comprehensive unit tests. I've also added documentation for the new endpoints and included migration scripts for existing users. Looking forward to your feedback, particularly on the security implementations and performance optimizations.",
+            title: t("start.mailsTitle.James_Chen"),
+            text: t("start.mailsText.James_Chen"),
             time: "9:30 AM",
             timeFull: "Oct 22, 2023, 9:30:00 AM",
-            tags: ["work", "urgent"]
+            tags: [t("start.tags.work"), t("start.tags.urgent")]
         },
         {
-            name: "Sophia Rodriguez",
+            name: t("start.name.Sophia_Rodriguez"),
             email: "sophia.r@company.com",
             avatar: "Sophia_Rodriguez.jpg",
-            title: "New Design Mockups",
-            text: "I've finished the new mockups for the mobile app. The designs focus on improving user engagement through a more intuitive navigation system and streamlined checkout process. I've incorporated the latest material design guidelines while maintaining our brand identity. Included are both light and dark mode variants, responsive layouts for different screen sizes, and interactive prototypes for key user flows. Would love to get your thoughts on the new micro-interactions and animation proposals!",
-            time: "Yesterday",
+            title: t("start.mailsTitle.Sophia_Rodriguez"),
+            text: t("start.mailsText.Sophia_Rodriguez"),
+            time: t("start.time.Yesterday"),
             timeFull: "Oct 21, 2023, 10:00:00 AM",
-            tags: ["design"]
+            tags: [t("start.tags.design")]
         },
         {
-            name: "Lucas Miller",
+            name: t("start.name.Lucas_Miller"),
             email: "lucas.m@company.com",
             avatar: "Lucas_Miller.jpg",
-            title: "Team Meeting Notes",
-            text: "Here are the minutes from yesterday's team sync. Key points discussed: 1. Q4 roadmap and priority features 2. Current sprint challenges and solutions 3. Resource allocation for upcoming projects 4. Technical debt reduction strategy 5. New hiring plans for the backend team. Action items have been assigned in Jira. Next week's focus will be on scaling our infrastructure and improving our CI/CD pipeline. Please review and let me know if I missed anything important.",
-            time: "Yesterday",
+            title: t("start.mailsTitle.Lucas_Miller"),
+            text: t("start.mailsText.Lucas_Miller"),
+            time: t("start.time.Yesterday"),
             timeFull: "Oct 21, 2023, 2:00:00 PM",
-            tags: ["work"]
+            tags: [t("start.tags.work")]
         },
         {
-            name: "Olivia Brown",
+            name: t("start.name.Olivia_Brown"),
             email: "olivia.b@company.com",
             avatar: "Olivia_Brown.jpg",
-            title: "Holiday Schedule",
-            text: "Please review the upcoming holiday schedule and coverage plan. We're implementing a new rotation system to ensure adequate support during the holiday season while allowing everyone to enjoy some time off. The schedule includes backup contacts for critical systems, emergency response procedures, and on-call rotations. I've also attached the updated PTO policy and guidelines for remote work during holiday periods. Please confirm your availability by end of week.",
-            time: "2 days ago",
+            title: t("start.mailsTitle.Olivia_Brown"),
+            text: t("start.mailsText.Olivia_Brown"),
+            time: t("start.time.days2"),
             timeFull: "Oct 20, 2023, 11:30:00 AM",
-            tags: ["important"]
+            tags: [t("start.tags.important")]
         },
         {
-            name: "Ava Johnson",
+            name: t("start.name.Ava_Johnson"),
             email: "ava.j@company.com",
             avatar: "Ava_Johnson.jpg",
-            title: "Bug Report: Login Issues",
-            text: "Users are reporting intermittent login failures in production. Initial investigation shows potential issues with the session management system and database connection pooling. Impact: Approximately 15% of login attempts failing during peak hours. Temporary workaround has been implemented while we investigate root cause. Current theories: 1. Recent CDN configuration changes 2. Database connection limits 3. Caching layer inconsistencies. Need immediate attention from the infrastructure team.",
-            time: "2 days ago",
+            title: t("start.mailsTitle.Ava_Johnson"),
+            text: t("start.mailsText.Ava_Johnson"),
+            time: t("start.time.days2"),
             timeFull: "Oct 20, 2023, 3:15:00 PM",
-            tags: ["bug", "urgent"]
+            tags: [t("start.tags.bug"), t("start.tags.urgent")]
         },
         {
-            name: "Ethan Davis",
+            name: t("start.name.Ethan_Davis"),
             email: "ethan.d@company.com",
             avatar: "Ethan_Davis.jpg",
-            title: "Weekend Team Building Event",
-            text: "Don't forget about our team building activity this Saturday! We've planned an exciting day of outdoor activities and team challenges. The schedule includes morning yoga, team strategy games, and an afternoon cooking competition. There will be prizes for the winning teams! Location: Central Park. Time: 9 AM - 4 PM. Please let me know about any dietary restrictions or accessibility requirements. Remember to bring comfortable clothes and your team spirit!",
-            time: "3 days ago",
+            title: t("start.mailsTitle.Ethan_Davis"),
+            text: t("start.mailsText.Ethan_Davis"),
+            time: t("start.time.days3"),
             timeFull: "Oct 19, 2023, 9:00:00 AM",
-            tags: ["social"]
+            tags: [t("start.tags.social")]
         },
         {
-            name: "Isabella Garcia",
+            name: t("start.name.Isabella_Garcia"),
             email: "isabella.g@company.com",
             avatar: "Isabella_Garcia.jpg",
-            title: "New Feature Proposal",
-            text: "I have an idea for improving our user onboarding process based on recent user feedback and analytics data. The proposal includes a redesigned welcome flow, interactive tutorials, and contextual help system. Initial estimates suggest this could reduce our user drop-off rate by 30% and improve feature adoption metrics. I've prepared a detailed presentation with mockups, implementation timeline, and resource requirements. Would love to discuss this in detail during next week's product meeting.",
-            time: "4 days ago",
+            title: t("start.mailsTitle.Isabella_Garcia"),
+            text: t("start.mailsText.Isabella_Garcia"),
+            time: t("start.time.days4"),
             timeFull: "Oct 18, 2023, 2:30:00 PM",
-            tags: ["feature"]
+            tags: [t("start.tags.feature")]
         },
         {
-            name: "Mason Thompson",
+            name: t("start.name.Mason_Thompson"),
             email: "mason.t@company.com",
             avatar: "Mason_Thompson.jpg",
-            title: "Security Update Required",
-            text: "Please update your passwords according to the new security policy. Recent security audits have identified several areas for improvement in our system access protocols. Key changes: 1. Minimum 12-character passwords 2. Multi-factor authentication mandatory for all employees 3. New password rotation schedule 4. Updated VPN access protocols 5. Enhanced logging for sensitive operations. Detailed instructions attached. Compliance deadline: End of next week.",
-            time: "4 days ago",
+            title: t("start.mailsTitle.Mason_Thompson"),
+            text: t("start.mailsText.Mason_Thompson"),
+            time: t("start.time.days4"),
             timeFull: "Oct 18, 2023, 10:45:00 AM",
-            tags: ["important", "security"]
+            tags: [t("start.tags.important"), t("start.tags.security")]
         },
         {
-            name: "Charlotte Lee",
+            name: t("start.name.Charlotte_Lee"),
             email: "charlotte.l@company.com",
             avatar: "Charlotte_Lee.jpg",
-            title: "Client Feedback Summary",
-            text: "Here's what our users are saying about the latest release. Overall satisfaction score: 4.2/5. Key highlights: Improved performance (92% positive), New UI design (88% positive), Enhanced search functionality (95% positive). Areas for improvement: Mobile responsiveness, Error message clarity, Documentation completeness. I've attached the full report with detailed analytics and user interviews. Several users have volunteered for follow-up research sessions.",
-            time: "5 days ago",
+            title: t("start.mailsTitle.Charlotte_Lee"),
+            text: t("start.mailsText.Charlotte_Lee"),
+            time: t("start.time.days5"),
             timeFull: "Oct 17, 2023, 4:00:00 PM",
-            tags: ["feedback"]
+            tags: [t("start.tags.feedback")]
         },
         {
-            name: "Alexander Wright",
+            name: t("start.name.Alexander_Wright"),
             email: "alex.w@company.com",
             avatar: "Alexander_Wright.jpg",
-            title: "API Documentation Updates",
-            text: "I've updated the API docs with the new endpoints. Changes include: Comprehensive endpoint descriptions, Request/response examples, Authentication details, Rate limiting information, Error handling guidelines. The documentation now features interactive examples using OpenAPI Specification 3.0. Also added new sections on websocket integration and batch processing capabilities. Please review the changes and let me know if you spot any inconsistencies.",
-            time: "5 days ago",
+            title: t("start.mailsTitle.Alexander_Wright"),
+            text: t("start.mailsText.Alexander_Wright"),
+            time: t("start.time.days5"),
             timeFull: "Oct 17, 2023, 1:20:00 PM",
-            tags: ["documentation"]
+            tags: [t("start.tags.documentation")]
         },
         {
-            name: "Mia Martinez",
+            name: t("start.name.Mia_Martinez"),
             email: "mia.m@company.com",
             avatar: "Mia_Martinez.jpg",
-            title: "Performance Testing Results",
-            text: "The latest performance metrics are looking good. Load testing results show 99.9% uptime under simulated peak conditions. Average response time: 120ms (down from 200ms). Server resource utilization optimized by 25%. Cache hit ratio improved to 95%. Identified minor bottlenecks in the database queries which will be addressed in the next sprint. Full report with graphs and recommendations attached.",
-            time: "6 days ago",
+            title: t("start.mailsTitle.Mia_Martinez"),
+            text: t("start.mailsText.Mia_Martinez"),
+            time: t("start.time.days5"),
             timeFull: "Oct 16, 2023, 11:00:00 AM",
-            tags: ["testing"]
+            tags: [t("start.tags.testing")]
         },
         {
-            name: "Daniel Anderson",
+            name: t("start.name.Daniel_Anderson"),
             email: "daniel.a@company.com",
             avatar: "Daniel_Anderson.jpg",
-            title: "Deployment Schedule",
-            text: "Here's the deployment timeline for next week. Major updates include: New payment processing system, Enhanced search functionality, UI/UX improvements, Database optimization patches. Deployment windows: Tuesday 2 AM - 6 AM EST. Rollback procedures and monitoring protocols are in place. All teams please verify your components are ready for deployment and update the pre-deployment checklist. Change management tickets have been created.",
-            time: "1 week ago",
+            title: t("start.mailsTitle.Daniel_Anderson"),
+            text: t("start.mailsText.Daniel_Anderson"),
+            time: t("start.time.week1"),
             timeFull: "Oct 15, 2023, 3:45:00 PM",
-            tags: ["deployment"]
+            tags: [t("start.tags.deployment")]
         },
         {
-            name: "Sophie Turner",
+            name: t("start.name.Sophie_Turner"),
             email: "sophie.t@company.com",
             avatar: "Sophie_Turner.jpg",
-            title: "Marketing Campaign Draft",
-            text: "Please review the draft for our upcoming campaign. The strategy focuses on highlighting our platform's unique features and competitive advantages. Campaign elements include: Social media content calendar, Email marketing sequences, Blog post series, Video testimonials, Partnership announcements. Target metrics: 50% increase in sign-ups, 30% boost in engagement rates. Budget allocation and timeline details are in the attached presentation.",
-            time: "1 week ago",
+            title: t("start.mailsTitle.Sophie_Turner"),
+            text: t("start.mailsText.Sophie_Turner"),
+            time: t("start.time.week1"),
             timeFull: "Oct 15, 2023, 10:30:00 AM",
-            tags: ["marketing"]
+            tags: [t("start.tags.marketing")]
         },
         {
-            name: "David Kim",
+            name: t("start.name.David_Kim"),
             email: "david.k@company.com",
             avatar: "David_Kim.jpg",
-            title: "Budget Review Meeting",
-            text: "Let's schedule a meeting to review Q3 budget. Topics to cover: Department expenditure analysis, Resource allocation efficiency, ROI on recent investments, Projected Q4 spending, Cost optimization opportunities. I've prepared a detailed financial report comparing actual vs. budgeted expenses. Special focus needed on the infrastructure scaling costs and new hire onboarding expenses. Please come prepared with your department's budget requirements for Q4.",
-            time: "1 week ago",
+            title: t("start.mailsTitle.David_Kim"),
+            text: t("start.mailsText.David_Kim"),
+            time: t("start.time.week1"),
             timeFull: "Oct 15, 2023, 9:15:00 AM",
-            tags: ["finance"]
+            tags: [t("start.tags.finance")]
         },
         {
-            name: "Emily White",
+            name: t("start.name.Emily_White"),
             email: "emily.w@company.com",
             avatar: "Emily_White.jpg",
-            title: "New Office Guidelines",
-            text: "Important updates to our office policies. Changes include: Updated hybrid work schedule, New meeting room booking system, Revised security protocols, Updated visitor policy, Equipment checkout procedures. These changes aim to improve office efficiency and maintain a safe working environment. The new policies will take effect from next month. Training sessions will be conducted next week to familiarize everyone with the new systems.",
-            time: "2 weeks ago",
+            title: t("start.mailsTitle.Emily_White"),
+            text: t("start.mailsText.Emily_White"),
+            time: t("start.time.week2"),
             timeFull: "Oct 8, 2023, 2:00:00 PM",
-            tags: ["important"]
+            tags: [t("start.tags.important")]
         },
         {
-            name: "Michael Scott",
+            name: t("start.name.Michael_Scott"),
             email: "michael.s@company.com",
             avatar: "Michael_Scott.jpg",
-            title: "Team Lunch Plan",
-            text: "Who's up for lunch at that new place downtown? They've got amazing reviews for their international cuisine and vegetarian options. I was thinking we could use this as an opportunity to celebrate our recent project success and discuss some team building ideas in a casual setting. They have private dining rooms perfect for our group size. Looking at this Thursday around 12:30 PM. Please reply with your dietary preferences and availability.",
-            time: "2 weeks ago",
+            title: t("start.mailsTitle.Michael_Scott"),
+            text: t("start.mailsText.Michael_Scott"),
+            time: t("start.time.week2"),
             timeFull: "Oct 8, 2023, 11:30:00 AM",
-            tags: ["social"]
+            tags: [t("start.tags.social")]
         }
     ]
 }
 export const dataCustomers = ()=> {
+    const {$i18n} = useNuxtApp()
+    const {t} = $i18n
     return [
         {
-            name: "Emma Wilson",
+            name: t("start.name.Emma_Wilson"),
             avatar: "Emma_Wilson.jpg",
             email: "emma.wilson@example.com",
             age: 28,
-            location: "New York, NY",
-            occupation: "Graphic Designer",
-            position: "Senior Designer",
+            location: t("start.location.New_York"),
+            occupation: t("start.occupation.Graphic_Designer"),
+            position: t("start.position.Senior_Designer"),
             lastActive: "2025-05-04T14:30:00Z",
-            status: "Active"
+            status: t("start.status.Active"),
+            isActive: true
         },
         {
-            name: "James Chen",
+            name: t("start.name.James_Chen"),
             avatar: "James_Chen.jpg",
             email: "james.chen@example.com",
             age: 34,
-            location: "San Francisco, CA",
-            occupation: "Software Engineer",
-            position: "Lead Engineer",
+            location: t("start.location.San_Francisco"),
+            occupation: t("start.occupation.Software_Engineer"),
+            position: t("start.position.Lead_Engineer"),
             lastActive: "2025-05-05T09:15:00Z",
-            status: "Active"
+            status: t("start.status.Active"),
+            isActive: true
         },
         {
-            name: "Sophia Rodriguez",
+            name: t("start.name.Sophia_Rodriguez"),
             avatar: "Sophia_Rodriguez.jpg",
             email: "sophia.rodriguez@example.com",
             age: 25,
-            location: "Miami, FL",
-            occupation: "Marketing Specialist",
-            position: "Marketing Coordinator",
+            location: t("start.location.Miami"),
+            occupation: t("start.occupation.Marketing_Specialist"),
+            position: t("start.position.Marketing_Coordinator"),
             lastActive: "2025-05-03T20:45:00Z",
-            status: "Inactive"
+            status: t("start.status.Inactive"),
+            isActive: false
         },
         {
-            name: "Lucas Miller",
+            name: t("start.name.Lucas_Miller"),
             avatar: "Lucas_Miller.jpg",
             email: "lucas.miller@example.com",
             age: 52,
-            location: "Chicago, IL",
-            occupation: "Data Analyst",
-            position: "Data Scientist",
+            location: t("start.location.Chicago"),
+            occupation: t("start.occupation.Data_Analyst"),
+            position: t("start.position.Data_Scientist"),
             lastActive: "2025-05-05T11:20:00Z",
-            status: "Active"
+            status: t("start.status.Active"),
+            isActive: true
         },
         {
-            name: "Olivia Brown",
+            name: t("start.name.Olivia_Brown"),
             avatar: "Olivia_Brown.jpg",
             email: "olivia.brown@example.com",
             age: 27,
-            location: "Austin, TX",
-            occupation: "Product Manager",
-            position: "Associate Product Manager",
+            location: t("start.location.Austin"),
+            occupation: t("start.occupation.Product_Manager"),
+            position: t("start.position.Associate_Product_Manager"),
             lastActive: "2025-05-04T16:50:00Z",
-            status: "Active"
+            status: t("start.status.Active"),
+            isActive: true
         },
         {
-            name: "Ava Johnson",
+            name: t("start.name.Ava_Johnson"),
             avatar: "Ava_Johnson.jpg",
             email: "ava.johnson@example.com",
             age: 22,
-            location: "Seattle, WA",
-            occupation: "Content Creator",
-            position: "Social Media Influencer",
+            location: t("start.location.Seattle"),
+            occupation: t("start.occupation.Content_Creator"),
+            position: t("start.position.Social_Media_Influencer"),
             lastActive: "2025-05-05T07:30:00Z",
-            status: "Active"
+            status: t("start.status.Active"),
+            isActive: true
         },
         {
-            name: "Ethan Davis",
+            name: t("start.name.Ethan_Davis"),
             avatar: "Ethan_Davis.jpg",
             email: "ethan.davis@example.com",
             age: 29,
-            location: "Boston, MA",
-            occupation: "Financial Advisor",
-            position: "Wealth Management Consultant",
+            location: t("start.location.Boston"),
+            occupation: t("start.occupation.Financial_Advisor"),
+            position: t("start.position.Wealth_Management_Consultant"),
             lastActive: "2025-05-04T22:10:00Z",
-            status: "Inactive"
+            status: t("start.status.Inactive"),
+            isActive: false
         },
         {
-            name: "Isabella Garcia",
+            name: t("start.name.Isabella_Garcia"),
             avatar: "Isabella_Garcia.jpg",
             email: "isabella.garcia@example.com",
             age: 31,
-            location: "Los Angeles, CA",
-            occupation: "UX Designer",
-            position: "Lead UX Designer",
+            location: t("start.location.Los_Angeles"),
+            occupation: t("start.occupation.Ux_Designer"),
+            position: t("start.position.Lead_Ux_Designer"),
             lastActive: "2025-05-05T13:40:00Z",
-            status: "Active"
+            status: t("start.status.Active"),
+            isActive: true
         },
         {
-            name: "Mason Thompson",
+            name: t("start.name.Mason_Thompson"),
             avatar: "Mason_Thompson.jpg",
             email: "mason.thompson@example.com",
             age: 26,
-            location: "Denver, CO",
-            occupation: "Web Developer",
-            position: "Frontend Developer",
+            location: t("start.location.Denver"),
+            occupation: t("start.occupation.Web_Developer"),
+            position: t("start.position.Frontend_Developer"),
             lastActive: "2025-05-05T10:25:00Z",
-            status: "Active"
+            status: t("start.status.Active"),
+            isActive: true
         },
         {
-            name: "Charlotte Lee",
+            name: t("start.name.Charlotte_Lee"),
             avatar: "Charlotte_Lee.jpg",
             email: "charlotte.lee@example.com",
             age: 33,
-            location: "Portland, OR",
-            occupation: "HR Manager",
-            position: "HR Business Partner",
+            location: t("start.location.Portland"),
+            occupation: t("start.occupation.Hr_Manager"),
+            position: t("start.position.Hr_Business_Partner"),
             lastActive: "2025-05-04T19:00:00Z",
-            status: "Inactive"
+            status: t("start.status.Inactive"),
+            isActive: false
         },
         {
-            name: "Alexander Wright",
+            name: t("start.name.Alexander_Wright"),
             avatar: "Alexander_Wright.jpg",
             email: "alexander.wright@example.com",
             age: 35,
-            location: "Atlanta, GA",
-            occupation: "Architect",
-            position: "Senior Architect",
+            location: t("start.location.Atlanta"),
+            occupation: t("start.occupation.Architect"),
+            position: t("start.position.Senior_Architect"),
             lastActive: "2025-05-05T08:55:00Z",
-            status: "Active"
+            status: t("start.status.Active"),
+            isActive: true
         },
         {
-            name: "Mia Martinez",
+            name: t("start.name.Mia_Martinez"),
             avatar: "Mia_Martinez.jpg",
             email: "mia.martinez@example.com",
             age: 24,
-            location: "Phoenix, AZ",
-            occupation: "Social Media Manager",
-            position: "Digital Marketing Specialist",
+            location: t("start.location.Phoenix"),
+            occupation: t("start.occupation.Social_Media_Manager"),
+            position: t("start.position.Digital_Marketing_Specialist"),
             lastActive: "2025-05-05T12:15:00Z",
-            status: "Active"
+            status: t("start.status.Active"),
+            isActive: true
         },
         {
-            name: "Daniel Anderson",
+            name: t("start.name.Daniel_Anderson"),
             avatar: "Daniel_Anderson.jpg",
             email: "daniel.anderson@example.com",
             age: 32,
-            location: "Houston, TX",
-            occupation: "Civil Engineer",
-            position: "Project Engineer",
+            location: t("start.location.Houston"),
+            occupation: t("start.occupation.Civil_Engineer"),
+            position: t("start.position.Project_Engineer"),
             lastActive: "2025-05-04T17:35:00Z",
-            status: "Inactive"
+            status: t("start.status.Inactive"),
+            isActive: false
         },
         {
-            name: "Sophie Turner",
+            name: t("start.name.Sophie_Turner"),
             avatar: "Sophie_Turner.jpg",
             email: "sophie.turner@example.com",
             age: 29,
-            location: "San Diego, CA",
-            occupation: "Teacher",
-            position: "High School Teacher",
+            location: t("start.location.San_Diego"),
+            occupation: t("start.occupation.Teacher"),
+            position: t("start.position.High_School_Teacher"),
             lastActive: "2025-05-05T06:45:00Z",
-            status: "Active"
+            status: t("start.status.Active"),
+            isActive: true
         },
         {
-            name: "David Kim",
+            name: t("start.name.David_Kim"),
             avatar: "David_Kim.jpg",
             email: "david.kim@example.com",
             age: 28,
-            location: "Philadelphia, PA",
-            occupation: "Cybersecurity Analyst",
-            position: "Security Consultant",
+            location: t("start.location.Philadelphia"),
+            occupation: t("start.occupation.Cybersecurity_Analyst"),
+            position: t("start.position.Security_Consultant"),
             lastActive: "2025-05-05T14:00:00Z",
-            status: "Active"
+            status: t("start.status.Active"),
+            isActive: true
         },
         {
-            name: "Emily White",
+            name: t("start.name.Emily_White"),
             avatar: "Emily_White.jpg",
             email: "emily.white@example.com",
             age: 26,
-            location: "Minneapolis, MN",
-            occupation: "Journalist",
-            position: "Investigative Reporter",
+            location: t("start.location.Minneapolis"),
+            occupation: t("start.occupation.Journalist"),
+            position: t("start.position.Investigative_Reporter"),
             lastActive: "2025-05-04T21:20:00Z",
-            status: "Inactive"
+            status: t("start.status.Inactive"),
+            isActive: false
         },
         {
-            name: "Michael Scott",
+            name: t("start.name.Michael_Scott"),
             avatar: "Michael_Scott.jpg",
             email: "michael.scott@example.com",
             age: 40,
-            location: "Scranton, PA",
-            occupation: "Regional Manager",
-            position: "Branch Manager",
+            location: t("start.location.Scranton"),
+            occupation: t("start.occupation.Regional_Manager"),
+            position: t("start.position.Branch_Manager"),
             lastActive: "2025-05-05T15:10:00Z",
-            status: "Active"
+            status: t("start.status.Active"),
+            isActive: true
         }
     ]
 }
 export const columnsCustomers = ():IColumn[]=> {
+    const {$i18n} = useNuxtApp()
+    const {t} = $i18n
     return [
         {
             name: "name",
             type: "string",
             dataField: "name",
+            caption: t("start.columnsCustomers.name"),
             cellTemplate: "name",
             isFilter: true
         },
@@ -832,18 +862,20 @@ export const columnsCustomers = ():IColumn[]=> {
             name: "occupation",
             type: "select",
             dataField: "occupation",
+            caption: t("start.columnsCustomers.occupation"),
             isFilter: true
         },
         {
             name: "position",
             type: "select",
             dataField: "position",
+            caption: t("start.columnsCustomers.position"),
             isFilter: true
         },
         {
             name: "location",
             dataField: "location",
-            caption: "Address",
+            caption: t("start.columnsCustomers.address"),
             type: "select",
             isFilter: true
         },
@@ -851,6 +883,7 @@ export const columnsCustomers = ():IColumn[]=> {
             name: "status",
             type: "select",
             dataField: "status",
+            caption: t("start.columnsCustomers.status"),
             cellTemplate: "status",
             isFilter: true,
             maxWidth: 100

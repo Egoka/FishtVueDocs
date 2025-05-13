@@ -58,6 +58,3 @@ function switchPage(_:any, data:ItemMenu) {
     </div>
   </section>
 </template>
-
-<style scoped>
-</style>
