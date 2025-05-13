@@ -21,6 +21,7 @@ import {ref, watch} from "vue";
 import {createHighlighter} from "shiki";
 import {isClient, useClipboard} from "@vueuse/core";
 import {useI18n} from "vue-i18n";
+import {process} from "std-env";
 const {t} = useI18n()
 const props = defineProps<{
   modelValue: any;
@@ -54,6 +55,7 @@ const highlighter = await createHighlighter({
 const optionsValues = reactive<Record<string, any>>(props.modelValue)
 const generatedCode = ref("");
 const highlightedCode = ref("")
+const isMoveCode =ref(false)
 
 function updateGeneratedCode() {
   const componentName = props.title;
@@ -103,6 +105,13 @@ function updateValue(name: string, value: any) {
   optionsValues[name] = value
   emit("update:modelValue", optionsValues)
 }
+function useDevice() {
+  const userAgent = process.client ? navigator.userAgent.toLowerCase() : ''
+  const isMobile = /iphone|ipad|ipod|android|blackberry|windows phone|opera mini|silk/i.test(userAgent)
+  return {
+    isMobile
+  }
+}
 </script>
 
 <template>
@@ -115,8 +124,8 @@ function updateValue(name: string, value: any) {
         <Split
             direction="vertical"
             units="percentages"
-            :panels="[{ name: 'top' }, { name: 'bottom', size: 30, maxSize: 70, minSize: 25 }]">
-          <template #top>
+            :panels="[{ name: 'component' }, { name: 'code', size: 30, maxSize: 70, minSize: 25 }]">
+          <template #component>
             <div :class="cn('absolute top-2 left-3 pt-5 pl-4', classes.title)">
               {{ props.title ?? t('Component') }}
             </div>
@@ -124,8 +133,11 @@ function updateValue(name: string, value: any) {
               <slot/>
             </div>
           </template>
-          <template #bottom>
-            <div :class="cn('group fishtvue-button', 'w-full h-full p-4 pt-10 overflow-auto', 'bg-white dark:bg-[#121212]', classes.blockBorder)">
+          <template #code>
+            <div
+                :class="cn('group', 'w-full h-full p-4 pt-10 overflow-auto', 'bg-white dark:bg-[#121212]', classes.blockBorder)"
+                @pointermove="isMoveCode = true"
+                @pointerout="isMoveCode = false">
               <div :class="cn('absolute top-2 left-5 rounded-sm px-2', 'bg-white dark:bg-[#121212]', classes.title)">
                 {{ t('Code') }}
               </div>
@@ -137,7 +149,7 @@ function updateValue(name: string, value: any) {
                   mode="outline"
                   size="xs"
                   :aria-label="t('CopyCode')"
-                  class="absolute m-0 top-[11px] right-[11px] opacity-0 group-hover:opacity-100 transition"
+                  :class="['absolute m-0 top-[11px] right-[11px] transition', useDevice().isMobile || isMoveCode ? 'opacity-100': 'opacity-0']"
                   tabindex="-1"
                   @click="copy"
               />

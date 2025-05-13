@@ -18,17 +18,7 @@ export default defineNuxtConfig({
       }
     },
     optionsTheme: {
-      nameTheme: "Aurora",
-      prefix: "fishtvue",
-      layers: "layer",
-      isNotMinifyCSS: true,
-      lightModeSelector: "html.light",
-      darkModeSelector: "html.dark",
-    },
-    componentsOptions: {
-      Input: {
-        clear: true
-      }
+      darkModeSelector: "html.dark"
     }
   },
   content: {

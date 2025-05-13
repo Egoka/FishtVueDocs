@@ -18,7 +18,7 @@ interface CardSlots {
 <script setup lang="ts">
 import {computed} from 'vue'
 import {cn} from '#imports'
-
+const localePath = useLocalePath()
 defineOptions({inheritAttrs: false})
 
 const props = defineProps<CardProps>()
@@ -50,7 +50,7 @@ const ariaLabel = computed(() => (props.title || 'Card link').trim())
     <NuxtLink
         v-if="to"
         :aria-label="ariaLabel"
-        v-bind="{ to, target, ...$attrs }"
+        v-bind="{ to: localePath(to), target, ...$attrs }"
         class="focus:outline-none"
         tabindex="-1">
       <span class="absolute inset-0" aria-hidden="true"/>

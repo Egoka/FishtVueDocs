@@ -1,3 +1,5 @@
+import { useNuxtApp } from "#app";
+
 export type Theme = 'fruits' | 'cars' | 'cities' | 'events' | 'hotels' | 'statistics' | 'users';
 
 interface Fruit {
@@ -89,6 +91,98 @@ export type ThemeData = {
 };
 
 // ===============================
+// Данные для разных локалей
+// ===============================
+const localeData = {
+    en: {
+        fruits: {
+            names: ['Apple', 'Banana', 'Orange', 'Mango', 'Pineapple', 'Grapes', 'Peach', 'Strawberry', 'Kiwi', 'Watermelon'],
+            colors: ['Red', 'Green', 'Yellow', 'Orange', 'Purple', 'Pink'],
+            origins: ['Brazil', 'India', 'China', 'Spain', 'Mexico', 'USA', 'Thailand'],
+        },
+        cars: {
+            brands: ['Toyota', 'BMW', 'Tesla', 'Ford', 'Honda', 'Mercedes', 'Audi', 'Kia'],
+            models: ['Corolla', 'Model S', 'Civic', 'A4', 'Mustang', 'Camry', 'X5', 'EV6'],
+            fuelTypes: ['Petrol', 'Diesel', 'Electric', 'Hybrid'],
+            colors: ['Black', 'White', 'Blue', 'Silver', 'Red', 'Green'],
+        },
+        cities: {
+            names: ['Tokyo', 'New York', 'Paris', 'London', 'Berlin', 'Moscow', 'Delhi', 'São Paulo', 'Sydney', 'Seoul'],
+            countries: ['Japan', 'USA', 'France', 'UK', 'Germany', 'Russia', 'India', 'Brazil', 'Australia', 'South Korea'],
+            climates: ['Temperate', 'Tropical', 'Arid', 'Continental', 'Polar'],
+            regions: ['Asia', 'Europe', 'America', 'Oceania'],
+        },
+        hotels: {
+            names: ['Grand Palace', 'Ocean View', 'Mountain Lodge', 'City Center Inn', 'Skyline Hotel'],
+            countries: ['Italy', 'Japan', 'USA', 'Thailand', 'Germany', 'Canada'],
+        },
+        events: {
+            names: ['Conference', 'Meeting', 'Workshop', 'Webinar', 'Exhibition', 'Festival', 'Concert', 'Sports Event'],
+            descriptions: [
+                'Annual tech conference',
+                'Team meeting to discuss project progress',
+                'Workshop on new technologies',
+                'Webinar on digital marketing',
+                'Art exhibition showcasing local artists',
+                'Music festival with various genres',
+                'Concert featuring popular bands',
+                'Sports event with multiple competitions',
+            ],
+        },
+        statistics: {
+            names: ['Monthly Report', 'Quarterly Analysis', 'Yearly Overview', 'Daily Statistics', 'Weekly Summary'],
+        },
+        users: {
+            names: ['Alice', 'Bob', 'Charlie', 'David', 'Eve', 'Frank', 'Grace', 'Heidi', 'Ivan', 'Judy'],
+            roles: ['admin', 'user', 'guest'] as User["role"][],
+        },
+    },
+    ru: {
+        fruits: {
+            names: ['Яблоко', 'Банан', 'Апельсин', 'Манго', 'Ананас', 'Виноград', 'Персик', 'Клубника', 'Киви', 'Арбуз'],
+            colors: ['Красный', 'Зеленый', 'Желтый', 'Оранжевый', 'Фиолетовый', 'Розовый'],
+            origins: ['Бразилия', 'Индия', 'Китай', 'Испания', 'Мексика', 'США', 'Таиланд'],
+        },
+        cars: {
+            brands: ['Тойота', 'БМВ', 'Тесла', 'Форд', 'Хонда', 'Мерседес', 'Ауди', 'Киа'],
+            models: ['Королла', 'Модель S', 'Цивик', 'А4', 'Мустанг', 'Камри', 'Х5', 'EV6'],
+            fuelTypes: ['Бензин', 'Дизель', 'Электрический', 'Гибрид'],
+            colors: ['Черный', 'Белый', 'Синий', 'Серебристый', 'Красный', 'Зеленый'],
+        },
+        cities: {
+            names: ['Токио', 'Нью-Йорк', 'Париж', 'Лондон', 'Берлин', 'Москва', 'Дели', 'Сан-Паулу', 'Сидней', 'Сеул'],
+            countries: ['Япония', 'США', 'Франция', 'Великобритания', 'Германия', 'Россия', 'Индия', 'Бразилия', 'Австралия', 'Южная Корея'],
+            climates: ['Умеренный', 'Тропический', 'Аридный', 'Континентальный', 'Полярный'],
+            regions: ['Азия', 'Европа', 'Америка', 'Океания'],
+        },
+        hotels: {
+            names: ['Гранд Палас', 'Океанский Вид', 'Горная Ложа', 'Городской Центр', 'Небесная Линия'],
+            countries: ['Италия', 'Япония', 'США', 'Таиланд', 'Германия', 'Канада'],
+        },
+        events: {
+            names: ['Конференция', 'Встреча', 'Семинар', 'Вебинар', 'Выставка', 'Фестиваль', 'Концерт', 'Спортивное событие'],
+            descriptions: [
+                'Ежегодная технологическая конференция',
+                'Командная встреча для обсуждения прогресса проекта',
+                'Семинар по новым технологиям',
+                'Вебинар по цифровому маркетингу',
+                'Выставка искусства местных художников',
+                'Музыкальный фестиваль разных жанров',
+                'Концерт с популярными группами',
+                'Спортивное событие с множеством соревнований',
+            ],
+        },
+        statistics: {
+            names: ['Месячный отчет', 'Квартальный анализ', 'Годовой обзор', 'Ежедневная статистика', 'Недельный отчет'],
+        },
+        users: {
+            names: ['Алиса', 'Борис', 'Катя', 'Дмитрий', 'Елена', 'Федор', 'Галина', 'Игорь', 'Юлия', 'Зоя'],
+            roles: ['admin', 'user', 'guest'] as User["role"][],
+        },
+    },
+};
+
+// ===============================
 // Вспомогательные функции
 // ===============================
 const getRandomItem = <T>(arr: T[]): T => arr[Math.floor(Math.random() * arr.length)];
@@ -105,34 +199,33 @@ const getRandomDate = (start: Date, end: Date): string => {
 // ===============================
 const generators = {
     fruits: (): Fruit => {
-        const names = ['Apple', 'Banana', 'Orange', 'Mango', 'Pineapple', 'Grapes', 'Peach', 'Strawberry', 'Kiwi', 'Watermelon'];
-        const colors = ['Red', 'Green', 'Yellow', 'Orange', 'Purple', 'Pink'];
-        const origins = ['Brazil', 'India', 'China', 'Spain', 'Mexico', 'USA', 'Thailand'];
+        const { $i18n } = useNuxtApp();
+        const locale = $i18n.locale.value ?? "en";
+        const data = localeData[locale].fruits;
 
         return {
             id: crypto.randomUUID(),
-            name: getRandomItem(names),
-            color: getRandomItem(colors),
+            name: getRandomItem(data.names),
+            color: getRandomItem(data.colors),
             weightGrams: getRandomNumber(50, 2000),
             isTropical: getRandomBool(),
-            originCountry: getRandomItem(origins),
+            originCountry: getRandomItem(data.origins),
             pricePerKg: (Math.random() * 10).toFixed(2),
         };
     },
 
     cars: (): Car => {
-        const brands = ['Toyota', 'BMW', 'Tesla', 'Ford', 'Honda', 'Mercedes', 'Audi', 'Kia'];
-        const models = ['Corolla', 'Model S', 'Civic', 'A4', 'Mustang', 'Camry', 'X5', 'EV6'];
-        const fuelTypes = ['Petrol', 'Diesel', 'Electric', 'Hybrid'];
-        const colors = ['Black', 'White', 'Blue', 'Silver', 'Red', 'Green'];
+        const { $i18n } = useNuxtApp();
+        const locale = $i18n.locale.value ?? "en";
+        const data = localeData[locale].cars;
 
         return {
             id: crypto.randomUUID(),
-            brand: getRandomItem(brands),
-            model: getRandomItem(models),
+            brand: getRandomItem(data.brands),
+            model: getRandomItem(data.models),
             year: getRandomNumber(2000, 2025),
-            fuel: getRandomItem(fuelTypes),
-            color: getRandomItem(colors),
+            fuel: getRandomItem(data.fuelTypes),
+            color: getRandomItem(data.colors),
             mileageKm: getRandomNumber(10000, 200000),
             priceUSD: getRandomNumber(5000, 100000),
             isUsed: getRandomBool(),
@@ -140,31 +233,31 @@ const generators = {
     },
 
     cities: (): City => {
-        const cityNames = ['Tokyo', 'New York', 'Paris', 'London', 'Berlin', 'Moscow', 'Delhi', 'São Paulo', 'Sydney', 'Seoul'];
-        const countries = ['Japan', 'USA', 'France', 'UK', 'Germany', 'Russia', 'India', 'Brazil', 'Australia', 'South Korea'];
-        const climates = ['Temperate', 'Tropical', 'Arid', 'Continental', 'Polar'];
-        const regions = ['Asia', 'Europe', 'America', 'Oceania'];
+        const { $i18n } = useNuxtApp();
+        const locale = $i18n.locale.value ?? "en";
+        const data = localeData[locale].cities;
 
         return {
             id: crypto.randomUUID(),
-            name: getRandomItem(cityNames),
-            country: getRandomItem(countries),
+            name: getRandomItem(data.names),
+            country: getRandomItem(data.countries),
             population: getRandomNumber(500000, 30000000),
             areaKm2: getRandomNumber(50, 15000),
-            climate: getRandomItem(climates),
+            climate: getRandomItem(data.climates),
             isCapital: getRandomBool(),
-            region: getRandomItem(regions),
+            region: getRandomItem(data.regions),
         };
     },
 
     hotels: (): Hotel => {
-        const names = ['Grand Palace', 'Ocean View', 'Mountain Lodge', 'City Center Inn', 'Skyline Hotel'];
-        const countries = ['Italy', 'Japan', 'USA', 'Thailand', 'Germany', 'Canada'];
+        const { $i18n } = useNuxtApp();
+        const locale = $i18n.locale.value ?? "en";
+        const data = localeData[locale].hotels;
 
         return {
             id: crypto.randomUUID(),
-            name: getRandomItem(names),
-            country: getRandomItem(countries),
+            name: getRandomItem(data.names),
+            country: getRandomItem(data.countries),
             stars: getRandomNumber(1, 5) as 1 | 2 | 3 | 4 | 5,
             isRecommended: getRandomBool(),
             roomsAvailable: getRandomNumber(10, 300),
@@ -173,24 +266,16 @@ const generators = {
     },
 
     events: (): Event => {
-        const names = ['Conference', 'Meeting', 'Workshop', 'Webinar', 'Exhibition', 'Festival', 'Concert', 'Sports Event'];
-        const descriptions = [
-            'Annual tech conference',
-            'Team meeting to discuss project progress',
-            'Workshop on new technologies',
-            'Webinar on digital marketing',
-            'Art exhibition showcasing local artists',
-            'Music festival with various genres',
-            'Concert featuring popular bands',
-            'Sports event with multiple competitions'
-        ];
+        const { $i18n } = useNuxtApp();
+        const locale = $i18n.locale.value ?? "en";
+        const data = localeData[locale].events;
         const startDate = new Date(2023, 0, 1);
         const endDate = new Date(2023, 11, 31);
 
         return {
             id: crypto.randomUUID(),
-            name: getRandomItem(names),
-            description: getRandomItem(descriptions),
+            name: getRandomItem(data.names),
+            description: getRandomItem(data.descriptions),
             startDate: getRandomDate(startDate, endDate),
             endDate: getRandomDate(startDate, endDate),
             createdAt: getRandomDate(new Date(2022, 0, 1), new Date()),
@@ -199,11 +284,13 @@ const generators = {
     },
 
     statistics: (): Statistics => {
-        const names = ['Monthly Report', 'Quarterly Analysis', 'Yearly Overview', 'Daily Statistics', 'Weekly Summary'];
+        const { $i18n } = useNuxtApp();
+        const locale = $i18n.locale.value ?? "en";
+        const data = localeData[locale].statistics;
 
         return {
             id: crypto.randomUUID(),
-            name: getRandomItem(names),
+            name: getRandomItem(data.names),
             totalUsers: getRandomNumber(1000, 100000),
             activeUsers: getRandomNumber(100, 50000),
             newUsersToday: getRandomNumber(10, 1000),
@@ -218,18 +305,19 @@ const generators = {
     },
 
     users: (): User => {
-        const names = ['Alice', 'Bob', 'Charlie', 'David', 'Eve', 'Frank', 'Grace', 'Heidi', 'Ivan', 'Judy'];
-        const roles: User["role"][] = ['admin', 'user', 'guest'];
+        const { $i18n } = useNuxtApp();
+        const locale = $i18n.locale.value ?? "en";
+        const data = localeData[locale].users;
         const startDate = new Date(2022, 0, 1);
         const endDate = new Date();
 
         return {
             id: crypto.randomUUID(),
-            name: getRandomItem(names),
+            name: getRandomItem(data.names),
             createdAt: getRandomDate(startDate, endDate),
             updatedAt: getRandomDate(startDate, endDate),
             isActive: getRandomBool(),
-            role: getRandomItem<User["role"]>(roles),
+            role: getRandomItem<User["role"]>(data.roles),
             age: getRandomNumber(18, 65),
         };
     }

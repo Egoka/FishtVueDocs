@@ -29,7 +29,7 @@ onMounted(() => {
       classes.value.root += " text-red-800 dark:text-red-300";
     } else if (slotText === 'true' || slotText === 'false') {
       classes.value.root += " text-green-800 dark:text-green-300";
-    } else if (slotText === 'HTMLElement' || slotText === 'VNode[]' || slotText === 'MouseEvent') {
+    } else if (slotText === 'HTMLElement' || slotText === 'VNode[]' || slotText === 'MouseEvent' || slotText === 'CSSProperties') {
       classes.value.root += " text-orange-600 dark:text-orange-700";
     } else if (slotText === '_key' || slotText === 'any' || slotText === 'void') {
       classes.value.root += " text-orange-600 dark:text-orange-700";

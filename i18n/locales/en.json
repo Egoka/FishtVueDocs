@@ -355,7 +355,8 @@
     "Email": "Enter your email",
     "Password": "Enter your password",
     "Reply": "Reply {name}...",
-    "firstLast": "First Last"
+    "firstLast": "First Last",
+    "textHere": "Enter your text here"
   },
   "content": {
     "user": {

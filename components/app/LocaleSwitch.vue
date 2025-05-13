@@ -8,8 +8,12 @@ type groupLocale = GroupMenu & {
 </script>
 <script setup lang="ts">
 import {useI18n} from "vue-i18n";
+import { FishtVueSymbol, type FishtVue } from 'fishtvue/config'
 
 const {t, locale, locales, setLocale} = useI18n()
+const FishtVue = inject<FishtVue>(FishtVueSymbol)
+if (FishtVue)
+  FishtVue.setActiveLocale(locale.value)
 const groupsLocales = computed(()=>([{
   items: locales.value?.map((loc)=>({
     title: loc.name,

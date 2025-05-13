@@ -2,6 +2,7 @@
 import {useI18n} from "vue-i18n";
 
 const {t} = useI18n()
+const localePath = useLocalePath()
 const props = defineProps<{ control: any }>()
 const editLink = useEditLink()
 const control = computed(() => ({
@@ -44,7 +45,7 @@ const classButtonControl = ref([
       <span id="doc-footer-aria-label" class="sr-only">{{ t("Pager") }}</span>
 
       <div class="w-full group">
-        <NuxtLink v-if="control?.prev?.path" :class="classButtonControl" :to="control.prev.path">
+        <NuxtLink v-if="control?.prev?.path" :class="classButtonControl" :to="localePath(control.prev.path)">
           <span class="text-xs" :class="[classTextControl]">
             {{ t("PreviousPage") }}
           </span>
@@ -55,7 +56,7 @@ const classButtonControl = ref([
         </NuxtLink>
       </div>
       <div class="w-full group">
-        <NuxtLink v-if="control?.next?.path" class="items-end" :class="classButtonControl" :to="control.next.path">
+        <NuxtLink v-if="control?.next?.path" class="items-end" :class="classButtonControl" :to="localePath(control.next.path)">
           <span class="text-xs" :class="[classTextControl]">
             {{ t("NextPage") }}
           </span>

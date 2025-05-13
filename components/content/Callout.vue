@@ -15,6 +15,7 @@ interface CalloutSlots {
 <script setup lang="ts">
 import {computed} from 'vue'
 import {cn} from '#imports'
+const localePath = useLocalePath()
 
 defineOptions({inheritAttrs: false})
 
@@ -38,7 +39,7 @@ const target = computed(() => props.target || (!!props.to && props.to.startsWith
 
 <template>
   <div :class="cn(classes.base, props.class)">
-    <NuxtLink v-if="to" v-bind="{ to, target, ...$attrs }" class="focus:outline-none" tabindex="-1">
+    <NuxtLink v-if="to" v-bind="{ to: localePath(to), target, ...$attrs }" class="focus:outline-none" tabindex="-1">
       <span class="text-bold absolute inset-0" aria-hidden="true"/>
     </NuxtLink>
     <AppIcons v-if="!!to && target === '_blank'" icon="uim:arrow-up-right" :class="classes.externalIcon"/>

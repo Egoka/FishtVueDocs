@@ -3,7 +3,7 @@
       :useFirstLetter="true"
       :groups="[
         {
-          title: 'Group 1',
+          title: 'Group',
           items: [
             { title: 'Home', icon: 'mdi:home' },
             { title: 'Settings',  },

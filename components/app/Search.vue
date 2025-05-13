@@ -14,6 +14,7 @@ interface SearchItem {
 }
 
 const { locale, t } = useI18n();
+const localePath = useLocalePath()
 const isOpenDialogWindow = ref(false);
 const buttonRef = ref<HTMLButtonElement>();
 const inputRef = ref<HTMLInputElement>();
@@ -116,7 +117,7 @@ const toggleIndex = (index: number) => {
 // Навигация
 const toPath = (path: string) => {
   isOpenDialogWindow.value = false;
-  navigateTo(path ?? '');
+  navigateTo(localePath(path ?? ''));
 };
 
 // Подсветка совпадений

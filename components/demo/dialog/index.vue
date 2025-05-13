@@ -32,7 +32,7 @@ function close() {
 
 <template>
   <Demo v-model="optionsValues" :options="options" title="Dialog">
-    <Button @click="open">{{ t("content.dialog.base.button") }}</Button>
+    <Button @click="open">{{ t("button.dialog") }}</Button>
     <Dialog v-bind="optionsValues" @update:modelValue="close">
       <h3 class="text-lg font-medium leading-6 text-gray-900 dark:text-gray-200">
         {{ t("content.dialog.position.title") }}

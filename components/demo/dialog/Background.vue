@@ -6,7 +6,7 @@ const dialog = ref(false)
 </script>
 
 <template>
-  <Button @click="dialog = true">{{ t("content.dialog.base.button") }}</Button>
+  <Button @click="dialog = true">{{ t("button.dialog") }}</Button>
   <Dialog v-model="dialog">
     <template #background>
       <div class="custom-dialog-class fixed inset-0"></div>
