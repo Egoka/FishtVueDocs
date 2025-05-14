@@ -18,9 +18,9 @@ const structure = ref<FormProps["structure"]>([{fields: [
     {
       ...structureFields(["email"])[0],
       insert:{
-        beforeIcon: "mdi:email-outline",
+        beforeIcon: "line-md:email",
         beforeText: t('label.before'),
-        afterIcon: "mdi:email-outline",
+        afterIcon: "line-md:email",
         afterText: t('label.after'),
       }
     } as FieldInput,
