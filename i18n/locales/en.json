@@ -1161,7 +1161,7 @@
       },
       "subtitle": {
         "Q1": "FishtVue is an open-source library of beautiful and customizable Vue.js components. It helps developers save time by providing pre-built, reusable UI components for their applications.",
-        "Q2": "Yes, you can find the documentation and live examples in the repository or its dedicated website (if available). Check the README.md or the repository for more details.",
+        "Q2": "Yes, you can find the documentation and live examples in the repository. Check the README.md or the repository for more details.",
         "Q3": "FishtVue provides a variety of UI components like buttons, modals, accordions, dropdowns, and more. These components are designed to be customizable and easy to integrate.",
         "Q4": "Yes, FishtVue is compatible with Vue 3. Make sure your project is using Vue 3 for the components to work properly.",
         "Q5": "Absolutely! FishtVue components are designed to be highly customizable. You can adjust styles, classes, and other properties to match your application's design."
