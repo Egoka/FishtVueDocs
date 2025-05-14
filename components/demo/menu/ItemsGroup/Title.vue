@@ -1,24 +1,26 @@
 <script setup lang="ts">
+import {useI18n} from "vue-i18n";
+
+const {t} = useI18n()
 </script>
 
 <template>
   <Menu :groups="[
     {
       items: [
-        { title: 'New Item' },
-        { title: 'Open Recent' },
-        { title: 'Save' },
-        { title: 'Export' },
-        { title: 'Settings' }
+        { title: t('title.newItem') },
+        { title: t('title.openRecent') },
+        { title: t('title.Save') },
+        { title: t('title.Export') },
+        { title: t('title.Settings') }
       ]
     },
     {
       items: [
-        { title: 'Share' },
-        { title: 'Print' }
+        { title: t('title.Share') },
+        { title: t('title.Print') }
       ]
     }
-
   ]">
   </Menu>
 </template>

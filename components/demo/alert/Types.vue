@@ -47,7 +47,3 @@ const notificationVariants = ref<Record<string, AlertProps>>({
     <Button @click="openAlert({...notificationVariants.neutral, displayTime: 4000})">{{ t("label.neutral") }}</Button>
   </div>
 </template>
-
-<style scoped>
-
-</style>

@@ -20,7 +20,7 @@ const classLineRight = ref(false)
     <Switch v-model="classLineLeft" :label="t('label.classLineLeft')" switchingType="switch"/>
     <Switch v-model="classLineRight" :label="t('label.classLineRight')" switchingType="switch"/>
   </div>
-  <Separator  class="w-full"></Separator>
+  <Separator class="w-full"></Separator>
   <Separator
       :depth="5"
       class="w-full"
@@ -31,7 +31,7 @@ const classLineRight = ref(false)
       :classLineLeft="classLineLeft ? 'bg-red-500' : ''"
       :classBodyLineRight="classBodyLineRight ? 'custom-separator-class' : ''"
       :classLineRight="classLineRight ? 'bg-yellow-500' : ''">
-    Content
+    {{ t('title.Content') }}
   </Separator>
 </template>
 <style scoped>

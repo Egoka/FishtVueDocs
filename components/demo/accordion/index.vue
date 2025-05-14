@@ -2,32 +2,33 @@
 import type {DemoOption} from "~/components/demo/index.vue";
 import type {AccordionProps} from "#fishtvue/accordion";
 import {layoutConfigOptions} from "~/components/demo/configOptions";
+import {useI18n} from "vue-i18n";
 
+const {t} = useI18n()
 const optionsValues = ref<AccordionProps>({
   dataSource: [
     {
-      "title": "User Profile",
-      "subtitle": "Manage your personal information and settings. Here you can update your profile picture, change your password, and edit your contact details."
+      title:  t('content.accordion.index.profileTitle'),
+      subtitle:  t('content.accordion.index.profileSubtitle')
     },
     {
-      "title": "Order History",
-      "subtitle": "View your past orders and track their status. Check the details of all your previous orders, including delivery status and tracking information.",
-      "open": true
+      title:  t('content.accordion.index.ordersTitle'),
+      subtitle:  t('content.accordion.index.ordersSubtitle'),
+      open: true
     },
     {
-      "title": "Payment Methods",
-      "subtitle": "Add or update your payment information. Securely manage your credit cards, PayPal, and other payment methods."
+      title:  t('content.accordion.index.paymentTitle'),
+      subtitle:  t('content.accordion.index.paymentSubtitle')
     },
     {
-      "title": "Notifications",
-      "subtitle": "Customize your notification preferences. Choose how you want to receive updates about your orders, promotions, and account activity."
+      title:  t('content.accordion.index.notificationsTitle'),
+      subtitle:  t('content.accordion.index.notificationsSubtitle')
     },
     {
-      "title": "Help & Support",
-      "subtitle": "Get assistance with any issues or questions. Access FAQs, contact customer support, or submit a support ticket."
+      title:  t('content.accordion.index.supportTitle'),
+      subtitle:  t('content.accordion.index.supportSubtitle')
     }
   ]
-
 })
 const options = computed<DemoOption[]>(() => layoutConfigOptions<AccordionProps>(optionsValues.value,
     [

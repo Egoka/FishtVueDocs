@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import {useI18n} from "vue-i18n";
 
+const {t} = useI18n()
 </script>
 
 <template>
@@ -8,19 +10,19 @@
       :groups="[
     {
       items: [
-        { title: 'Add', info: 'Create new item' },
-        { title: 'Edit', info: 'Modify selected item' },
-        { title: 'Delete', info: 'Remove permanently' },
-        { title: 'Duplicate', info: 'Create a copy' },
-        { title: 'Export', info: 'Save to file' }
+        { title: t('title.Add'), info: t('info.Add') },
+        { title: t('title.Edit'), info: t('info.Edit') },
+        { title: t('title.Delete'), info: t('info.Delete') },
+        { title: t('title.Duplicate'), info: t('info.Duplicate') },
+        { title: t('title.Export'), info: t('info.Export') }
       ]
     },
     {
-      title: 'Advanced',
+      title: t('title.Advanced'),
       items: [
-        { title: 'Share', info: 'Send to colleagues' },
-        { title: 'Archive', info: 'Store for later' },
-        { title: 'Permissions', info: 'Manage access' }
+        { title: t('title.Share'), info: t('info.Share') },
+        { title: t('title.Archive'), info: t('info.Archive') },
+        { title: t('title.Permissions'), info: t('info.Permissions') }
       ]
     }
   ]">

@@ -1,12 +1,16 @@
 <script setup lang="ts">
-
 import {classDiv} from "~/components/demo/fixWindow/dataForExamples";
+import {useI18n} from "vue-i18n";
+
+const {t} = useI18n()
 </script>
 
 <template>
   <div :class="classDiv">
-    Hover Me
-    <FixWindow classBody="custom-dialog-class border-theme-200 dark:border-theme-800" mode="outlined">This is a dynamic window!</FixWindow>
+    {{ t('title.hoverMe') }}
+    <FixWindow classBody="custom-dialog-class border-theme-200 dark:border-theme-800" mode="outlined">
+      {{ t('title.dynamicWindow') }}
+    </FixWindow>
   </div>
 </template>
 

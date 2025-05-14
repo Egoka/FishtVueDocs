@@ -13,11 +13,11 @@ const vertical = ref(false)
   <Separator class="w-full"></Separator>
   <div class="flex w-1/2 h-32 p-2" :class="[vertical ? 'flex-row': 'flex-col']">
     <div class="flex justify-center items-center custom-separator-class" :class="[vertical ? 'w-1/2 h-full mx-2': 'w-full h-1/2 my-2']">
-      The first content
+      {{ t('title.firstContent') }}
     </div>
     <Separator :vertical="vertical" :depth="3"></Separator>
     <div class="flex justify-center items-center custom-separator-class" :class="[vertical ? ' w-1/2 h-full mx-2': 'w-full h-1/2 my-2']">
-      The second content
+      {{ t('title.secondContent') }}
     </div>
   </div>
 </template>

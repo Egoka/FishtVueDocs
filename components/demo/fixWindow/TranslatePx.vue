@@ -15,13 +15,13 @@ const dataTranslates = ref([10, 30, 50, 70, 100])
       v-model="translate"/>
   <Separator class="w-full"></Separator>
   <div :class="[classDiv, 'my-5']">
-    Hover Me
+    {{ t('title.hoverMe') }}
     <FixWindow :translatePx="translate" classBody="custom-dialog-class" style-position="absolute">
       <div class="size-18 bg-theme-600/80 dark:bg-theme-400/80 rounded-sm"></div>
     </FixWindow>
     <FixWindow :marginPx="0" style-position="absolute">
       <div class="flex items-center justify-center w-18 bg-neutral-200/50 dark:bg-neutral-800/50 text-neutral-400 dark:text-neutral-700 rounded-sm" :style="`height: ${translate}px`">
-        Size {{ translate }}px
+        {{ t('title.Size') }} {{ translate }}px
       </div>
     </FixWindow>
   </div>

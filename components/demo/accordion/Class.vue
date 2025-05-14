@@ -4,6 +4,10 @@ const classRef = ref(false)
 const classItem = ref(false)
 const classTitle = ref(false)
 const classSubtitle = ref(false)
+const dataSource = ref([{
+  title: t('content.accordion.style.title'),
+  subtitle: t('content.accordion.style.subtitle')
+}])
 </script>
 <template>
   <div class="flex flex-wrap justify-center">
@@ -18,7 +22,7 @@ const classSubtitle = ref(false)
       :classItem="classItem ? 'custom-accordion-class': ''"
       :classSubtitle="classSubtitle ? 'custom-accordion-class' : ''"
       :classTitle="classTitle ? 'custom-accordion-class': ''"
-      :dataSource="[{ title: 'Styled Item', subtitle: 'Custom styles applied' }]">
+      :dataSource="dataSource">
   </Accordion>
 </template>
 

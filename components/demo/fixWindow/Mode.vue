@@ -17,14 +17,14 @@ const isOpen = ref(false)
       v-model="modeStyle"/>
   <Separator class="w-full"></Separator>
   <div :class="cn(...classDiv, 'mt-5', isOpen ? classDivActive : '')">
-    Manual Control
+    {{ t('title.manualControl') }}
     <FixWindow
         :mode="modeStyle"
         eventOpen="hover"
         eventClose="hover"
         @open="isOpen = true"
         @close="isOpen = false">
-      Window with {{ modeStyle ?? 'none' }} mode
+      {{ t('title.windowWithMode', {mode: modeStyle ?? 'none'}) }}
     </FixWindow>
   </div>
 </template>

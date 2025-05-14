@@ -12,7 +12,6 @@ const position = ref<AlertProps["position"]>("top-right")
             @click="openAlert({
           position,
           type: 'success',
-
           subtitle: t('content.alert.class.subtitle'),
            displayTime: 5000,
           class: 'custom-class'

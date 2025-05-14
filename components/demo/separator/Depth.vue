@@ -12,5 +12,7 @@ const depth = ref()
       :dataSelect="[1,2,3,4,5,6,7]"
       :label="t('label.depth')"/>
   <Separator class="my-5"></Separator>
-  <Separator :depth="depth" :gradient="30">Depth {{ depth }}</Separator>
+  <Separator :depth="depth" :gradient="30">
+    {{ t('title.Depth') }} {{ depth }}
+  </Separator>
 </template>

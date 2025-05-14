@@ -8,14 +8,14 @@ const isOpen = ref(false)
 
 <template>
   <div :class="cn(...classDiv, isOpen ? classDivActive : '')">
-    Manual Control
+    {{ t('title.manualControl') }}
     <FixWindow
         v-model="isOpen"
         :class="classWindow"
         eventOpen="none"
         eventClose="none"
     >
-      Controlled manually
+      {{ t('title.controlledManually') }}
     </FixWindow>
   </div>
   <Separator class="w-full"></Separator>

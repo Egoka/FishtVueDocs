@@ -1,8 +1,13 @@
+<script setup lang="ts">
+import {useI18n} from "vue-i18n";
+
+const {t} = useI18n()
+</script>
 <template>
   <Button id="target-element" mode="outline">
-    Hover Me
+    {{ t('title.hoverMe') }}
   </Button>
   <FixWindow :el="'#target-element'" mode="outlined">
-    This window is aligned to the button.
+    {{ t('title.thisWindowIsAlignedToTheButton') }}
   </FixWindow>
 </template>

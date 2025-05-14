@@ -24,7 +24,7 @@ function openDialog(position: keyof typeof state) {
         v-for="position in Object.keys(state)"
         :key="position"
         @click="openDialog(position as any)">
-      {{ String(position).toLowerCase() }}
+      {{ t(`position.${position}`) }}
     </Button>
   </div>
   <Dialog

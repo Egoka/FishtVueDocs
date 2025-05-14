@@ -10,12 +10,12 @@ const isOpen = ref(false)
   <Switch switchingType="switch" v-model="isOpen" :label="t('label.open')"/>
   <Separator class="w-full mb-10"></Separator>
   <div :class="cn(...classDiv, isOpen ? classDivActive : '')">
-    Hover Me
+    {{ t('title.hoverMe') }}
     <FixWindow
         v-model="isOpen"
         :class="classWindow"
     >
-      This window is controlled programmatically.
+      {{ t('title.thisWindowIsControlledProgrammatically')}}
     </FixWindow>
   </div>
 </template>

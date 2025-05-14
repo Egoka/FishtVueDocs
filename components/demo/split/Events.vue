@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import {useI18n} from "vue-i18n";
+
+const {t} = useI18n()
 const t1 = ref<number>(50)
 const t2 = ref<number>(50)
 const moveResizePanel = ref<boolean>(false)
@@ -38,7 +41,7 @@ function onOutResizePanel() {
              :class="[
             'transition duration-200',
             moveResizePanel ? 'text-theme-500 dark:text-theme-600' : 'text-neutral-200 dark:text-neutral-700']"/>
-      Move Panel
+      {{ t('title.movePanel') }}
     </div>
     <div
         :class="[
@@ -49,7 +52,7 @@ function onOutResizePanel() {
              :class="[
             'transition duration-200',
             resizePanels ? 'text-theme-500 dark:text-theme-600' : 'text-neutral-200 dark:text-neutral-700']"/>
-      Resize Panel
+      {{ t('title.resizePanel') }}
     </div>
   </div>
   <Separator class="w-full"/>

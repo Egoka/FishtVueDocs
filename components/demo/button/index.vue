@@ -25,7 +25,7 @@ const options = computed<DemoOption[]>(() => layoutConfigOptions<ButtonProps>(op
 
 <template>
   <Demo v-model="optionsValues" title="Button" :options="options">
-    <Button v-bind="optionsValues">Button</Button>
+    <Button v-bind="optionsValues">{{ t('button.Button') }}</Button>
   </Demo>
 </template>
 

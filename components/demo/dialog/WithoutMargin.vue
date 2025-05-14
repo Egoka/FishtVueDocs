@@ -33,7 +33,7 @@ function openDialog(position: keyof typeof state) {
               :key="position">
 
       <Button v-if="position" @click="openDialog(position as any)">
-        {{ String(position).toLowerCase() }}
+        {{ t(`position.${position}`) }}
       </Button>
       <div v-else class="col-span-1"></div>
     </template>

@@ -1,80 +1,83 @@
 <script setup lang="ts">
 import type {Position} from "./dataForExamples"
+import {useI18n} from "vue-i18n";
+
+const {t} = useI18n()
 const positions = ref<Array<Position | {}>>([
   {
-    name: "Top Left",
+    name: t("position.top-left"),
     position: "top-left"
   },
   {},
   {
-    name: "Top",
+    name: t("position.top"),
     position: "top"
   },
   {},
   {
-    name: "Top Right",
+    name: t("position.top-right"),
     position: "top-right"
   },
   {
-    name: "Left Top",
+    name: t("position.left-top"),
     position: "left-top"
   },
   {},
   {
-    name: "Center Top",
+    name: t("position.center-top"),
     position: "center-top"
   },
   {},
   {
-    name: "Right Top",
+    name: t("position.right-top"),
     position: "right-top"
   },
   {
-    name: "Left",
+    name: t("position.left"),
     position: "left"
   },
   {
-    name: "Center Left",
+    name: t("position.center-left"),
     position: "center-left"
   },
   {
-    name: "Center",
+    name: t("position.center"),
     position: "center"
   },
   {
-    name: "Center Right",
+    name: t("position.center-right"),
     position: "center-right"
   },
   {
-    name: "Right",
+    name: t("position.right"),
     position: "right"
   },
   {
-    name: "Left Bottom",
+    name: t("position.left-bottom"),
     position: "left-bottom"
   },
   {},
   {
-    name: "Center Bottom",
+    name: t("position.center-bottom"),
     position: "center-bottom"
   },
   {},
   {
-    name: "Right Bottom",
+    name: t("position.right-bottom"),
     position: "right-bottom"
   },
   {
-    name: "Bottom Left",
+    name: t("position.bottom-left"),
     position: "bottom-left"
   },
   {},
   {
-    name: "Bottom",
+    name: t("position.bottom"),
     position: "bottom"
   },
   {},
   {
-    name: "Bottom Right",
+    name: t("position.bottom-right"),
     position: "bottom-right"
   }
 ])

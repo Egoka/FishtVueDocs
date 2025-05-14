@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import {useI18n} from "vue-i18n";
+const {t} = useI18n()
+</script>
 <template>
-  <Input label="Username" required />
+  <Input :label="t('label.username')" required />
 </template>

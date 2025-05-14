@@ -9,7 +9,3 @@
     </Separator>
   </div>
 </template>
-
-<style scoped>
-
-</style>

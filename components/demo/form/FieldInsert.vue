@@ -1,34 +1,36 @@
 <script setup lang="ts">
 import type {FormProps, FieldInput} from "#fishtvue/form"
 import {structureFields} from "~/components/demo/form/dataForExample";
+import {useI18n} from "vue-i18n";
 
+const {t} = useI18n()
 const formValues = ref({username: '', email: '', password: ''})
 const structure = ref<FormProps["structure"]>([{fields: [
     {
       ...structureFields(["username"])[0],
       insert:{
         beforeIcon: "solar:user-linear",
-        beforeText: "Before",
+        beforeText: t('label.before'),
         afterIcon: "solar:user-linear",
-        afterText: "After",
+        afterText: t('label.after'),
       }
     } as FieldInput,
     {
       ...structureFields(["email"])[0],
       insert:{
         beforeIcon: "mdi:email-outline",
-        beforeText: "Before",
+        beforeText: t('label.before'),
         afterIcon: "mdi:email-outline",
-        afterText: "After",
+        afterText: t('label.after'),
       }
     } as FieldInput,
     {
       ...structureFields(["password"])[0],
       insert:{
         beforeIcon: "ph:password-light",
-        beforeText: "Before",
+        beforeText: t('label.before'),
         afterIcon: "ph:password-light",
-        afterText: "After",
+        afterText: t('label.after'),
       }
     } as FieldInput
   ]}])

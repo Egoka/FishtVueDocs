@@ -31,9 +31,8 @@ function openDialog(position: keyof typeof state) {
   <div class="grid grid-cols-3 gap-y-10 gap-x-12">
     <template v-for="position in Object.keys(state)"
               :key="position">
-
       <Button v-if="position" @click="openDialog(position as any)">
-        {{ String(position).toLowerCase() }}
+        {{ t(`position.${position}`) }}
       </Button>
       <div v-else class="col-span-1"></div>
     </template>

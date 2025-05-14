@@ -1,7 +1,11 @@
+<script setup lang="ts">
+import {useI18n} from "vue-i18n";
+const {t} = useI18n()
+</script>
 <template>
   <div class="flex flex-wrap">
-  <Button mode="outline" size="md" class="custom-button-class">Custom Class</Button>
-  <Button mode="outline" size="md" icon="check" classIcon="custom-icon-class">Icon Class</Button>
+  <Button mode="outline" size="md" class="custom-button-class">{{ t('button.CustomClass') }}</Button>
+  <Button mode="outline" size="md" icon="check" classIcon="custom-icon-class">{{ t('button.IconClass') }}</Button>
   </div>
 </template>
 

@@ -7,7 +7,7 @@ const {site} = useAppConfig()
 const editLink = useEditLink()
 const links = computed(() => [
   {label: editLink.value.text, url: editLink.value.url, icon: 'lucide:pencil-line'},
-  {label: 'Star on GitHub', url: site.github, icon: 'lucide:star'},
+  {label: t('starOnGitHub'), url: site.github, icon: 'lucide:star'},
 ])
 </script>
 

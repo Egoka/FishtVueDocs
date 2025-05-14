@@ -1,14 +1,12 @@
 <script setup lang="ts">
+import {useI18n} from "vue-i18n";
 
+const {t} = useI18n()
 </script>
 
 <template>
   <div class="flex flex-wrap items-center">
-  <Badge class="bg-blue-500 text-white">Custom Container</Badge>
-  <Badge classContent="text-lg font-bold">Custom Content</Badge>
+    <Badge class="bg-blue-500 text-white">{{ t('button.custom') }}</Badge>
+    <Badge classContent="text-lg font-bold">{{ t('button.custom') }}</Badge>
   </div>
 </template>
-
-<style scoped>
-
-</style>

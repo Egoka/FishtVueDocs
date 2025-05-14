@@ -2,7 +2,6 @@
   <Input classBody="custom-body-class" />
 </template>
 
-
 <style scoped>
 .custom-body-class{
   padding: 10px;

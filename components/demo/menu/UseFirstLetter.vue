@@ -1,16 +1,21 @@
+<script setup lang="ts">
+import {useI18n} from "vue-i18n";
+
+const {t} = useI18n()
+</script>
 <template>
   <Menu
       :useFirstLetter="true"
       :groups="[
         {
-          title: 'Group',
+          title: t('title.Group'),
           items: [
-            { title: 'Home', icon: 'mdi:home' },
-            { title: 'Settings',  },
-            { title: 'Profile',  },
-            { title: 'Dashboard', },
-            { title: 'Documents', },
-            { title: 'Messages',  }
+            { title: t('title.Home'), icon: 'mdi:home' },
+            { title: t('title.Settings'),  },
+            { title: t('title.Profile'),  },
+            { title: t('title.Dashboard'), },
+            { title: t('title.Documents'), },
+            { title: t('title.Messages'),  }
           ]
         }
       ]">

@@ -10,19 +10,19 @@ function open(title: string) {
 <template>
   <Menu  :horizontal="true" :groups="[
     {
-      title: 'Main',
+      title: t('title.Main'),
       items: [
         {
-          title: 'Home',
+          title: t('title.Home'),
           icon: 'heroicons:home',
 
         },
         {
-          title: 'Profile',
+          title: t('title.Profile'),
           icon: 'heroicons:user-circle',
         },
         {
-          title: 'Messages',
+          title: t('title.Messages'),
           icon: 'heroicons:chat-bubble-left',
         }
       ]

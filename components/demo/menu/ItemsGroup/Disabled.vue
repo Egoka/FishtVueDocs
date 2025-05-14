@@ -1,24 +1,26 @@
 <script setup lang="ts">
+import {useI18n} from "vue-i18n";
 
+const {t} = useI18n()
 </script>
 
 <template>
   <Menu :groups="[
     {
       items: [
-        { title: 'Edit', icon: 'pencil' },
-        { title: 'Copy', icon: 'document-duplicate' },
-        { title: 'Delete', icon: 'trash', disabled: true },
-        { title: 'Download', icon: 'arrow-down-tray', disabled: true },
-        { title: 'Share', icon: 'share' }
+        { title: t('title.Edit'), icon: 'pencil' },
+        { title: t('title.Copy'), icon: 'document-duplicate' },
+        { title: t('title.Delete'), icon: 'trash', disabled: true },
+        { title: t('title.Download'), icon: 'arrow-down-tray', disabled: true },
+        { title: t('title.Share'), icon: 'share' }
       ]
     },
     {
-      title: 'Advanced Options',
+      title: t('title.advancedOptions'),
       items: [
-        { title: 'Settings', icon: 'cog-6-tooth' },
-        { title: 'Move to Folder', icon: 'folder-arrow-down', disabled: true },
-        { title: 'Add to Favorites', icon: 'star' }
+        { title: t('title.Settings'), icon: 'cog-6-tooth' },
+        { title: t('title.moveToFolder'), icon: 'folder-arrow-down', disabled: true },
+        { title: t('title.addToFavorites'), icon: 'star' }
       ]
     }
   ]">

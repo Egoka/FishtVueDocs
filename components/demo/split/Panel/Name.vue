@@ -1,16 +1,21 @@
+<script setup lang="ts">
+import {useI18n} from "vue-i18n";
+
+const {t} = useI18n()
+</script>
 <template>
   <Split
       class="relative rounded-lg border dark:border-gray-800"
       :styles="{panel: 'h-28 flex justify-center items-center font-semibold text-xl'}"
       :panels="[
-      { name: 'panel1', size: 50 },
-      { name: 'panel2', size: 50 }
+      { name: 'text', size: 50 },
+      { name: 'options', size: 50 }
     ]">
-    <template #panel1>
-      <div>Panel 1 Content</div>
+    <template #text>
+      <div>{{ t('title.Text') }}</div>
     </template>
-    <template #panel2>
-      <div>Panel 2 Content</div>
+    <template #options>
+      <div>{{ t('title.Options') }}</div>
     </template>
   </Split>
 </template>

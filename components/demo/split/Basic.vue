@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import {useI18n} from "vue-i18n";
+
+const {t} = useI18n()
 const panelsBody = ref([
   {name: 'toolbar', size: 50, disabled: true, class: 'border-b border-gray-200 dark:border-gray-800'},
   {name: 'window', class: 'h-[400px]'},
@@ -50,12 +53,12 @@ const classBlock = ref("w-full h-full p-1 flex justify-center items-center overf
           units="pixels" direction="horizontal">
         <template #siteBar>
           <div :class="['custom-panel-bar', classBlock,  'text-red-500 dark:text-red-400']">
-            Site Bar
+            {{ t('title.siteBar') }}
           </div>
         </template>
         <template #workspace>
           <div :class="['custom-panel-workspace', classBlock, 'text-theme-500 dark:text-theme-400']">
-            Workspace
+            {{ t('title.Workspace') }}
           </div>
         </template>
         <template #tools>
@@ -64,17 +67,17 @@ const classBlock = ref("w-full h-full p-1 flex justify-center items-center overf
               direction="vertical">
             <template #tool1>
               <div :class="['custom-panel-tool', classBlock, 'text-orange-500 dark:text-orange-300']">
-                The first tool
+                {{ t('title.firstTool') }}
               </div>
             </template>
             <template #tool2>
               <div :class="['custom-panel-tool', classBlock, 'text-orange-500 dark:text-orange-300']">
-                The second tool
+                {{ t('title.secondTool') }}
               </div>
             </template>
             <template #tool3>
               <div :class="['custom-panel-tool', classBlock, 'text-orange-500 dark:text-orange-300']">
-                The third tool
+                {{ t('title.thirdTool') }}
               </div>
             </template>
           </Split>
@@ -89,12 +92,12 @@ const classBlock = ref("w-full h-full p-1 flex justify-center items-center overf
             units="pixels" direction="horizontal">
           <template #listBranches>
             <div :class="['custom-panel-git', classBlock, 'text-blue-500 dark:text-blue-300']">
-              List Branches
+              {{ t('title.listBranches') }}
             </div>
           </template>
           <template #listCommits>
             <div :class="['custom-panel-git', classBlock, 'text-blue-500 dark:text-blue-300']">
-              List Commits
+              {{ t('title.listCommits') }}
             </div>
           </template>
           <template #infoCommit>
@@ -103,12 +106,12 @@ const classBlock = ref("w-full h-full p-1 flex justify-center items-center overf
                 direction="vertical">
               <template #messageCommit>
                 <div :class="['custom-panel-git', classBlock, 'text-blue-500 dark:text-blue-300']">
-                  Message Commit
+                  {{ t('title.messageCommit') }}
                 </div>
               </template>
               <template #detailsCommit>
                 <div :class="['custom-panel-git', classBlock, 'text-blue-500 dark:text-blue-300']">
-                  Details Commit
+                  {{ t('title.detailsCommit') }}
                 </div>
               </template>
             </Split>

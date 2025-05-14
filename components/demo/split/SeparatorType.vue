@@ -22,7 +22,3 @@
       :separatorNotHoverOpacity="true"
       separatorType="user"></Split>
 </template>
-
-<style scoped>
-
-</style>

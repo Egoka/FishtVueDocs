@@ -19,7 +19,3 @@ function open() {
     {{ t("button.withHtml") }}
   </Button>
 </template>
-
-<style scoped>
-
-</style>

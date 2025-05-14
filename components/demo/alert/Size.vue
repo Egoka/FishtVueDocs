@@ -27,7 +27,3 @@ const sizes = ref<Array<AlertProps["size"]>>(["xs","sm","md","lg","xl","2xl","3x
   </Button>
   </div>
 </template>
-
-<style scoped>
-
-</style>
